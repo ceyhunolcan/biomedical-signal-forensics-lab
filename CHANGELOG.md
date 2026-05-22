@@ -26,6 +26,37 @@ The first version with real-data validation results. WESAD pilot extended from a
 ### Bug fixes
 - `cross_modality_hr_agreement`, `three_way_sqi_agreement`, `motion_effect_analysis` now handle empty DataFrames and missing required columns cleanly (return all-NaN result with correct schema instead of crashing on `dropna(subset=...)`).
 
+## [0.8.0]
+
+### Full WESAD validation (n=2 -> n=15)
+
+The real-data pilot is now a full validation against all 15 publicly-released WESAD subjects (S2-S17, with S1 and S12 absent from the standard release). 6,585 5-second windows of synchronized chest RespiBAN ECG and wrist Empatica E4 PPG across baseline (3,507), stress (1,979), and amusement (1,099) labeled states.
+
+### Headline changes from n=2 pilot to n=15 validation
+- Bland-Altman bias improved from +12.77 to +3.57 bpm. S2 and S3 were the worst-agreement subjects in the dataset.
+- LoA tightened from [-16.18, +41.72] to [-23.14, +30.28] bpm. Still 53 bpm wide.
+- MAE improved from 14.55 to 9.66 bpm. Pearson r between modalities improved from +0.48 to +0.70.
+- Within-5-bpm fraction improved from 30% to 46%. Within-10-bpm from 49% to 66%.
+- Three-way SQI: Orphanidou-Sukor agreement strengthened from kappa +0.31 to **+0.41**. The in-house SQI still disagrees with both published baselines at kappa = 0.
+- **HONEST NEGATIVE FINDING**: the n=2 recalibration result (Δkappa = +0.217) does NOT replicate at n=15. The search lands on threshold 0.85, but held-out kappa stays at 0. AUROC at n=15 is 0.484 (chance). The pilot result was an n=2 artifact attributable to the unrepresentative behavior of S2 and S3.
+- Per-subject heterogeneity is the new theme: stress-state mean |HR_PPG - HR_ECG| ranges from 6.75 bpm (S15) to 26.02 bpm (S11), a 4-fold spread. Direction of per-state SQI changes also varies (most subjects drop during stress; S15 rises).
+
+### Manuscript and supplement updates
+- Section 4 of paper/manuscript.md fully rewritten with n=15 numbers and per-subject heterogeneity discussion.
+- Section 4.3 now reports the honest negative recalibration finding.
+- Section 5.1 expanded from 4 to 5 principal findings, with per-subject heterogeneity as a dedicated finding.
+- Section 5.3 limitations removed the "n=2 of 15 pilot" caveat and added a heterogeneity caveat.
+- Abstract Results paragraph updated end-to-end.
+- Supplement S2.3 (recalibration) and S2.5 (per-subject reliability) updated to all 15 subjects.
+- Supplement S2.6 (effect sizes) updated to all 15 subjects; top-12 contrasts shown.
+
+### Regenerated figures
+- paper/figures/fig4_bland_altman.png through fig9_extended_analyses.png refreshed from n=15 outputs.
+- results/extended_analysis/figure_extended.png regenerated with all 15 subjects in panels D, E, F.
+
+### Methodology implication
+A single global SQI threshold is the wrong unit of analysis on real wrist PPG. Per-subject or per-session calibration is required. This is more honest and more interesting paper material than the pilot's "just recalibrate" story.
+
 ## [0.7.1]
 
 ### Bug fixes from post-v0.7.0 audit
@@ -302,6 +333,7 @@ On real WESAD wrist PPG, the in-house SQI and the Orphanidou (2015) baseline agr
 - FastAPI service, Streamlit dashboard, automated markdown report generator
 
 [0.5.0]: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/releases/tag/v0.5.0
+[0.8.0]: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/releases/tag/v0.8.0
 [0.7.1]: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/releases/tag/v0.7.1
 [0.7.0]: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/releases/tag/v0.7.0
 [0.6.1]: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/releases/tag/v0.6.1
