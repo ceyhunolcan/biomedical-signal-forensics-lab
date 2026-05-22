@@ -147,7 +147,7 @@ CSV: `results/extended_analysis/per_state_effect_sizes.csv`. Figure 9 panel F.
 | S2.3 ROC/PR/F1 | Is the recalibrated threshold stable? | No. At n=15 AUROC = 0.48 (near chance). Youden vs F1 disagree (0.999 vs 0.864). Pilot stability was n=2 artifact |
 | S2.4 RR cleaning | Are HRV numbers artifacts of a single filter? | S3's high HRV holds across raw, plausibility, Malik 25% |
 | S2.5 Real-data reliability | Does within-session HR replicate? | No (n=15): median split-half r = +0.067, median CV = 7.25%. Only S4 > +0.30 |
-| S2.6 Effect sizes | Are state contrasts robust? | Cliff's δ and Cohen's d agree. S3 amusement = large effect on both scales |
+| S2.6 Effect sizes | Are state contrasts robust? | Cliff's δ and Cohen's d agree. S9 amusement on PPG SQI: Cliff δ +0.80, Cohen d +1.89 (n=15, largest single effect) |
 
 ## Figure 9 caption
 
