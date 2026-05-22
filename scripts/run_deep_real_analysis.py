@@ -150,6 +150,36 @@ def main(dataset_path: Path, out_dir: Path) -> None:
     summary["three_way_sqi"] = _result_to_dict(three_way)
 
     # ------------------------------------------------------------------
+    # 3b. Four-way SQI agreement (adds Elgendi 2016 as a third baseline)
+    # ------------------------------------------------------------------
+    log.info("\n%s\nAnalysis 3b: Four-way SQI agreement (adds Elgendi 2016)\n%s",
+             "=" * 70, "=" * 70)
+    from src.evaluation.deep_real_analysis import four_way_sqi_agreement
+    four_way = four_way_sqi_agreement(window_df)
+    log.info("  n_windows=%d", four_way.n_windows)
+    log.info("  Pass rates: in-house=%.3f, Orphanidou=%.3f, Sukor=%.3f, Elgendi=%.3f",
+             four_way.inhouse_pass_rate, four_way.orphanidou_pass_rate,
+             four_way.sukor_pass_rate, four_way.elgendi_pass_rate)
+    log.info("  Cohen's kappa, in-house vs published: Orph=%.3f, Sukor=%.3f, Elgendi=%.3f "
+             "(median %.3f)",
+             four_way.kappa_inhouse_vs_orph,
+             four_way.kappa_inhouse_vs_sukor,
+             four_way.kappa_inhouse_vs_elgendi,
+             four_way.median_kappa_inhouse_vs_published)
+    log.info("  Cohen's kappa, published vs published: Orph-Sukor=%.3f, Orph-Elgendi=%.3f, "
+             "Sukor-Elgendi=%.3f (median %.3f)",
+             four_way.kappa_orph_vs_sukor,
+             four_way.kappa_orph_vs_elgendi,
+             four_way.kappa_sukor_vs_elgendi,
+             four_way.median_kappa_published_only)
+    log.info("  All three published pass: %.3f; all three published fail: %.3f",
+             four_way.fraction_all_published_pass,
+             four_way.fraction_all_published_fail)
+    log.info("  In-house passes when ALL three published baselines fail: %.3f",
+             four_way.inhouse_passes_when_all_published_fail)
+    summary["four_way_sqi"] = _result_to_dict(four_way)
+
+    # ------------------------------------------------------------------
     # 4. Motion-vs-SQI
     # ------------------------------------------------------------------
     log.info("\n%s\nAnalysis 4: Motion-vs-SQI and motion-vs-HR-disagreement\n%s",

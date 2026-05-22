@@ -4,11 +4,11 @@
   "n_windows": 6585,
   "hr_agreement_overall": {
     "n_windows": 6569,
-    "mean_absolute_error_bpm": 9.658084293142128,
-    "bias_ppg_minus_ecg_bpm": 3.572436661982615,
-    "loa_lower_bpm": -23.13502394544724,
-    "loa_upper_bpm": 30.27989726941247,
-    "pearson_r": 0.6974706043365697,
+    "mean_absolute_error_bpm": 9.658253379303305,
+    "bias_ppg_minus_ecg_bpm": 3.5727649566089275,
+    "loa_lower_bpm": -23.134702934145853,
+    "loa_upper_bpm": 30.28023284736371,
+    "pearson_r": 0.6974646543295651,
     "pearson_p": 0.0,
     "fraction_within_5_bpm": 0.45760389709240373,
     "fraction_within_10_bpm": 0.6559598112345867
@@ -27,15 +27,33 @@
     "orphanidou_pass_rate": 0.25649202733485194,
     "sukor_pass_rate": 0.25451784358390284
   },
+  "four_way_sqi": {
+    "n_windows": 6585,
+    "kappa_inhouse_vs_orph": 0.0,
+    "kappa_inhouse_vs_sukor": 0.0,
+    "kappa_inhouse_vs_elgendi": 0.0,
+    "kappa_orph_vs_sukor": 0.4096370994066374,
+    "kappa_orph_vs_elgendi": -0.19775604910804528,
+    "kappa_sukor_vs_elgendi": -0.2246935326571877,
+    "median_kappa_published_only": -0.19775604910804528,
+    "median_kappa_inhouse_vs_published": 0.0,
+    "inhouse_pass_rate": 1.0,
+    "orphanidou_pass_rate": 0.25649202733485194,
+    "sukor_pass_rate": 0.25451784358390284,
+    "elgendi_pass_rate": 0.21503416856492027,
+    "fraction_all_published_pass": 0.005163249810174639,
+    "fraction_all_published_fail": 0.44570994684889903,
+    "inhouse_passes_when_all_published_fail": 0.44570994684889903
+  },
   "motion_effect": {
     "n_windows": 6585,
     "spearman_motion_vs_inhouse_sqi": -0.9999999999999999,
-    "spearman_motion_vs_hr_disagreement": 0.08793194783655539,
+    "spearman_motion_vs_hr_disagreement": 0.08787576282194219,
     "spearman_motion_vs_orphanidou_template_corr": -0.004408513846528567,
     "high_motion_threshold": 0.030053944598380868,
     "fraction_high_motion": 0.2501138952164009,
-    "mean_hr_disagreement_low_motion": 9.11721766802742,
-    "mean_hr_disagreement_high_motion": 11.283652338989928
+    "mean_hr_disagreement_low_motion": 9.117487533894494,
+    "mean_hr_disagreement_high_motion": 11.283518532974055
   },
   "recalibration": {
     "n_calibration": 3292,
