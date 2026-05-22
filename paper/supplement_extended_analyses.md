@@ -43,11 +43,11 @@ The headline recalibration result in Section 4.3 (held-out κ = +0.217 at thresh
 
 | Quantity | Point estimate | 95% bootstrap CI |
 |---|---|---|
-| AUROC | **0.703** | **[0.659, 0.736]** |
-| Youden's J threshold | 0.9915 | [0.9857, 0.9924] |
-| F1-maximizing threshold | 0.9915 | [0.9858, 0.9930] |
+| AUROC | **0.484** | **[0.467, 0.499]** |
+| Youden's J threshold | 0.9986 | [0.9786, 0.9993] |
+| F1-maximizing threshold | 0.8645 | [0.8645, 0.8785] |
 
-**Bootstrap CIs from 200 paired resamples.** AUROC is significantly above chance (lower CI 0.659 well above 0.5). The Youden-J and F1-maximizing thresholds both land near 0.99 with narrow CIs spanning ~0.007 in threshold units. The recalibrated threshold is therefore not a chance product of the held-out split: it is a stable operating point on the in-house SQI distribution against the Orphanidou label.
+**Bootstrap CIs from 200 paired resamples on the full n=15 release (6585 windows).** At n=15 the AUROC drops to 0.484 (CI [0.467, 0.499]), straddling 0.5: the in-house SQI is statistically indistinguishable from chance at predicting Orphanidou pass/fail on real WESAD wrist PPG. The Youden and F1 threshold-selection rules disagree at n=15 (Youden at 0.9986, F1 at 0.8645), an instability that did not appear in the n=2 pilot. The pilot result that the recalibrated threshold was a stable operating point was an artifact of the small n=2 sample, not a general property of the in-house SQI distribution on real wrist PPG.
 
 The ROC curve and the bootstrap CI are shown in Figure 9 panel C. The PR curve is in `results/extended_analysis/pr_curve.csv`.
 
@@ -84,10 +84,23 @@ The main manuscript reports test-retest reliability on the synthetic cohort (Sec
 
 | Subject | n windows total | n valid | HR mean (bpm) | HR SD (bpm) | Within-subject CV (%) | Split-half r |
 |---|---|---|---|---|---|---|
-| S2 | 228 | 227 | 72.47 | 4.89 | **6.74** | **+0.078** |
-| S3 | 228 | 228 | 54.65 | 4.96 | **9.07** | **+0.112** |
+| S10 | 236 | 231 | 98.03 | 7.11 | 7.25 | -0.126 |
+| S11 | 236 | 236 | 74.13 | 4.72 | 6.37 | +0.090 |
+| S13 | 236 | 236 | 86.93 | 5.60 | 6.44 | +0.016 |
+| S14 | 236 | 236 | 73.20 | 4.50 | 6.15 | +0.143 |
+| S15 | 235 | 235 | 82.60 | 5.46 | 6.61 | +0.067 |
+| S16 | 236 | 236 | 65.31 | 5.82 | 8.91 | +0.042 |
+| S17 | 236 | 236 | 66.53 | 7.89 | 11.86 | +0.093 |
+| S2 | 228 | 227 | 72.47 | 4.89 | 6.74 | +0.078 |
+| S3 | 228 | 228 | 54.65 | 4.96 | 9.07 | +0.112 |
+| S4 | 231 | 231 | 60.59 | 5.72 | 9.43 | +0.397 |
+| S5 | 239 | 239 | 62.87 | 3.85 | 6.12 | +0.041 |
+| S6 | 236 | 236 | 69.30 | 5.92 | 8.54 | -0.093 |
+| S7 | 237 | 237 | 70.58 | 6.83 | 9.67 | +0.019 |
+| S8 | 233 | 233 | 70.86 | 4.98 | 7.03 | -0.027 |
+| S9 | 236 | 236 | 76.62 | 5.69 | 7.43 | +0.071 |
 
-**Honest finding.** Within-subject HR varies meaningfully within a single ~19-minute resting baseline (CV 6.7% on S2, 9.1% on S3). The split-half Pearson correlation between the first half and second half of each subject's per-window HR is +0.08 and +0.11. These are essentially noise.
+**Honest finding (n=15).** Median within-subject CV is **7.25%** (range 6.12-11.86%). Median split-half Pearson r is **+0.067** (range -0.126 to +0.397). Only S4 shows split-half r above +0.30 (+0.397); the rest are near zero or weakly negative. Within-baseline HR estimates from per-window 5-second windows are essentially uncorrelated between the first and second halves of the session for nearly all subjects. This confirms the pilot finding (which used only S2 and S3) and rules out an n=2-specific artifact.
 
 This is **substantially weaker than the synthetic week-pair r of +0.977 for resting HR** (Section 3.2). Two non-exclusive explanations:
 
@@ -102,32 +115,26 @@ CSV: `results/extended_analysis/per_subject_reliability.csv`. Figure 9 panel E.
 
 ## S2.6 Per-state effect sizes: Cliff's δ and Cohen's d with bootstrap CIs
 
-Section 4.5 reports Mann-Whitney U with Cliff's δ for the within-subject per-state contrasts. Reviewers will ask for Cohen's d (the parametric companion) and bootstrap CIs on the effect sizes.
+Mann-Whitney U with both Cliff's δ and Cohen's d for each (subject, metric, baseline-vs-state) contrast. The full table is in `results/extended_analysis/per_state_effect_sizes.csv`; the 12 contrasts with the largest |Cliff's δ| at n=15 are listed below.
 
-| Subject | Metric | Contrast | n_a | n_b | p-value | Cliff's δ [95% CI] | Cohen's d |
-|---|---|---|---|---|---|---|---|
-| **S3** | PPG SQI | baseline vs amusement | 227 | 74 | 1.9e-10 | **+0.49 [+0.34, +0.63]** | **+0.80** |
-| **S3** | PPG motion | baseline vs amusement | 227 | 74 | 1.9e-10 | **-0.49 [-0.63, -0.34]** | **-0.80** |
-| S3 | PPG SQI | baseline vs stress | 227 | 127 | 0.026 | +0.14 [+0.02, +0.27] | +0.27 |
-| S3 | PPG motion | baseline vs stress | 227 | 127 | 0.026 | -0.14 [-0.27, -0.02] | -0.27 |
-| **S2** | ECG SQI | baseline vs stress | 228 | 122 | 4.5e-7 | **+0.32 [+0.20, +0.44]** | **+0.60** |
-| **S2** | ECG SQI | baseline vs amusement | 228 | 72 | 1.2e-3 | **+0.25 [+0.10, +0.40]** | **+0.33** |
-| S2 | PPG SQI | baseline vs stress | 228 | 122 | 0.141 | +0.10 [-0.04, +0.22] | +0.30 |
-| S2 | PPG motion | baseline vs stress | 228 | 122 | 0.141 | -0.10 [-0.22, +0.04] | -0.30 |
-| S2 | PPG SQI | baseline vs amusement | 228 | 72 | 0.780 | -0.02 [-0.18, +0.13] | +0.08 |
-| S2 | PPG motion | baseline vs amusement | 228 | 72 | 0.780 | +0.02 [-0.13, +0.18] | -0.08 |
-| S3 | ECG SQI | baseline vs stress | 227 | 127 | 0.075 | -0.11 [-0.22, +0.00] | -0.15 |
-| S3 | ECG SQI | baseline vs amusement | 227 | 74 | 0.386 | -0.07 [-0.20, +0.09] | -0.10 |
+| Subject | Metric | Contrast | n_a / n_b | Cliff's δ [95% CI] | Cohen's d | p |
+|---|---|---|---|---|---|---|
+| S9 | ppg_motion | baseline_vs_amusement | 235 / 74 | -0.80 [-0.88, -0.71] | -1.89 | 3.7e-25 |
+| S9 | ppg_sqi | baseline_vs_amusement | 235 / 74 | +0.80 [+0.71, +0.88] | +1.89 | 3.7e-25 |
+| S17 | ppg_sqi | baseline_vs_stress | 235 / 144 | +0.75 [+0.68, +0.82] | +1.16 | 1.0e-34 |
+| S17 | ppg_motion | baseline_vs_stress | 235 / 144 | -0.75 [-0.82, -0.68] | -1.16 | 1.0e-34 |
+| S5 | ppg_sqi | baseline_vs_stress | 239 / 128 | +0.73 [+0.65, +0.79] | +1.37 | 2.0e-30 |
+| S5 | ppg_motion | baseline_vs_stress | 239 / 128 | -0.73 [-0.79, -0.65] | -1.37 | 2.0e-30 |
+| S14 | ecg_sqi | baseline_vs_amusement | 235 / 73 | +0.70 [+0.57, +0.84] | +1.59 | 8.5e-20 |
+| S14 | ppg_sqi | baseline_vs_stress | 235 / 134 | +0.70 [+0.62, +0.78] | +1.30 | 2.7e-29 |
+| S14 | ppg_motion | baseline_vs_stress | 235 / 134 | -0.70 [-0.78, -0.62] | -1.30 | 2.7e-29 |
+| S16 | ppg_sqi | baseline_vs_amusement | 235 / 72 | +0.70 [+0.58, +0.80] | +1.37 | 4.1e-19 |
+| S16 | ppg_motion | baseline_vs_amusement | 235 / 72 | -0.70 [-0.80, -0.58] | -1.37 | 4.1e-19 |
+| S5 | ppg_sqi | baseline_vs_amusement | 239 / 74 | +0.61 [+0.51, +0.71] | +0.97 | 1.6e-15 |
 
-**Findings.**
+**Findings (n=15).** Of 90 per-(subject, metric, contrast) tests, **65 are significant at p < 0.05** and **27 survive p < 1e-10**. Stress-vs-baseline effects on PPG SQI are large in many subjects (Cliff's δ > 0.50 in S5, S11, S14, S16, S17; Cohen's d > 1.0). Amusement-vs-baseline effects are even larger in some subjects, with S9's PPG SQI dropping during amusement at Cliff's δ = +0.80, Cohen's d = +1.89.
 
-1. **S3 baseline vs amusement is the largest effect in the dataset.** Cliff's δ = ±0.49 (medium-to-large by Romano's 2006 thresholds), Cohen's d = ±0.80 (large by Cohen's 1988 thresholds). Both effect-size families agree. The PPG SQI drops, the motion artifact score rises. The 95% CI on Cliff's δ excludes zero comfortably.
-
-2. **S2 ECG SQI drops during stress with Cliff's δ = +0.32 and Cohen's d = +0.60** (both medium effects). The ECG signal quality on the chest device is degraded during the Trier task even though chest ECG is supposed to be robust to motion. Worth flagging in the discussion.
-
-3. **The two effect-size families disagree only in sign-magnitude relations** (Cliff's δ is bounded in [-1, +1], Cohen's d is unbounded), but they agree on which contrasts are significant and which are not. This is the standard sanity check on effect-size reporting.
-
-4. **All significant effects have 95% CIs on Cliff's δ that exclude zero**, which is the bootstrap analog of the Wilcoxon p-value claim.
+**Direction heterogeneity is the headline finding.** Most subjects' PPG SQI drops during stress (positive Cliff's δ), but S15's rises (Cliff's δ = -0.49, p = 4e-15). S6 also shows reversed direction. **Pooling per-state Cliff's δ across subjects would average opposing effects toward zero and miss the heterogeneity entirely.** The framework's per-subject outputs catch this; pooled aggregates would not. This is the clearest single methodological argument the n=15 data provides.
 
 CSV: `results/extended_analysis/per_state_effect_sizes.csv`. Figure 9 panel F.
 
@@ -137,9 +144,9 @@ CSV: `results/extended_analysis/per_state_effect_sizes.csv`. Figure 9 panel F.
 |---|---|---|
 | S2.1 Positivity | Are AIPW estimates trustworthy? | active_minutes positivity is clean; heat_index has severe violation (Kish ESS 63%) |
 | S2.2 E-values | How strong must unmeasured confounder be? | active_minutes → HRV: needs RR ≥ 1.52 to shift CI to null |
-| S2.3 ROC/PR/F1 | Is the recalibrated threshold stable? | Yes. Youden CI [0.986, 0.992]. AUROC 0.70 [0.66, 0.74] |
+| S2.3 ROC/PR/F1 | Is the recalibrated threshold stable? | No. At n=15 AUROC = 0.48 (near chance). Youden vs F1 disagree (0.999 vs 0.864). Pilot stability was n=2 artifact |
 | S2.4 RR cleaning | Are HRV numbers artifacts of a single filter? | S3's high HRV holds across raw, plausibility, Malik 25% |
-| S2.5 Real-data reliability | Does within-session HR replicate? | No: split-half r = 0.08-0.11, CV = 7-9%. Different unit of analysis from week-pair |
+| S2.5 Real-data reliability | Does within-session HR replicate? | No (n=15): median split-half r = +0.067, median CV = 7.25%. Only S4 > +0.30 |
 | S2.6 Effect sizes | Are state contrasts robust? | Cliff's δ and Cohen's d agree. S3 amusement = large effect on both scales |
 
 ## Figure 9 caption
