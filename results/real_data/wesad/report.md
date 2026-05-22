@@ -3,22 +3,22 @@
 > Research prototype only. Not medical advice, diagnosis, treatment, or a medical device.
 
 - Dataset: **wesad**
-- Subjects: **2**
-- Windows extracted: **850**
+- Subjects: **15**
+- Windows extracted: **6585**
 
 ## In-house SQI vs Orphanidou (2015)
 
 - In-house mean PPG SQI: **0.986**
-- In-house mean ECG SQI: **0.986**
-- Spearman ρ vs Orphanidou template correlation: **0.26738081868299757**
+- In-house mean ECG SQI: **0.985**
+- Spearman ρ vs Orphanidou template correlation: **0.004408513846528567**
 
 ## SQI by labeled state
 
 | State | n | ECG SQI | PPG SQI | PPG motion |
 |---|---|---|---|---|
-| amusement | 146 | 0.985 | 0.982 | 0.033 |
-| baseline | 455 | 0.987 | 0.988 | 0.022 |
-| stress | 249 | 0.983 | 0.984 | 0.029 |
+| amusement | 1099 | 0.983 | 0.985 | 0.028 |
+| baseline | 3507 | 0.986 | 0.989 | 0.020 |
+| stress | 1979 | 0.985 | 0.982 | 0.033 |
 
 ## What this pilot does and doesn't tell us
 
