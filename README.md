@@ -2,8 +2,8 @@
 
 **A toolkit for detecting artifacts, confounding, and reliability failures in wearable physiological signals.**
 
-[![tests](https://github.com/PLACEHOLDER/biomedical-signal-forensics-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/PLACEHOLDER/biomedical-signal-forensics-lab/actions/workflows/tests.yml)
-[![lint](https://github.com/PLACEHOLDER/biomedical-signal-forensics-lab/actions/workflows/lint.yml/badge.svg)](https://github.com/PLACEHOLDER/biomedical-signal-forensics-lab/actions/workflows/lint.yml)
+[![tests](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/tests.yml)
+[![lint](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/lint.yml/badge.svg)](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/lint.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
