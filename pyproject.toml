@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "biomedical-signal-forensics-lab"
-version = "0.8.0"
+version = "0.13.0"
 description = "A research-grade toolkit for detecting artifacts, confounding, and reliability failures in wearable and physiological signals."
 readme = "README.md"
 requires-python = ">=3.11"

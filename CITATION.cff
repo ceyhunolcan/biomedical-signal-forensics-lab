@@ -1,23 +1,58 @@
 cff-version: 1.2.0
+message: "If you use this software in academic work, please cite it as below."
 title: "biomedical-signal-forensics-lab"
-message: "If you use this software, please cite it as below."
+abstract: >-
+  An open-source Python toolkit for auditing wearable physiological signal
+  pipelines. It targets four failure modes that commonly invalidate
+  downstream conclusions in digital-health research: signal-quality
+  thresholds that pass on real wrist PPG despite consensus rejection by
+  published baselines; algorithmic-fairness disparities driven by
+  device family and skin tone; confounded causal interpretations that
+  reverse sign under back-door adjustment; and small but measurable
+  downstream-task degradation from preprocessing choices. The toolkit
+  includes a synthetic-cohort fairness audit, a real-data WESAD
+  validation against three published SQI baselines (Orphanidou 2015,
+  Sukor 2011, Elgendi 2016), causal sensitivity analysis (AIPW with
+  E-values), and a downstream-classifier audit. Compliance with
+  TRIPOD+AI and STARD 2015 is documented per-item in
+  paper/checklists/.
 type: software
-abstract: >
-  A Python toolkit for auditing wearable-derived digital biomarkers for
-  acquisition artifacts, environmental confounding, reliability failures,
-  and fairness disparities. Produces a six-component Digital Biomarker
-  Trust Score with a per-participant and per-cohort report.
 authors:
-  - given-names: To be filled
-    family-names: To be filled
+  - family-names: Olcan
+    given-names: Ceyhun
+    email: ceyhun.olcan.27@dartmouth.edu
+    affiliation: >-
+      Center for Technology and Behavioral Health, Geisel School of
+      Medicine at Dartmouth, Lebanon, NH 03766, USA
+    orcid: "https://orcid.org/0000-0002-6326-6071"
+version: "0.13.0"
+date-released: "2026-05-22"
+url: "https://github.com/ceyhunolcan/biomedical-signal-forensics-lab"
+repository-code: "https://github.com/ceyhunolcan/biomedical-signal-forensics-lab"
 license: MIT
-repository-code: "https://github.com/PLACEHOLDER/biomedical-signal-forensics-lab"
-version: 0.3.0
-date-released: "2026-05-19"
 keywords:
-  - wearable computing
-  - digital biomarkers
-  - signal quality
-  - reliability
-  - reproducibility
-  - fairness audit
+  - digital-health
+  - wearable-sensors
+  - signal-quality
+  - photoplethysmography
+  - electrocardiography
+  - heart-rate-variability
+  - algorithmic-fairness
+  - causal-inference
+  - reproducible-research
+  - methodology-audit
+  - wesad
+preferred-citation:
+  type: software
+  title: "biomedical-signal-forensics-lab"
+  authors:
+    - family-names: Olcan
+      given-names: Ceyhun
+      orcid: "https://orcid.org/0000-0002-6326-6071"
+      affiliation: >-
+        Center for Technology and Behavioral Health, Geisel School of
+        Medicine at Dartmouth, Lebanon, NH 03766, USA
+  version: "0.13.0"
+  year: 2026
+  url: "https://github.com/ceyhunolcan/biomedical-signal-forensics-lab"
+  license: MIT

@@ -1,0 +1,35 @@
+{
+  "title": "biomedical-signal-forensics-lab",
+  "description": "An open-source Python toolkit for auditing wearable physiological signal pipelines. Targets four failure modes that commonly invalidate downstream conclusions in digital-health research: signal-quality thresholds that pass on real wrist PPG despite consensus rejection by published baselines (Orphanidou 2015, Sukor 2011, Elgendi 2016); algorithmic-fairness disparities driven by device family and skin tone; confounded causal interpretations that reverse sign under back-door adjustment; and small but measurable downstream-task degradation from preprocessing choices. Includes a real-data WESAD validation, AIPW with E-values for causal sensitivity, a downstream classifier audit, and per-item TRIPOD+AI and STARD 2015 compliance documentation.",
+  "creators": [
+    {
+      "name": "Olcan, Ceyhun",
+      "affiliation": "Center for Technology and Behavioral Health, Geisel School of Medicine at Dartmouth, Lebanon, NH 03766, USA",
+      "orcid": "0000-0002-6326-6071"
+    }
+  ],
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "digital health",
+    "wearable sensors",
+    "signal quality index",
+    "photoplethysmography",
+    "electrocardiography",
+    "heart rate variability",
+    "algorithmic fairness",
+    "causal inference",
+    "reproducible research",
+    "methodology audit",
+    "WESAD"
+  ],
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/ceyhunolcan/biomedical-signal-forensics-lab",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}
