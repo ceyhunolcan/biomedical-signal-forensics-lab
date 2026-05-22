@@ -16,7 +16,7 @@
 
 **Methods.** We implemented `biomedical-signal-forensics-lab`, a Python toolkit comprising five window-level artifact detectors, four participant-level reliability primitives (bootstrap test-retest, ICC, drift slope, device bias), a six-component Digital Biomarker Trust Score (DBTS) with YAML-configurable weights and a learnable weight schedule, an augmented inverse-propensity weighting (AIPW) estimator with cluster bootstrap CIs under a user-supplied DAG, BOCPD change-point detection, and stratified fairness audit. We validated the toolkit on three orthogonal strategies: (i) a 300-participant 60-day synthetic cohort with five documented injected failure modes; (ii) a cross-cohort parameter-sweep covering five generative regimes with eight qualitative predictions; (iii) a real-data pilot on the WESAD dataset [@schmidt2018], n = 2 subjects piloted of 15 supported, with head-to-head comparison against the Orphanidou (2015) and Sukor (2011) published PPG baselines.
 
-**Results.** Synthetic cohort: mean DBTS 74.11 (n = 300; 31 high, 266 moderate, 3 low); bootstrap week-pair test-retest r = +0.977 [+0.973, +0.980] for resting HR and +0.954 [+0.945, +0.961] for HRV RMSSD; recovered injected fairness disparities at -13.02 points for device family (device A vs C) and -9.53 points for skin-tone Q4 vs Q1; learned-weights holdout Spearman ρ = +0.668 (n_train = 210, n_holdout = 90). AIPW: heat → HRV screening r = -0.054 inverts to +0.249 [-0.604, +1.030] under back-door adjustment; active_minutes → HRV screening r = -0.019 sharpens to -0.497 [-0.797, -0.137] under adjustment. Cross-cohort sweep: 7 of 8 qualitative predictions recovered including a sign-flip of the skin-tone gap (-6.54 → +11.07) when the injected penalty was inverted. WESAD pilot (n = 850 windows from 2 subjects): Bland-Altman bias +12.77 bpm between wrist Empatica E4 PPG and chest RespiBAN ECG with 95% LoA [-16.18, +41.72] bpm; the in-house SQI threshold tuned on synthetic data (0.70) produced Cohen's κ = 0.000 against both published baselines on real wrist PPG; calibration / holdout recalibration (425 / 425 windows) raised held-out κ to +0.217 at threshold 0.99; the two published baselines agreed with each other (κ = +0.31, ρ = +0.57) but neither agreed with the synthetic-tuned in-house SQI; motion artifact score predicted cross-modality HR disagreement (ρ = +0.30; 12.86 bpm at low motion vs 19.62 bpm at high motion); Orphanidou template correlation on subject S2 dropped from 0.822 (baseline) to 0.661 (stress) at p = 3.4 × 10⁻¹⁴.
+**Results.** Synthetic cohort: mean DBTS 74.11 (n = 300; 31 high, 266 moderate, 3 low); bootstrap week-pair test-retest r = +0.977 [+0.973, +0.980] for resting HR and +0.954 [+0.945, +0.961] for HRV RMSSD; recovered injected fairness disparities at -13.02 points for device family (device A vs C) and -9.53 points for skin-tone Q4 vs Q1; learned-weights holdout Spearman ρ = +0.668 (n_train = 210, n_holdout = 90). AIPW: heat → HRV screening r = -0.054 inverts to +0.249 [-0.604, +1.030] under back-door adjustment; active_minutes → HRV screening r = -0.019 sharpens to -0.497 [-0.797, -0.137] under adjustment. Cross-cohort sweep: 7 of 8 qualitative predictions recovered including a sign-flip of the skin-tone gap (-6.54 → +11.07) when the injected penalty was inverted. WESAD validation (n = 6,585 windows from 15 subjects): Bland-Altman bias +3.57 bpm between wrist Empatica E4 PPG and chest RespiBAN ECG with 95% LoA [-23.14, +30.28] bpm (MAE 9.66 bpm, Pearson r = +0.70); the in-house SQI threshold tuned on synthetic data (0.70) produced Cohen's κ = 0.000 against both published baselines on real wrist PPG; **calibration / holdout recalibration (3,292 / 3,293 windows) did NOT improve held-out κ at n=15** (the pilot finding of Δκ = +0.217 at n=2 did not replicate); the two published baselines agreed with each other (κ = +0.41, ρ = +0.49) but neither agreed with the synthetic-tuned in-house SQI; per-subject heterogeneity in stress-state |HR_PPG - HR_ECG| spanned 6.75-26.02 bpm (4× range).
 
 **Conclusions.** Wearable-derived digital biomarkers require an explicit auditable layer between raw device output and downstream modeling. We provide an open-source reference implementation, demonstrate on real WESAD data that synthetic-tuned thresholds fail without recalibration, and report that the framework's recalibration recipe recovers fair agreement with published baselines. The framework is non-clinical: it produces methodological recommendations and quality estimates, not diagnoses. All numbers in this manuscript are reproducible from a fixed seed in under three minutes on a laptop CPU and from the public WESAD release in ~30 seconds for the two-subject pilot.
 
@@ -194,129 +194,112 @@ Audit outputs respond to cohort parameters in the predicted direction, including
 
 ## 4. Results on real WESAD data
 
-We applied the full pipeline to subjects S2 and S3 from the public WESAD release [@schmidt2018], producing 850 5-second windows of synchronized chest RespiBAN ECG (700 Hz) and wrist Empatica E4 PPG (64 Hz) across baseline (455 windows), stress (249), and amusement (146) labeled states. The same code scales to all 15 WESAD subjects without modification.
+We applied the full pipeline to all 15 subjects in the public WESAD release [@schmidt2018] (S2-S17, with S1 and S12 absent from the standard public release), producing 6,585 5-second windows of synchronized chest RespiBAN ECG (700 Hz) and wrist Empatica E4 PPG (64 Hz) across baseline (3,507 windows), stress (1,979), and amusement (1,099) labeled states.
 
 ### 4.1 Cross-modality HR agreement (Bland-Altman, Figure 4)
 
 We paired the per-window heart rate from chest ECG against the per-window heart rate from wrist PPG.
 
-| Quantity | Value |
+| Quantity | Value (n=15) |
 |---|---|
-| n windows | 848 |
-| Mean absolute error | 14.55 bpm |
-| **Bias (PPG - ECG)** | **+12.77 bpm** |
-| **95% Limits of agreement** | **[-16.18, +41.72] bpm** |
-| Pearson r | +0.478 (p = 1.4 × 10⁻⁴⁹) |
-| Fraction within 5 bpm | 0.303 |
-| Fraction within 10 bpm | 0.486 |
+| n windows | 6,569 |
+| Mean absolute error | **9.66 bpm** |
+| **Bias (PPG - ECG)** | **+3.57 bpm** |
+| **95% Limits of agreement** | **[-23.14, +30.28] bpm** |
+| Pearson r | +0.697 (p < 1e-300) |
+| Fraction within 5 bpm | 0.458 |
+| Fraction within 10 bpm | 0.656 |
 
-The wrist E4 PPG reads on average ~13 bpm higher than the chest RespiBAN ECG, with limits of agreement spanning nearly 60 bpm. Only 30% of windows agree within 5 bpm. This is a device-fidelity result on real data with no per-device tuning. Per-subject and per-state breakdowns:
-
-| Subject | State | n | MAE (bpm) | Bias (bpm) | Pearson r |
-|---|---|---|---|---|---|
-| S2 | baseline | 226 | 8.33 | +7.04 | +0.42 |
-| S2 | stress | 122 | 14.97 | +13.52 | +0.14 |
-| S2 | amusement | 72 | 13.17 | +11.73 | +0.49 |
-| S3 | baseline | 227 | 16.43 | +15.86 | +0.27 |
-| S3 | stress | 127 | 11.82 | +5.51 | +0.49 |
-| S3 | **amusement** | 74 | **33.12** | **+33.06** | +0.05 |
-
-S3 amusement is the worst combination (MAE 33 bpm, bias +33 bpm, no within-state Pearson signal), consistent with motion physics: amusement in WESAD is a funny-video paradigm that produces laughter and upper-body motion. CSV: `results/real_data/wesad_deep/hr_agreement_per_subject_state.csv`. Figure: `results/real_data/wesad_deep/figures/fig1_bland_altman_hr.png`.
+On the full release the average disagreement between wrist E4 PPG and chest RespiBAN ECG is +3.57 bpm with 95% LoA spanning 53 bpm. Within-5-bpm agreement is 46%, within-10-bpm is 66%. Pearson correlation between modalities is +0.70. Per-subject heterogeneity is the dominant feature of the data: stress-state mean |HR_PPG - HR_ECG| ranges from **6.75 bpm (S15)** to **26.02 bpm (S11)**, a four-fold spread. A summary of every (subject, state) cell is in `results/real_data/wesad_deep/hr_agreement_per_subject_state.csv`.
 
 ### 4.2 Three-way SQI agreement on real wrist PPG (Figure 5)
 
 We compare the in-house per-window PPG SQI against two published baselines: Orphanidou (2015) [@orphanidou2015] and Sukor (2011) [@sukor2011].
 
-| Method | Pass rate | Cohen's κ vs in-house | Cohen's κ vs Orphanidou |
+| Method | Pass rate (n=15) | Cohen's κ vs in-house | Cohen's κ vs Orphanidou |
 |---|---|---|---|
 | In-house (default threshold 0.7) | **1.000** | - | 0.000 |
-| Orphanidou 2015 | 0.224 | 0.000 | - |
-| Sukor 2011 | 0.119 | 0.000 | **+0.313** |
+| Orphanidou 2015 | 0.256 | 0.000 | - |
+| Sukor 2011 | 0.255 | 0.000 | **+0.410** |
 
-| Continuous-score pair | Spearman ρ |
+| Continuous-score pair | Spearman ρ (n=15) |
 |---|---|
-| In-house ↔ Orphanidou | +0.267 |
-| In-house ↔ Sukor | +0.223 |
-| **Orphanidou ↔ Sukor** | **+0.565** |
+| In-house ↔ Orphanidou | +0.004 |
+| In-house ↔ Sukor | +0.011 |
+| **Orphanidou ↔ Sukor** | **+0.486** |
 
-**The two published baselines agree with each other (κ = +0.31, ρ = +0.57). Neither agrees with the synthetic-tuned in-house SQI on real data (κ = 0.000 against both).** On the synthetic cohort, in-house ↔ Orphanidou Spearman was +0.78. On real WESAD it is +0.27. The discrepancy is the central finding of the pilot: a signal-quality threshold tuned on synthetic data does not transfer to real wrist PPG. Source: `results/real_data/wesad_deep/summary.json`. Figure: `fig3_sqi_pass_rates.png`.
+**The two published baselines agree with each other strongly at n=15 (κ = +0.41, ρ = +0.49). Neither agrees with the synthetic-tuned in-house SQI (κ = 0, ρ near zero against both).** Across 6,585 real wrist PPG windows from 15 subjects, the in-house default threshold of 0.70 produces a degenerate flat distribution (every window passes), and the underlying continuous score is essentially uncorrelated with either published baseline. The pilot (n=2) finding that the in-house score had moderate Spearman correlation with the baselines (ρ ≈ 0.27) does not survive the full sample. Source: `results/real_data/wesad_deep/summary.json`.
 
-### 4.3 Recalibration of the in-house SQI threshold (Figure 6)
+### 4.3 Recalibration: an honest negative result (Figure 6)
 
-We split the 850 windows into 425 calibration and 425 holdout. On calibration we searched the threshold space to maximize Cohen's κ vs the Orphanidou pass/fail label. We then evaluated the chosen threshold on the held-out 425 windows.
+We split the 6,585 windows into 3,292 calibration and 3,293 holdout. On calibration we searched the threshold space to maximize Cohen's κ vs the Orphanidou pass/fail label. We then evaluated the chosen threshold on the held-out 3,293 windows.
 
 | Threshold | Holdout raw agreement | **Holdout Cohen's κ** |
 |---|---|---|
-| Original (0.70) | 0.214 | **0.000** |
-| Recalibrated (0.99) | 0.626 | **+0.217** |
-| Δ κ | | **+0.217** |
+| Original (0.70) | 0.258 | **0.000** |
+| Recalibrated (0.85) | 0.258 | **0.0002** |
+| Δ κ | | **≈ 0.000** |
 
-Cohen's κ on held-out data jumps from 0.000 (no agreement beyond chance) to +0.217 (fair agreement). The recalibrated threshold of 0.99 is far from the synthetic-tuned default of 0.70, reflecting how concentrated the in-house SQI distribution is on real wrist PPG (median 0.99 across all states). This is a directly actionable result and is supported as a pipeline operation: `scripts/run_deep_real_analysis.py` produces both the curve and the recalibrated threshold automatically.
+**The n=2 pilot recalibration result (Δκ = +0.217) does NOT replicate at n=15.** The search lands on threshold 0.85, but the held-out κ remains effectively zero. This is the most important new finding from scaling the pilot. Two non-exclusive explanations: (1) the in-house SQI distribution on real wrist PPG is concentrated near 1.0 for nearly every subject, leaving little useful discriminative signal that a single global threshold can extract; (2) per-subject heterogeneity (Section 4.5) is large enough that a single threshold cannot satisfy all subjects simultaneously. The supplementary AUROC analysis (S2.3) confirms this: AUROC for in-house SQI predicting Orphanidou pass/fail is 0.484 at n=15, statistically indistinguishable from chance. **The honest implication is that the in-house SQI binarization recipe should not be used at all on real wrist PPG without per-subject calibration**, which is a methodological recommendation rather than a fix.
 
-**Threshold-stability check (supplement S2.3).** A 200-resample bootstrap on the recalibrated threshold gives AUROC = 0.703 [0.659, 0.736], Youden-J threshold 0.9915 [0.9857, 0.9924], and F1-maximizing threshold 0.9915 [0.9858, 0.9930]. The two threshold-selection rules agree (both near 0.99), and the CI on each spans ~0.007 in threshold units. The recalibrated threshold is therefore not an artifact of the particular calibration/holdout split.
+### 4.4 Motion artifact predicts cross-modality HR disagreement (weakly)
 
-### 4.4 Motion artifact predicts cross-modality HR disagreement
-
-A key test of the framework's internal validity: does the per-window motion-artifact score actually predict when wrist HR will disagree with chest HR? If the motion detector is doing its job, high-motion windows should produce more disagreement.
-
-| Quantity | Value |
+| Quantity | Value (n=15) |
 |---|---|
 | Spearman (motion vs in-house SQI) | -1.000 (deterministic) |
-| **Spearman (motion vs |HR_PPG − HR_ECG|)** | **+0.304** |
-| Spearman (motion vs Orphanidou template corr) | -0.267 |
-| Mean |HR diff| at low motion (q < 0.75) | 12.86 bpm |
-| **Mean |HR diff| at high motion (q ≥ 0.75)** | **19.62 bpm** |
+| **Spearman (motion vs |HR_PPG - HR_ECG|)** | **+0.088** |
+| Spearman (motion vs Orphanidou template corr) | -0.004 |
+| Mean |HR diff| at low motion (q < 0.75) | 9.12 bpm |
+| **Mean |HR diff| at high motion (q ≥ 0.75)** | **11.28 bpm** |
 
-The motion score and the HR estimates come from independent computations on the same window, so the +0.304 correlation is not mechanical. Mean HR disagreement is 52% higher at high motion than at low motion. The motion detector is doing what it claims. Figure: `fig5_motion_vs_hr_error.png`.
+The correlation between motion and cross-modality HR disagreement is positive but weak (+0.088). Mean |HR diff| at high motion is 24% higher than at low motion (11.28 vs 9.12 bpm). Both values are smaller than the pilot estimates (ρ = +0.30, gap = 6.8 bpm). At n=15 the framework's motion detector still tracks the direction of the effect, but the magnitude is modest. Per-subject motion-vs-disagreement plots in `results/real_data/wesad_deep/figures/fig5_motion_vs_hr_error.png`.
 
 ### 4.5 Within-subject state-contrast tests
 
-Mann-Whitney U with Cliff's δ effect size on each (subject, metric, baseline-vs-state) contrast. Pooled-by-state numbers can hide between-subject heterogeneity.
+Mann-Whitney U with both Cliff's δ and Cohen's d for each (subject, metric, baseline-vs-state) contrast. The full table is in `results/extended_analysis/per_state_effect_sizes.csv`; below we list the largest effects.
 
-**Baseline vs stress:**
+**Largest stress vs baseline effects (PPG SQI drop or motion rise):**
 
-| Subject | Metric | Median baseline | Median stress | Δ | p |
+| Subject | Metric | n_a / n_b | Cliff's δ [95% CI] | Cohen's d | p |
 |---|---|---|---|---|---|
-| S2 | in-house PPG SQI | 0.989 | 0.986 | -0.003 | 0.141 |
-| **S2** | in-house ECG SQI | 0.987 | 0.978 | -0.009 | **5.7 × 10⁻⁷** |
-| S2 | in-house PPG motion | 0.020 | 0.026 | +0.006 | 0.141 |
-| **S2** | |HR_PPG − HR_ECG| | 8.33 | 14.97 | +6.64 | **3.5 × 10⁻¹⁰** |
-| **S2** | **Orphanidou template corr** | **0.822** | **0.661** | **-0.161** | **3.4 × 10⁻¹⁴** |
-| **S3** | in-house PPG SQI | 0.986 | 0.983 | -0.004 | **0.026** |
-| S3 | in-house ECG SQI | 0.987 | 0.989 | +0.002 | 0.078 |
-| **S3** | in-house PPG motion | 0.025 | 0.031 | +0.007 | **0.026** |
-| **S3** | |HR_PPG − HR_ECG| | 16.43 | 11.82 | -4.61 | **0.033** |
-| S3 | Orphanidou template corr | 0.739 | 0.717 | -0.022 | 0.145 |
+| **S17** | PPG SQI | 235 / 144 | **+0.75 [+0.68, +0.82]** | **+1.16** | 1.0e-34 |
+| **S5** | PPG SQI | 239 / 128 | **+0.73 [+0.65, +0.79]** | **+1.37** | 2.0e-30 |
+| **S14** | PPG SQI | 235 / 134 | **+0.70 [+0.62, +0.78]** | **+1.30** | 2.7e-29 |
+| **S16** | PPG SQI | 235 / 134 | **+0.59 [+0.46, +0.71]** | **+1.41** | 4.6e-21 |
+| **S11** | PPG SQI | 235 / 135 | **+0.50 [+0.39, +0.61]** | **+0.98** | 8.8e-16 |
+| **S15** | PPG SQI | 234 / 137 | **-0.49 [-0.58, -0.39]** | **-0.79** | 4.0e-15 |
+| **S4** | PPG SQI | 230 / 126 | **+0.44 [+0.32, +0.55]** | **+0.90** | 9.7e-12 |
 
-**S2's Orphanidou template correlation drops from 0.822 (baseline) to 0.661 (stress) at p = 3.4 × 10⁻¹⁴**, while the in-house PPG SQI on the same subject and same windows shows only a 0.003 drop that is not significant (p = 0.14). This is direct evidence on real data that the in-house SQI under-reacts to state-induced quality degradation that the published baseline catches.
+**Heterogeneity in the direction of the PPG SQI effect is itself the finding.** Most subjects show a PPG SQI drop during stress (positive Cliff's δ), but S15 shows the opposite (δ = -0.49): their PPG SQI rises during stress. This is consistent with state-dependent posture: if a particular subject moves less during the stressor than during baseline, their PPG quality can improve. The framework's per-subject outputs catch this; pooled-by-state numbers would obscure it.
 
-**Baseline vs amusement (the worst-case state):**
+**Largest baseline vs amusement effects:**
 
-| Subject | Metric | Median baseline | Median amusement | Δ | p |
+| Subject | Metric | n_a / n_b | Cliff's δ [95% CI] | Cohen's d | p |
 |---|---|---|---|---|---|
-| S2 | Orphanidou template corr | 0.822 | 0.737 | -0.085 | **2.5 × 10⁻⁵** |
-| **S2** | in-house ECG SQI | 0.987 | 0.982 | -0.004 | **1.4 × 10⁻³** |
-| **S2** | |HR_PPG − HR_ECG| | 8.33 | 13.17 | +4.85 | **1.0 × 10⁻³** |
-| **S3** | **in-house PPG SQI** | **0.986** | **0.976** | **-0.011** | **1.9 × 10⁻¹⁰** |
-| **S3** | **in-house PPG motion** | **0.025** | **0.044** | **+0.020** | **1.9 × 10⁻¹⁰** |
-| **S3** | **|HR_PPG − HR_ECG|** | **16.43** | **33.12** | **+16.68** | **3.5 × 10⁻¹⁵** |
-| **S3** | Orphanidou template corr | 0.739 | 0.594 | -0.145 | **1.1 × 10⁻¹⁰** |
+| **S9** | PPG SQI | 235 / 74 | **+0.80 [+0.71, +0.88]** | **+1.89** | 3.7e-25 |
+| **S14** | ECG SQI | 235 / 73 | **+0.70 [+0.57, +0.84]** | **+1.59** | 8.5e-20 |
+| **S16** | PPG SQI | 235 / 72 | **+0.70 [+0.58, +0.80]** | **+1.37** | 4.1e-19 |
+| **S14** | PPG SQI | 235 / 73 | **+0.61 [+0.48, +0.74]** | **+1.55** | 3.7e-15 |
+| **S5** | PPG SQI | 239 / 74 | **+0.61 [+0.51, +0.71]** | **+0.97** | 1.6e-15 |
+| **S17** | PPG SQI | 235 / 73 | **+0.59 [+0.48, +0.68]** | **+0.97** | 4.4e-14 |
 
-S3 shows large amusement effects: PPG SQI drops, motion nearly doubles, HR-modality disagreement doubles. The framework's per-window outputs are sensitive enough to detect state-related quality changes on real data, with effect sizes that vary by subject and metric. CSVs: `results/real_data/wesad_deep/per_state_baseline_vs_{stress,amusement}.csv`.
+Amusement (funny-video paradigm) produces upper-body laughter motion that degrades wrist PPG in most subjects, sometimes with very large effect sizes. S9's amusement effect (Cliff's δ = +0.80, Cohen's d = +1.89) is the largest single contrast in the dataset.
 
 ## 5. Discussion
 
 ### 5.1 Principal findings
 
-Four findings on real WESAD data are directly actionable for any group running biomarker analyses on wrist-worn PPG:
+Five findings on real WESAD data are directly actionable for any group running biomarker analyses on wrist-worn PPG:
 
-1. **Wrist PPG and chest ECG HR disagree by an average of ~13 bpm on the same person, same window** (Bland-Altman bias +12.77 bpm, 95% LoA spanning 58 bpm). This holds even on labeled-baseline segments where the subject is seated and quiet. Any biomarker derived from wrist PPG HR should report this disagreement against a chest-ECG reference if one is available, and at minimum should not treat the wrist HR as a measurement of ground truth.
+1. **Wrist PPG and chest ECG HR disagree by ~4 bpm bias with ~53-bpm-wide limits of agreement** (Bland-Altman bias +3.57 bpm, 95% LoA [-23.14, +30.28] across 6,569 windows from 15 subjects). This holds even on labeled-baseline segments where the subject is seated and quiet. Any biomarker derived from wrist PPG HR should report this disagreement against a chest-ECG reference if one is available, and at minimum should not treat the wrist HR as a measurement of ground truth.
 
-2. **A signal-quality threshold tuned on synthetic data does not transfer to real wrist PPG.** Cohen's κ against either published baseline is 0.000 at the default in-house threshold. The continuous SQI does rank windows meaningfully (the published baselines correlate moderately with it, Spearman ρ ≈ 0.22-0.27), but binarization at the synthetic-tuned threshold throws all that signal away because the in-house distribution on real wrist PPG is concentrated near 1.0.
+2. **Per-subject heterogeneity dwarfs pooled summary statistics.** Mean |HR_PPG - HR_ECG| during stress ranges from 6.75 bpm (S15) to 26.02 bpm (S11), a four-fold spread. The direction of the per-state quality change also varies (most subjects' PPG SQI drops during stress; S15's rises). Any conclusion from pooled WESAD wrist PPG analysis is at risk of being driven by a small number of subjects. The framework's per-subject outputs catch this heterogeneity; pooled-by-state numbers obscure it.
 
-3. **Recalibrating the threshold against a published baseline is straightforward and effective.** A 425/425 calibration/holdout split with Youden's J on the calibration half raises held-out Cohen's κ from 0.000 to +0.217 with one threshold change (0.70 → 0.99). This is the framework's main practical contribution: any user can do this on their own dataset against either Orphanidou, Sukor, or hand-labeled windows.
+3. **The default in-house SQI threshold does not transfer to real wrist PPG**, and at n=15 the underlying continuous score does not even meaningfully rank windows compared to either published baseline (Spearman ρ ≈ 0 against both). Cohen's κ against either published baseline is 0.000 at the default threshold.
 
-4. **Two published SQI baselines agree with each other, not with the in-house SQI** (Orphanidou ↔ Sukor κ = +0.31, ρ = +0.57; in-house ↔ either ≈ 0). Running two baselines instead of one is the right policy: when both baselines agree against the in-house method, the in-house method is the outlier rather than the baselines being weak.
+4. **Recalibration of a single global threshold does NOT recover agreement at n=15** (Δκ ≈ 0, AUROC 0.48). The pilot (n=2) finding of κ improving from 0.000 to +0.217 after recalibration to 0.99 was an n=2-specific artifact, attributable to the unrepresentative wrist PPG behavior of subjects S2 and S3 (the worst-agreement subjects in the dataset). The implication is methodological: a single global SQI threshold is the wrong unit of analysis. Per-subject or per-session calibration is required.
+
+5. **Two published SQI baselines agree with each other more strongly at n=15 than at n=2** (Orphanidou ↔ Sukor κ = +0.41, ρ = +0.49), and neither agrees with the in-house method. Running two baselines instead of one is the right policy: when both baselines agree against the in-house method, the in-house method is the outlier rather than the baselines being weak.
 
 ### 5.2 Relation to prior work
 
@@ -328,7 +311,7 @@ The closest existing toolkit is FLIRT [@foll2021], which focuses on feature engi
 
 **Detector thresholds were tuned on synthetic data.** The real-data pilot demonstrates these thresholds do not transfer to wrist PPG without recalibration, and the framework supports recalibration as a pipeline operation. Anyone deploying on a new device should recalibrate against either Orphanidou, Sukor, or hand-labeled windows. We have not tested recalibration on chest ECG; the chest signal is more robust to motion and the synthetic-tuned ECG SQI may transfer better than the PPG SQI, but we make no claim either way.
 
-**The real-data pilot used 2 of 15 available WESAD subjects.** The pipeline supports all 15 with no code changes, and the effect sizes we report (the +12.8 bpm Bland-Altman bias and the κ = +0.217 recalibration improvement) are large enough that they are unlikely to vanish at n = 15. Per-subject Spearman ρ and recalibrated threshold values should be reported as median with IQR at the full sample size.
+**Validated on all 15 publicly-released WESAD subjects.** The pilot estimates were updated against the full release; the headline finding (in-house SQI disagrees with published baselines on real wrist PPG, κ ≈ 0 against both) strengthened at n=15, but the pilot's "recalibration recovers fair agreement" finding did not replicate. This is reported as an honest negative result in Section 4.3. **Per-subject heterogeneity in HR agreement is large** (stress |HR diff| ranges 6.75-26.02 bpm across subjects, a 4× spread). Any wearable-validation study on WESAD should report effect sizes per subject and avoid drawing conclusions from pooled-by-state aggregates.
 
 **Within-session HR reliability is much weaker than week-pair reliability** (supplement S2.5). The synthetic cohort gives test-retest r = +0.977 for resting HR on week-mean pairs (Section 3.2). On real WESAD baseline segments, the split-half Pearson r between first-half and second-half of per-window HR is +0.078 (S2) and +0.112 (S3), with within-subject CV of 6.7-9.1%. These two statistics measure different things (week-aggregated reliability vs 5-second-window within-session correlation) and the synthetic numbers should not be read as predicting the real-data per-window numbers. The framework's recommended HR reliability statistic for clinical claims is the bootstrap week-pair test-retest of a daily aggregate, which requires longitudinal data we cannot validate on WESAD.
 
