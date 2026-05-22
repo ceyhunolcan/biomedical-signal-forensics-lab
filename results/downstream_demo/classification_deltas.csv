@@ -1,0 +1,4 @@
+condition,n_paired,mean_delta_auroc,median_delta_auroc,wilcoxon_p_greater,n_subjects_improved,n_subjects_worse
+inhouse,15,0.0,0.0,1.0,0,0
+orphanidou,14,0.027295248714509914,0.029106460570874515,0.052001953125,10,4
+both,14,0.027295248714509914,0.029106460570874515,0.052001953125,10,4
