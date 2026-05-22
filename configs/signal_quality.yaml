@@ -1,0 +1,16 @@
+ecg:
+  bandpass_hz: [0.5, 40.0]
+  min_rr_ms: 300
+  max_rr_ms: 2000
+  sqi_window_s: 5
+ppg:
+  bandpass_hz: [0.5, 8.0]
+  smooth_window: 7
+  motion_threshold: 0.6
+hrv:
+  min_rr_for_metric: 30
+  artifact_correction: "linear_interp"
+sqi_thresholds:
+  high: 0.85
+  moderate: 0.6
+  low: 0.4

@@ -1,0 +1,3 @@
+participant_id,date,device_type,resting_hr,hrv_rmssd,hrv_sdnn,step_count,active_minutes,sleep_duration,sleep_efficiency,stress_proxy,temperature_c,humidity,aqi,heat_index,wearable_minutes,missing_wearable_flag,signal_quality_ground_truth,artifact_burden_ground_truth,reliability_ground_truth,skin_tone_proxy
+S2,2024-01-01,WESAD_RespiBAN_E4,72.32749597141903,59.484108817177685,,,3.2739583333333333,,,0.10116795525579865,,,,,101.31666666666666,0,,,,
+S3,2024-01-01,WESAD_RespiBAN_E4,54.0040089294501,116.52462041391502,,,3.5239583333333333,,,0.09856768827968582,,,,,108.21666666666667,0,,,,

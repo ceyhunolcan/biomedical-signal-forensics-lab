@@ -1,0 +1,13 @@
+subject_id,metric,contrast,n_a,n_b,median_a,median_b,p_value,cliffs_delta
+S2,ppg_sqi,baseline_vs_stress,228,122,0.99199,0.99035,0.0705,0.095
+S2,ecg_sqi,baseline_vs_stress,228,122,0.98664,0.97844,0.0,0.324
+S2,ppg_motion,baseline_vs_stress,228,122,0.01456,0.01755,0.0705,-0.095
+S2,ppg_sqi,baseline_vs_amusement,228,72,0.99199,0.99154,0.6108,-0.022
+S2,ecg_sqi,baseline_vs_amusement,228,72,0.98664,0.97919,0.0006,0.25
+S2,ppg_motion,baseline_vs_amusement,228,72,0.01456,0.01539,0.6108,0.022
+S3,ppg_sqi,baseline_vs_stress,227,127,0.98991,0.98702,0.0129,0.143
+S3,ecg_sqi,baseline_vs_stress,227,127,0.98485,0.9875,0.9628,-0.113
+S3,ppg_motion,baseline_vs_stress,227,127,0.01835,0.02359,0.0129,-0.143
+S3,ppg_sqi,baseline_vs_amusement,227,74,0.98991,0.97932,0.0,0.493
+S3,ecg_sqi,baseline_vs_amusement,227,74,0.98485,0.98668,0.8073,-0.066
+S3,ppg_motion,baseline_vs_amusement,227,74,0.01835,0.03759,0.0,-0.493

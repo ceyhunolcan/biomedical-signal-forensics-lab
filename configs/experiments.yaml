@@ -1,0 +1,21 @@
+models:
+  logistic_regression:
+    C: 1.0
+    max_iter: 1000
+  random_forest:
+    n_estimators: 200
+    max_depth: 12
+    random_state: 42
+  isolation_forest:
+    n_estimators: 200
+    contamination: 0.1
+    random_state: 42
+  autoencoder:
+    hidden_dims: [32, 16, 8]
+    epochs: 25
+    batch_size: 128
+    lr: 1.0e-3
+    weight_decay: 1.0e-5
+training:
+  test_size: 0.2
+  random_state: 42

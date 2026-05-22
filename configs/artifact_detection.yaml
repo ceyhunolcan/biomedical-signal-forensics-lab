@@ -1,0 +1,20 @@
+motion:
+  amplitude_variance_threshold: 0.5
+  high_freq_power_threshold: 0.4
+dropout:
+  min_dropout_samples: 32
+  zero_tolerance: 0.02
+noise_spike:
+  z_threshold: 4.0
+flatline:
+  min_flat_samples: 64
+  variance_threshold: 1.0e-4
+timestamp:
+  expected_jitter_ms: 5
+  max_gap_factor: 3.0
+impossible_physiology:
+  hr_bpm: [25, 220]
+  hrv_rmssd_ms: [1, 300]
+non_wear:
+  min_minutes: 60
+  motion_threshold: 0.05

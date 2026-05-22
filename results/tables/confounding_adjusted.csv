@@ -1,0 +1,5 @@
+treatment,outcome,screening_r,adjustment_set,aipw_estimate,ci_low,ci_high,n
+heat_index,hrv_rmssd,-0.0544,"stress_proxy,active_minutes,sleep_efficiency,aqi,temperature_c",0.2493,-0.604,1.0298,18000
+heat_index,sleep_efficiency,-0.0899,"stress_proxy,active_minutes,aqi,temperature_c",0.0053,0.0001,0.0083,18000
+aqi,sleep_efficiency,-0.0195,"stress_proxy,active_minutes,temperature_c",-0.0017,-0.0033,0.0004,18000
+active_minutes,hrv_rmssd,-0.0192,"stress_proxy,sleep_efficiency,aqi,temperature_c",-0.497,-0.7967,-0.1375,18000

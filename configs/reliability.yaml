@@ -1,0 +1,20 @@
+test_retest:
+  min_days: 7
+icc:
+  form: "ICC(2,1)"
+  bootstrap_n: 200
+temporal:
+  rolling_window_days: 7
+  drift_significance: 0.05
+trust_score:
+  weights:
+    signal_quality_score: 0.25
+    artifact_burden_score: 0.20
+    temporal_stability_score: 0.20
+    missingness_risk_score: 0.15
+    device_bias_score: 0.10
+    confounding_risk_score: 0.10
+  category_thresholds:
+    high: 80
+    moderate: 60
+    low: 40

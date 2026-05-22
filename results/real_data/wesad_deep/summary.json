@@ -1,0 +1,50 @@
+{
+  "dataset": "wesad",
+  "n_subjects": 2,
+  "n_windows": 850,
+  "hr_agreement_overall": {
+    "n_windows": 848,
+    "mean_absolute_error_bpm": 14.550018005368596,
+    "bias_ppg_minus_ecg_bpm": 12.772279564886844,
+    "loa_lower_bpm": -16.18020957371939,
+    "loa_upper_bpm": 41.72476870349308,
+    "pearson_r": 0.47778030707027125,
+    "pearson_p": 1.4258817374677823e-49,
+    "fraction_within_5_bpm": 0.30306603773584906,
+    "fraction_within_10_bpm": 0.4858490566037736
+  },
+  "three_way_sqi": {
+    "n_windows": 850,
+    "spearman_inhouse_vs_orph": 0.26738081868299757,
+    "spearman_inhouse_vs_sukor": 0.2231223735461307,
+    "spearman_orph_vs_sukor": 0.5650905179351765,
+    "kappa_inhouse_vs_orph": 0.0,
+    "kappa_inhouse_vs_sukor": 0.0,
+    "kappa_orph_vs_sukor": 0.3125807532181652,
+    "fraction_all_three_pass": 0.07176470588235294,
+    "fraction_all_three_fail": 0.0,
+    "inhouse_pass_rate": 1.0,
+    "orphanidou_pass_rate": 0.2235294117647059,
+    "sukor_pass_rate": 0.1188235294117647
+  },
+  "motion_effect": {
+    "n_windows": 850,
+    "spearman_motion_vs_inhouse_sqi": -1.0,
+    "spearman_motion_vs_hr_disagreement": 0.303804492121592,
+    "spearman_motion_vs_orphanidou_template_corr": -0.26738081868299757,
+    "high_motion_threshold": 0.0325041134203998,
+    "fraction_high_motion": 0.25058823529411767,
+    "mean_hr_disagreement_low_motion": 12.861490395523044,
+    "mean_hr_disagreement_high_motion": 19.615600834905248
+  },
+  "recalibration": {
+    "n_calibration": 425,
+    "n_holdout": 425,
+    "original_threshold": 0.7,
+    "recalibrated_threshold": 0.99,
+    "original_holdout_kappa_vs_orph": 0.0,
+    "recalibrated_holdout_kappa_vs_orph": 0.21700288518359728,
+    "original_holdout_agreement": 0.21411764705882352,
+    "recalibrated_holdout_agreement": 0.6258823529411764
+  }
+}

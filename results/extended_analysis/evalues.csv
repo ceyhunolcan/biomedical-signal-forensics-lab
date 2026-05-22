@@ -1,0 +1,5 @@
+treatment,outcome,aipw_estimate,ci_low,ci_high,estimate,null_value,rr_equivalent_point,evalue_point,evalue_ci_bound,interpretation
+heat_index,hrv_rmssd,0.2493,-0.604,1.0298,0.2493,0.0,1.2546579680237846,1.8199089288383483,,An unmeasured confounder would need an effect-on-treatment AND effect-on-outcome each of risk-ratio >= 1.82 to explain away the point estimate.
+heat_index,sleep_efficiency,0.0053,0.0001,0.0083,0.0053,0.0,1.0048346493852989,1.0745341703304074,1.0096310472421686,An unmeasured confounder would need an effect-on-treatment AND effect-on-outcome each of risk-ratio >= 1.07 to explain away the point estimate.
+aqi,sleep_efficiency,-0.0017,-0.0033,0.0004,-0.0017,0.0,1.0015481972217877,1.0409257814090538,,An unmeasured confounder would need an effect-on-treatment AND effect-on-outcome each of risk-ratio >= 1.04 to explain away the point estimate.
+active_minutes,hrv_rmssd,-0.497,-0.7967,-0.1375,-0.497,0.0,1.571876297888344,2.5199895811909365,1.5219497994177944,An unmeasured confounder would need an effect-on-treatment AND effect-on-outcome each of risk-ratio >= 2.52 to explain away the point estimate.

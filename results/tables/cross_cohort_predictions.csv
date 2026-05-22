@@ -1,0 +1,9 @@
+check,predicted,observed,pass
+clean_world has near-zero heat→HRV correlation,|r| < 0.05,0.001,True
+strong_environment has stronger heat→HRV correlation than default,|r_strong| > |r_default|,"(0.202, 0.083)",True
+inverted_skin_tone reverses Q4-Q1 sign,sign flip,"(-6.5, 11.07)",True
+severe_device_bias recovers a large empirical device-B offset,empirical offset > 6 bpm,12.48,True
+clean_world has near-zero device-B offset,|offset| < 1.5 bpm,4.48,False
+HRV test-retest reliability is high under regime 'default',r > 0.85,0.949,True
+HRV test-retest reliability is high under regime 'strong_environment',r > 0.85,0.913,True
+HRV test-retest reliability is high under regime 'clean_world',r > 0.85,0.956,True

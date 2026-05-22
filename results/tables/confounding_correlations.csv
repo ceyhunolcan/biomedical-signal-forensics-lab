@@ -1,0 +1,7 @@
+environmental_var,biomarker,pearson_r,n
+heat_index,sleep_efficiency,-0.08989019524425997,18000
+heat_index,hrv_rmssd,-0.05437229741386703,18000
+temperature_c,hrv_rmssd,-0.05376078245586177,18000
+aqi,sleep_efficiency,-0.019467619319597753,18000
+aqi,sleep_duration,-0.010209773064753335,18000
+humidity,hrv_rmssd,-0.009459443165876852,18000

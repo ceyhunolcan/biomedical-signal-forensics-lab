@@ -1,0 +1,16 @@
+{
+  "weights": {
+    "signal_quality_score": 0.0045,
+    "artifact_burden_score": 0.03,
+    "temporal_stability_score": 0.8011,
+    "missingness_risk_score": 0.004,
+    "device_bias_score": 0.1605,
+    "confounding_risk_score": 0.0
+  },
+  "spearman_train": 0.5918,
+  "spearman_holdout": 0.6683,
+  "n_train": 210,
+  "n_holdout": 90,
+  "n_evaluated": 360,
+  "notes": "target=hrv_rmssd, holdout_frac=0.3"
+}

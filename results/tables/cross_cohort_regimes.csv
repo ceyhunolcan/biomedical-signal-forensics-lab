@@ -1,0 +1,6 @@
+regime,description,heat_hrv_coef,skin_tone_penalty,device_b_offset_injected,mean_cohort_dbts,skin_tone_Q4_minus_Q1_sq,device_B_minus_A_hr_empirical,heat_hrv_screening_r,hrv_test_retest_r,n_participants,n_days
+default,The default synthetic regime. Matches the bundled cohort.,-1.8,0.12,3.8,73.22,-6.5,8.28,-0.083,0.949,60,35
+strong_environment,Strong environmental and skin-tone effects. Both fairness gaps and confounding should grow.,-4.5,0.3,3.8,68.97,-19.69,8.28,-0.202,0.913,60,35
+inverted_skin_tone,Skin-tone effect inverted. Q1-Q4 fairness gap should change sign.,-1.8,-0.12,3.8,76.14,11.07,8.28,-0.083,0.949,60,35
+severe_device_bias,Severe device bias. Device-bias component should drop sharply.,-1.8,0.12,8.0,73.22,-6.5,12.48,-0.083,0.949,60,35
+clean_world,No injected effects. All audit outputs should be near-zero / near-100.,0.0,0.0,0.0,75.58,2.41,4.48,0.001,0.956,60,35

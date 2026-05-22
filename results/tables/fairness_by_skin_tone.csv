@@ -1,0 +1,5 @@
+stratum_column,stratum_value,n_participants,n_days,overall_trust_score,ci_low,ci_high,category,signal_quality_score,artifact_burden_score,temporal_stability_score,missingness_risk_score,device_bias_score,confounding_risk_score
+skin_tone_proxy_quartile,Q1,75,4500,67.25,66.29,69.48,moderate,67.93,61.82,69.85,51.66,,94.57
+skin_tone_proxy_quartile,Q2,76,4560,67.27,66.59,69.55,moderate,63.7,61.39,75.44,52.12,,94.34
+skin_tone_proxy_quartile,Q3,75,4500,67.98,65.67,69.62,moderate,60.89,61.74,73.69,62.49,,95.04
+skin_tone_proxy_quartile,Q4,74,4440,64.82,63.97,66.62,moderate,58.4,61.42,71.3,51.79,,94.26

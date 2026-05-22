@@ -1,0 +1,10 @@
+device,reference,column,mean_diff,n_obs
+device_A,device_A,resting_hr,0.0,8400
+device_A,device_A,hrv_rmssd,0.0,8400
+device_A,device_A,sleep_efficiency,0.0,8400
+device_B,device_A,resting_hr,3.7286280596350707,6420
+device_B,device_A,hrv_rmssd,-0.33008544726302347,6420
+device_B,device_A,sleep_efficiency,0.00021770694259015677,6420
+device_C,device_A,resting_hr,-2.1940945642407854,3180
+device_C,device_A,hrv_rmssd,-1.8927475292003635,3180
+device_C,device_A,sleep_efficiency,0.0009549079065587218,3180

@@ -1,0 +1,4 @@
+model_name,quality_detection_AUROC,artifact_detection_F1,calibration_error,robustness_score,notes
+logistic_regression,0.8151,0.7223,0.2981,0.9784,linear baseline
+random_forest,0.8363,0.7562,0.2913,0.9821,"ensemble baseline (200 trees, depth 12)"
+isolation_forest,0.5617,0.52,,0.9716,unsupervised anomaly detector

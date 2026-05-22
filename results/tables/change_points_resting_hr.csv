@@ -1,0 +1,17 @@
+participant_id,metric,index,score,before_mean,after_mean,delta,method
+P0010,resting_hr,48,9.5827,69.9021,72.1167,2.2146,binary_segmentation
+P0021,resting_hr,37,10.419,69.3081,71.2174,1.9093,binary_segmentation
+P0042,resting_hr,25,13.5208,69.548,67.3457,-2.2023,binary_segmentation
+P0045,resting_hr,52,9.6679,69.4654,66.2125,-3.2529,binary_segmentation
+P0048,resting_hr,8,9.0341,71.6625,74.4365,2.774,binary_segmentation
+P0089,resting_hr,44,10.4765,77.3,79.6625,2.3625,binary_segmentation
+P0129,resting_hr,30,12.8583,65.8133,63.7233,-2.09,binary_segmentation
+P0130,resting_hr,25,8.3173,73.068,75.0257,1.9577,binary_segmentation
+P0148,resting_hr,40,9.6925,65.7725,67.62,1.8475,binary_segmentation
+P0152,resting_hr,25,11.3006,73.196,70.9457,-2.2503,binary_segmentation
+P0161,resting_hr,31,8.2694,71.4387,69.6517,-1.787,binary_segmentation
+P0173,resting_hr,33,10.1227,66.0182,64.1556,-1.8626,binary_segmentation
+P0208,resting_hr,41,11.2093,75.5707,77.4316,1.8608,binary_segmentation
+P0266,resting_hr,25,13.0089,57.992,56.0343,-1.9577,binary_segmentation
+P0286,resting_hr,21,10.0835,62.8476,60.4692,-2.3784,binary_segmentation
+P0298,resting_hr,40,10.5289,63.015,60.54,-2.475,binary_segmentation

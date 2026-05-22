@@ -1,0 +1,5 @@
+metric,icc_days_as_raters,week_pair_r,week_pair_ci_low,week_pair_ci_high,n_participants_icc,n_participants_week_pair
+resting_hr,0.8693,0.9768,0.973,0.9797,300,300
+hrv_rmssd,0.7789,0.9535,0.945,0.9612,300,300
+sleep_efficiency,0.0058,0.0231,-0.0175,0.0586,300,300
+sleep_duration,-0.0034,0.0015,-0.044,0.0384,300,300

@@ -1,0 +1,7 @@
+component,min,max,disparity,min_stratum,max_stratum
+missingness_risk_score,51.66,62.49,10.830000000000005,Q1,Q3
+signal_quality_score,58.4,67.93,9.530000000000008,Q4,Q1
+temporal_stability_score,69.85,75.44,5.590000000000003,Q1,Q2
+overall_trust_score,64.82,67.98,3.160000000000011,Q4,Q3
+confounding_risk_score,94.26,95.04,0.7800000000000011,Q4,Q3
+artifact_burden_score,61.39,61.82,0.4299999999999997,Q2,Q1

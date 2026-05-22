@@ -1,0 +1,23 @@
+# Abstract
+
+> Research prototype only. Not medical advice, diagnosis, treatment, or a medical device.
+
+**Working title.** Biomedical signal forensics: a reliability framework for wearable-derived digital biomarkers, with real-data validation on WESAD.
+
+## Structured abstract
+
+**Background.** Wearable measurements (heart rate, HRV, PPG signal quality, sleep, step counts) feed machine-learning pipelines as if they were measurements. They are model outputs. Pooled signal-quality summaries treat the device as a single instrument, but the same device on the same person can be reliable at rest and substantially biased during motion. A test set dominated by quiet conditions surfaces neither failure.
+
+**Objective.** To build and validate an open-source Python toolkit that runs a structured audit on wearable-derived signals before downstream modeling, combining signal-quality estimation, reliability primitives, doubly-robust causal-adjusted confounding analysis, change-point surveillance, and stratified fairness audit with published-baseline comparison.
+
+**Methods.** We implemented `biomedical-signal-forensics-lab`, a Python toolkit comprising five window-level artifact detectors, four participant-level reliability primitives (bootstrap test-retest, ICC, drift slope, device bias), a six-component Digital Biomarker Trust Score with documented YAML-configurable weights and a learnable weight schedule, an AIPW estimator with bootstrap CIs under a user-supplied DAG, BOCPD change-point detection, and stratified fairness audit with cluster-bootstrap CIs. We validated the toolkit on three orthogonal strategies: (i) a 300-participant 60-day synthetic cohort with five documented injected failure modes; (ii) a cross-cohort parameter-sweep covering five generative regimes with eight qualitative predictions; (iii) a real-data pilot on the WESAD dataset (n=2 subjects piloted of 15 supported) with head-to-head comparison against two published baselines (Orphanidou 2015, Sukor 2011).
+
+**Results.** Synthetic cohort: mean DBTS 74.11; bootstrap test-retest r = +0.977 [+0.973, +0.980] for resting HR; learned-weights holdout Spearman ρ = +0.668; injected fairness disparities recovered with 9–13 point gaps; AIPW estimator correctly identified that the heat→HRV screening correlation of −0.054 inverts to +0.25 [−0.60, +1.03] under back-door adjustment. Cross-cohort sweep: 7 of 8 qualitative predictions recovered including a sign-flip when the skin-tone penalty was inverted. WESAD pilot: Bland-Altman bias +12.77 bpm between wrist Empatica E4 PPG and chest RespiBAN ECG with 95% LoA spanning 58 bpm; in-house SQI threshold tuned on synthetic data (0.70) produced Cohen's κ = 0.000 against both published baselines on real wrist PPG; recalibration to 0.99 raised held-out Cohen's κ to +0.217; published baselines agreed with each other (κ = +0.31, ρ = +0.57) but neither agreed with the synthetic-tuned in-house SQI on real data; motion artifact score predicted cross-modality HR disagreement (ρ = +0.30); Orphanidou template correlation on S2 dropped from 0.82 (baseline) to 0.66 (stress) at p = 3.4 × 10⁻¹⁴.
+
+**Conclusions.** Wearable-derived digital biomarkers require an explicit auditable layer between raw device output and downstream modeling. We provide an open-source reference implementation, demonstrate that synthetic-tuned thresholds fail on real wrist data, and report that the framework's recalibration recipe recovers fair agreement with published baselines. The framework is non-clinical: it produces methodological recommendations and quality estimates, not diagnoses.
+
+**Keywords.** wearable computing; digital biomarkers; signal quality; photoplethysmography; reliability; reproducibility; causal inference; fairness audit
+
+## Plain-language summary
+
+Smartwatches and fitness wearables report numbers (heart rate, sleep, activity) that researchers treat as measurements. They are model outputs, not raw observations. A wrist sensor that reads accurately while you sit still can be substantially wrong while you walk. Most published wearable studies do not check this carefully. We built an open-source tool that runs a methodical quality check on wearable data before it is used to train any machine-learning model, and we tested the tool on both simulated data and a real public dataset (WESAD). On the real data the tool found that a wrist heart-rate sensor disagrees with a chest reference by an average of 13 beats per minute, and that the tool's own default quality threshold needs to be adjusted before it can be trusted on real-world wrist data. We provide the recalibration recipe and the code to reproduce every number in the paper.

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "biomedical-signal-forensics-lab"
+message: "If you use this software, please cite it as below."
+type: software
+abstract: >
+  A Python toolkit for auditing wearable-derived digital biomarkers for
+  acquisition artifacts, environmental confounding, reliability failures,
+  and fairness disparities. Produces a six-component Digital Biomarker
+  Trust Score with a per-participant and per-cohort report.
+authors:
+  - given-names: To be filled
+    family-names: To be filled
+license: MIT
+repository-code: "https://github.com/PLACEHOLDER/biomedical-signal-forensics-lab"
+version: 0.3.0
+date-released: "2026-05-19"
+keywords:
+  - wearable computing
+  - digital biomarkers
+  - signal quality
+  - reliability
+  - reproducibility
+  - fairness audit

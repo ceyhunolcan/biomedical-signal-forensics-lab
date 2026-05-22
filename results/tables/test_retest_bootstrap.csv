@@ -1,0 +1,5 @@
+metric,point_estimate,ci_low,ci_high,n_participants,n_pairs,method,notes
+resting_hr,0.9768,0.9729,0.9798,300,2400,week_pair,"cluster bootstrap, n_boot=300"
+hrv_rmssd,0.9535,0.9452,0.9607,300,2400,week_pair,"cluster bootstrap, n_boot=300"
+sleep_efficiency,0.0231,-0.0175,0.062,300,2400,week_pair,"cluster bootstrap, n_boot=300"
+sleep_duration,0.0015,-0.0405,0.0381,300,2400,week_pair,"cluster bootstrap, n_boot=300"

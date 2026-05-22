@@ -1,0 +1,8 @@
+component,min,max,disparity,min_stratum,max_stratum
+signal_quality_score,54.38,67.4,13.020000000000003,device_C,device_A
+missingness_risk_score,56.02,63.36,7.339999999999996,device_B,device_C
+temporal_stability_score,70.93,74.31,3.3799999999999955,device_A,device_B
+confounding_risk_score,92.78,95.54,2.760000000000005,device_B,device_A
+overall_trust_score,69.75,71.96,2.2099999999999937,device_C,device_A
+artifact_burden_score,61.46,62.19,0.7299999999999969,device_B,device_C
+device_bias_score,100.0,100.0,0.0,device_A,device_A

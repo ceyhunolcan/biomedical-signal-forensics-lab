@@ -1,0 +1,4 @@
+stratum_column,stratum_value,n_participants,n_days,overall_trust_score,ci_low,ci_high,category,signal_quality_score,artifact_burden_score,temporal_stability_score,missingness_risk_score,device_bias_score,confounding_risk_score
+device_type,device_A,140,8400,71.96,70.18,72.09,moderate,67.4,61.47,70.93,60.51,100.0,95.54
+device_type,device_B,107,6420,70.03,68.32,70.94,moderate,60.8,61.46,74.31,56.02,100.0,92.78
+device_type,device_C,53,3180,69.75,67.85,70.91,moderate,54.38,62.19,73.62,63.36,100.0,94.92

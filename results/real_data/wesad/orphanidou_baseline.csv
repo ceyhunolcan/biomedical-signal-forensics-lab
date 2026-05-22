@@ -1,0 +1,2 @@
+n_windows,in_house_mean_sqi,orphanidou_acceptable_frac,spearman_with_template_corr,point_biserial_with_binary,both_pass,both_fail,inhouse_pass_orph_fail,inhouse_fail_orph_pass
+850,0.9857,0.2235,0.2674,0.2124,190,0,660,0
