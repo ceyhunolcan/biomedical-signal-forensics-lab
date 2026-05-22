@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software in academic work, please cite it as below."
 title: "biomedical-signal-forensics-lab"
+doi: "10.5281/zenodo.20349806"
 abstract: >-
   An open-source Python toolkit for auditing wearable physiological signal
   pipelines. It targets four failure modes that commonly invalidate

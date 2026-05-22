@@ -7,7 +7,7 @@
 [![Tests](https://img.shields.io/badge/tests-235%20passing-brightgreen)](tests/)
 <!-- After Zenodo integration is enabled (see ZENODO_SETUP.md), replace the
      placeholder below with the actual DOI badge that Zenodo provides. -->
-[![DOI](https://zenodo.org/badge/DOI/PLACEHOLDER.svg)](https://doi.org/PLACEHOLDER)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20349806.svg)](https://doi.org/10.5281/zenodo.20349806)
 
 An open-source Python toolkit for auditing wearable physiological signal
 pipelines. It targets four failure modes that commonly invalidate
@@ -100,7 +100,7 @@ If you use this toolkit in academic work, please cite the software:
   year         = {2026},
   version      = {v0.13.0},
   url          = {https://github.com/ceyhunolcan/biomedical-signal-forensics-lab},
-  doi          = {PLACEHOLDER}
+  doi          = {10.5281/zenodo.20349806}
 }
 ```
 
