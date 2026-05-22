@@ -2,9 +2,15 @@
 
 > Research prototype only. Not medical advice, diagnosis, treatment, or a medical device.
 
-**Authors.** To be filled.
-**Corresponding author.** To be filled.
-**Affiliations.** To be filled.
+**Authors.** Ceyhun Olcan¹
+
+**Corresponding author.** Ceyhun Olcan, ceyhun.olcan.27@dartmouth.edu.
+
+**Affiliations.**
+
+¹ Center for Technology and Behavioral Health, Geisel School of Medicine at Dartmouth, Lebanon, NH 03766, USA.
+
+**ORCID.** Ceyhun Olcan: [0000-0002-6326-6071](https://orcid.org/0000-0002-6326-6071).
 
 ---
 
