@@ -13,14 +13,14 @@ We treat "signal quality" not as a single scalar but as the conjunction of prope
 5. Measurements across devices agree within reason.
 6. The variability we see is not explainable by environment or behavior alone.
 
-Conditions 1–3 are properties of a window or a day. Conditions 4–6 require pooling across windows, days, participants, or devices. Any single-number "quality score" fails to separate these, which is why we report six components.
+Conditions 1-3 are properties of a window or a day. Conditions 4-6 require pooling across windows, days, participants, or devices. Any single-number "quality score" fails to separate these, which is why we report six components.
 
 ## Acquisition quality
 
 For each window we compute a signal quality index (SQI) appropriate to the modality:
 
-- **ECG-SQI.** Bandpass to 5–15 Hz, detect R-peaks, compute the dispersion of inter-peak intervals after rejecting non-physiological gaps, and combine with the residual energy in the 30–80 Hz noise band.
-- **PPG-SQI.** Bandpass to 0.5–4 Hz, detect pulse peaks, compute beat-to-beat amplitude consistency, and penalize high-frequency content above 4 Hz.
+- **ECG-SQI.** Bandpass to 5-15 Hz, detect R-peaks, compute the dispersion of inter-peak intervals after rejecting non-physiological gaps, and combine with the residual energy in the 30-80 Hz noise band.
+- **PPG-SQI.** Bandpass to 0.5-4 Hz, detect pulse peaks, compute beat-to-beat amplitude consistency, and penalize high-frequency content above 4 Hz.
 
 These are simple. Better SQI estimators exist in the literature (template matching, learned quality classifiers). We use the simple version because the framework's claim is not "our SQI is the best." The claim is that an SQI score alone is insufficient and must be combined with the remaining five components.
 
@@ -65,8 +65,8 @@ These weights reflect a specific value judgment: we trust acquisition-layer meas
 | Category | Overall score | Recommended action |
 |----------|---------------|--------------------|
 | high | ≥ 80 | Use for primary analysis with standard reporting |
-| moderate | 60 – 80 | Use with sensitivity analyses and stratification |
-| low | 40 – 60 | Use only as a covariate or with strict exclusion |
+| moderate | 60 - 80 | Use with sensitivity analyses and stratification |
+| low | 40 - 60 | Use only as a covariate or with strict exclusion |
 | unreliable | < 40 | Do not use in modeling without auditing per-day flags first |
 
 These cutoffs are starting points, not law. They were chosen to be roughly evenly spaced and to match the bands a reviewer would intuitively expect.

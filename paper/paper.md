@@ -10,10 +10,11 @@ tags:
   - causal inference
   - fairness audit
 authors:
-  - name: To be filled
+  - name: Ceyhun Olcan
+    orcid: 0000-0002-6326-6071
     affiliation: 1
 affiliations:
- - name: To be filled
+ - name: Center for Technology and Behavioral Health, Geisel School of Medicine at Dartmouth, Lebanon, NH 03766, USA
    index: 1
 date: 21 May 2026
 bibliography: paper.bib
@@ -65,6 +66,6 @@ WESAD provides a single ~100-minute session per subject and no demographic varia
 
 # Acknowledgements
 
-To be filled.
+The author thanks the maintainers of the WESAD dataset (Schmidt et al. 2018) for releasing the chest-ECG and wrist-PPG data on which this toolkit was validated. The signal-quality auditing pipeline reuses and extends the published methodologies of Orphanidou et al. (2015), Sukor et al. (2011), and Elgendi (2016).
 
 # References

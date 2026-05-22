@@ -40,8 +40,8 @@ Open `.zenodo.json` at the repository root. The contents will be parsed
 by Zenodo every time you publish a GitHub release. Fields that matter:
 
 - `title`, `description`, `creators`, `keywords`, `license`,
-  `upload_type`, `access_right` — these all populate the Zenodo deposit.
-- `creators[].orcid` — links the Zenodo deposit to your ORCID profile,
+  `upload_type`, `access_right` : these all populate the Zenodo deposit.
+- `creators[].orcid` : links the Zenodo deposit to your ORCID profile,
   so the DOI shows up automatically on https://orcid.org/0000-0002-6326-6071.
 
 If the file is missing fields, Zenodo will fall back to scraping the

@@ -82,8 +82,8 @@ standards relevant to digital-health AI research:
 
 - `paper/checklists/tripod_ai_checklist.md` (TRIPOD+AI, Collins et al. 2024)
 - `paper/checklists/stard_2015_checklist.md` (STARD 2015, Bossuyt et al. 2015)
-- `paper/checklists/consort_ai_applicability.md` (CONSORT-AI, Liu et al. 2020 — does not apply, with rationale)
-- `paper/checklists/decide_ai_applicability.md` (DECIDE-AI, Vasey et al. 2022 — does not apply, with rationale)
+- `paper/checklists/consort_ai_applicability.md` (CONSORT-AI, Liu et al. 2020, does not apply, with rationale)
+- `paper/checklists/decide_ai_applicability.md` (DECIDE-AI, Vasey et al. 2022, does not apply, with rationale)
 
 A STARD-style data flow diagram is provided as Figure 1
 (`paper/figures/fig_flow_diagram.png`).

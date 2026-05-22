@@ -10,7 +10,11 @@ Biomedical Signal Forensics: A Reliability Framework for Wearable-Derived Digita
 
 ## Authors and affiliations
 
-(To be filled.)
+Ceyhun Olcan
+
+Center for Technology and Behavioral Health, Geisel School of Medicine at Dartmouth, Lebanon, NH 03766, USA.
+
+ORCID: 0000-0002-6326-6071. Correspondence: ceyhun.olcan.27@dartmouth.edu.
 
 ## Abstract (~250 words)
 
