@@ -12,9 +12,13 @@
         <meta name="author" content="Ceyhun Olcan">
       
       
-        <link rel="canonical" href="https://ceyhunolcan.github.io/biomedical-signal-forensics-lab/signal_quality_taxonomy/">
+        <link rel="canonical" href="https://ceyhunolcan.github.io/biomedical-signal-forensics-lab/comparison/">
       
       
+        <link rel="prev" href="../results/">
+      
+      
+        <link rel="next" href="../reproducing-paper/">
       
       
         
@@ -25,7 +29,7 @@
     
     
       
-        <title>Signal Quality Taxonomy - biomedical-signal-forensics-lab</title>
+        <title>Comparison vs other tools - biomedical-signal-forensics-lab</title>
       
     
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#signal-quality-taxonomy" class="md-skip">
+        <a href="#comparison-with-existing-toolkits" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Signal Quality Taxonomy
+              Comparison vs other tools
             
           </span>
         </div>
@@ -367,10 +371,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../comparison/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparison vs other tools
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -386,6 +417,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#feature-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature coverage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-which" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use which
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-charity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note on charity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation-pointers-for-the-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation pointers for the comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -552,10 +658,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-a-taxonomy-at-all" class="md-nav__link">
+  <a href="#feature-coverage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why a taxonomy at all
+        Feature coverage
       
     </span>
   </a>
@@ -563,71 +669,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#top-level-categories" class="md-nav__link">
+  <a href="#when-to-use-which" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-level categories
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Top-level categories">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-acquisition-layer-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Acquisition-layer failures
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-physiological-plausibility-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Physiological-plausibility failures
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-coverage-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Coverage failures
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-cross-source-reliability-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Cross-source reliability failures
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#severity-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Severity levels
+        When to use which
       
     </span>
   </a>
@@ -635,10 +680,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-out-of-scope" class="md-nav__link">
+  <a href="#composability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What is out of scope
+        Composability
       
     </span>
   </a>
@@ -646,10 +691,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-the-taxonomy-maps-to-the-trust-score" class="md-nav__link">
+  <a href="#a-note-on-charity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the taxonomy maps to the trust score
+        A note on charity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation-pointers-for-the-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation pointers for the comparison
       
     </span>
   </a>
@@ -676,91 +732,215 @@
   
 
 
-<h1 id="signal-quality-taxonomy">Signal Quality Taxonomy<a class="headerlink" href="#signal-quality-taxonomy" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Research prototype only. Not medical advice, diagnosis, treatment, or a medical device.</p>
-</blockquote>
-<p>This document defines the categories of signal quality issues the toolkit looks for. It is narrow: we describe what each label means, how we detect it on synthetic data, and what kind of false positive or negative to expect. The taxonomy is the contract between the artifact detectors, the trust score, and the audit report.</p>
-<h2 id="why-a-taxonomy-at-all">Why a taxonomy at all<a class="headerlink" href="#why-a-taxonomy-at-all" title="Permanent link">&para;</a></h2>
-<p>Most wearable papers report a single "signal quality" number per device or per study. That number hides everything that matters. A PPG window can be perfectly clean but recorded in the wrong physiological state. A heart-rate trace can be smooth and entirely fabricated by a manufacturer interpolation. Two devices can both score 0.9 on an internal quality metric and disagree by 4 bpm on the same wrist. A taxonomy with named, separately-measurable failure modes is the minimum needed to write down what a model is robust to and what it is not.</p>
-<h2 id="top-level-categories">Top-level categories<a class="headerlink" href="#top-level-categories" title="Permanent link">&para;</a></h2>
-<h3 id="1-acquisition-layer-failures">1. Acquisition-layer failures<a class="headerlink" href="#1-acquisition-layer-failures" title="Permanent link">&para;</a></h3>
-<p>Problems that originate at the sensor or its immediate firmware. Detectable from raw or near-raw windows.</p>
-<ul>
-<li><strong>Motion artifact.</strong> Sensor displacement during movement corrupts the optical or electrical signal. We detect via short-window amplitude variance and an excess of high-frequency power relative to the cardiac band. Common on PPG during exercise, walking, or restless sleep.</li>
-<li><strong>Sensor dropout.</strong> Extended zero or near-zero runs. Detected with run-length encoding on a low-amplitude mask. Distinguished from "non-wear" by duration and surrounding context.</li>
-<li><strong>Noise spikes.</strong> Isolated samples or short bursts well outside the local distribution. Detected with a robust median absolute deviation z-score. Often electrical interference or contact noise.</li>
-<li><strong>Flatline.</strong> Constant or near-constant value over a window where physiology should produce variation. Detected with rolling variance against a floor threshold.</li>
-<li><strong>Timestamp irregularity.</strong> Sample-to-sample timing jitter or large gaps. Detected as deviation of inter-sample intervals from the nominal sampling period. Important because almost every downstream HRV metric assumes a regular grid.</li>
-</ul>
-<h3 id="2-physiological-plausibility-failures">2. Physiological-plausibility failures<a class="headerlink" href="#2-physiological-plausibility-failures" title="Permanent link">&para;</a></h3>
-<p>Values that the sensor confidently reports but that are biologically implausible.</p>
-<ul>
-<li><strong>Out-of-range vitals.</strong> Resting heart rate below 30 or above 130 bpm, RMSSD above 200 ms, sleep duration over 14 hours, etc. We treat these as hard flags rather than soft penalties.</li>
-<li><strong>Impossible transitions.</strong> Day-over-day jumps that no physiology produces (e.g., a 40 bpm change in resting HR with no illness or fitness intervention).</li>
-<li><strong>Activity-vital inconsistency.</strong> Very high step counts with extremely low heart rate, or zero motion with sustained tachycardia. Flagged but not auto-corrected.</li>
-</ul>
-<h3 id="3-coverage-failures">3. Coverage failures<a class="headerlink" href="#3-coverage-failures" title="Permanent link">&para;</a></h3>
-<p>Problems with whether the signal was captured at all.</p>
-<ul>
-<li><strong>Low wearable minutes.</strong> A daily summary built on under a few hours of wear time should not be treated like a 24-hour record.</li>
-<li><strong>Consecutive dropout days.</strong> Strings of missing days bias longitudinal estimates more than the same total fraction scattered randomly.</li>
-<li><strong>State-dependent missingness.</strong> Missingness that correlates with stress, sleep, or activity is informative, not random, and breaks every standard imputation method.</li>
-</ul>
-<h3 id="4-cross-source-reliability-failures">4. Cross-source reliability failures<a class="headerlink" href="#4-cross-source-reliability-failures" title="Permanent link">&para;</a></h3>
-<p>Problems that only show up when the same construct is measured more than once.</p>
-<ul>
-<li><strong>Test-retest drift.</strong> Within-participant scores from adjacent weeks that disagree more than the cohort's between-participant spread.</li>
-<li><strong>Device bias.</strong> Systematic offsets between device models that survive after participant-level matching.</li>
-<li><strong>Algorithm version drift.</strong> Manufacturer-side firmware or pipeline changes that move the mean. We don't simulate this directly but flag time periods where the empirical distribution shifts.</li>
-</ul>
-<h2 id="severity-levels">Severity levels<a class="headerlink" href="#severity-levels" title="Permanent link">&para;</a></h2>
-<p>For each finding we report a severity in <code>[0, 1]</code>. The conventions are simple:</p>
+<h1 id="comparison-with-existing-toolkits">Comparison with existing toolkits<a class="headerlink" href="#comparison-with-existing-toolkits" title="Permanent link">&para;</a></h1>
+<p>A common first question is "how does this toolkit relate to neurokit2 or
+heartpy?". The short answer is that the existing tools and this toolkit
+target different problems and are complementary rather than substitutes.</p>
+<p>The existing tools provide comprehensive signal processing primitives:
+filtering, peak detection, HRV features, cardiorespiratory analysis. This
+toolkit assumes those primitives already exist and adds an audit layer that
+asks a different question: <em>given</em> a signal-processing pipeline, what is the
+evidence that its outputs are quality-controlled, fairness-aware,
+causally-interpretable, and downstream-stable?</p>
+<p>The table below maps the feature coverage. Entries reflect the state of each
+project at the time of writing and are intended to be charitable; corrections
+welcome via pull request.</p>
+<h2 id="feature-coverage">Feature coverage<a class="headerlink" href="#feature-coverage" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Severity</th>
-<th>Meaning</th>
+<th>Capability</th>
+<th>neurokit2</th>
+<th>heartpy</th>
+<th>hrv-analysis</th>
+<th>BiosPPy</th>
+<th>this toolkit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0.0 – 0.2</td>
-<td>Detected but unlikely to affect downstream metrics</td>
+<td>ECG peak detection</td>
+<td>yes</td>
+<td>partial</td>
+<td>indirect</td>
+<td>yes</td>
+<td>uses heartpy/neurokit2</td>
 </tr>
 <tr>
-<td>0.2 – 0.5</td>
-<td>Window or day should be flagged in any analysis</td>
+<td>PPG peak detection</td>
+<td>yes</td>
+<td>yes</td>
+<td>indirect</td>
+<td>yes</td>
+<td>uses heartpy/neurokit2</td>
 </tr>
 <tr>
-<td>0.5 – 0.8</td>
-<td>Window or day should be excluded from primary analysis</td>
+<td>HRV feature computation</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>uses external</td>
 </tr>
 <tr>
-<td>0.8 – 1.0</td>
-<td>Strong evidence the data are unreliable</td>
+<td>EDA / EMG / respiration</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+<td>scope-limited</td>
+</tr>
+<tr>
+<td>Multiple SQI baselines compared</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td><strong>yes (4-way)</strong></td>
+</tr>
+<tr>
+<td>Pairwise SQI agreement (Cohen's kappa)</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td><strong>yes</strong></td>
+</tr>
+<tr>
+<td>Fairness audit by stratum</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td><strong>yes</strong></td>
+</tr>
+<tr>
+<td>Causal sensitivity (AIPW, E-values)</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td><strong>yes</strong></td>
+</tr>
+<tr>
+<td>Negative-control exposures</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td><strong>yes</strong></td>
+</tr>
+<tr>
+<td>Downstream-task impact (LOSO)</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td><strong>yes</strong></td>
+</tr>
+<tr>
+<td>Reporting-standards checklists shipped</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td><strong>yes</strong></td>
+</tr>
+<tr>
+<td>Test suite size</td>
+<td>large</td>
+<td>small</td>
+<td>small</td>
+<td>medium</td>
+<td>235 tests</td>
+</tr>
+<tr>
+<td>Trusted-publisher PyPI release</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Zenodo concept DOI</td>
+<td>varies</td>
+<td>varies</td>
+<td>varies</td>
+<td>varies</td>
+<td>yes</td>
 </tr>
 </tbody>
 </table>
-<p>These cutoffs are chosen to be easy to communicate, not because they came from a calibration study. Treat them as starting points.</p>
-<h2 id="what-is-out-of-scope">What is out of scope<a class="headerlink" href="#what-is-out-of-scope" title="Permanent link">&para;</a></h2>
+<h2 id="when-to-use-which">When to use which<a class="headerlink" href="#when-to-use-which" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>If you need to</th>
+<th>Reach for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filter, detect peaks, extract HRV features from raw signals</td>
+<td>neurokit2 or heartpy</td>
+</tr>
+<tr>
+<td>A single end-to-end PPG/ECG pipeline with good defaults</td>
+<td>neurokit2</td>
+</tr>
+<tr>
+<td>Compare a quality-control choice against published baselines</td>
+<td>this toolkit</td>
+</tr>
+<tr>
+<td>Audit a digital-health analysis for fairness, causal, or downstream issues</td>
+<td>this toolkit</td>
+</tr>
+<tr>
+<td>Produce reporting-standards-compliant supplementary materials</td>
+<td>this toolkit</td>
+</tr>
+<tr>
+<td>Deploy a clinical decision-support system</td>
+<td>none of these; consult regulatory pathway</td>
+</tr>
+</tbody>
+</table>
+<h2 id="composability">Composability<a class="headerlink" href="#composability" title="Permanent link">&para;</a></h2>
+<p>This toolkit is designed to wrap existing pipelines, not replace them. A
+typical workflow is:</p>
+<ol>
+<li>Process the raw signals using neurokit2 (peak detection, basic HRV).</li>
+<li>Pass the resulting per-window features into the audit pipeline here.</li>
+<li>Read the methodology recommendations and adjust the pipeline if any audit
+   flags an issue.</li>
+<li>Re-run the downstream analysis with the adjusted pipeline.</li>
+</ol>
+<p>The toolkit imports nothing from neurokit2 or heartpy directly (to keep the
+dependency surface small) but the example notebooks in <code>notebooks/</code> show how
+to combine them.</p>
+<h2 id="a-note-on-charity">A note on charity<a class="headerlink" href="#a-note-on-charity" title="Permanent link">&para;</a></h2>
+<p>The "no" entries in the table above do not mean the corresponding projects
+are deficient. They mean the audit layer is out of scope for those projects,
+which is a reasonable scope decision; the existence of this toolkit does not
+imply that other tools should have included an audit layer. Conversely, the
+"yes" entries in this toolkit do not mean the audit replaces deep signal
+processing expertise; they mean the toolkit provides quantitative evidence
+that the practitioner uses to inform analytic decisions.</p>
+<p>If a comparison row is inaccurate or out of date, please open an issue at
+https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/issues with the
+correction.</p>
+<h2 id="citation-pointers-for-the-comparison">Citation pointers for the comparison<a class="headerlink" href="#citation-pointers-for-the-comparison" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Arrhythmia or rhythm classification.</strong> Not a diagnostic project.</li>
-<li><strong>Sleep staging.</strong> We use sleep duration and efficiency as inputs but do not produce stage labels.</li>
-<li><strong>Stress prediction.</strong> <code>stress_proxy</code> is an input feature, not a target.</li>
-<li><strong>Device-specific tuning.</strong> Detectors use thresholds that should be re-calibrated for any real device family.</li>
+<li>neurokit2: Makowski et al. (2021), <em>Behavior Research Methods</em>.</li>
+<li>heartpy: van Gent et al. (2019), <em>Journal of Open Research Software</em>.</li>
+<li>hrv-analysis: Champseix (2018), open-source release.</li>
+<li>BiosPPy: Carreiras et al. (2015), open-source release.</li>
 </ul>
-<h2 id="how-the-taxonomy-maps-to-the-trust-score">How the taxonomy maps to the trust score<a class="headerlink" href="#how-the-taxonomy-maps-to-the-trust-score" title="Permanent link">&para;</a></h2>
-<p>The Digital Biomarker Trust Score has six components. Each one consumes a subset of the taxonomy:</p>
-<ul>
-<li><code>signal_quality_score</code> ← acquisition-layer findings, aggregated</li>
-<li><code>artifact_burden_score</code> ← acquisition-layer + physiological-plausibility, weighted by severity</li>
-<li><code>temporal_stability_score</code> ← cross-source reliability (test-retest, drift)</li>
-<li><code>missingness_risk_score</code> ← coverage failures plus state-dependent missingness</li>
-<li><code>device_bias_score</code> ← cross-source reliability (device offsets)</li>
-<li><code>confounding_risk_score</code> ← interactions between environmental/behavioral covariates and the metric of interest</li>
-</ul>
-<p>See <code>paper/signal_quality_framework.md</code> for the formal definitions and weighting.</p>
+<p>Full bibliographic detail for the baselines compared in the SQI audit
+(Orphanidou 2015, Sukor 2011, Elgendi 2016) is in
+<a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/paper/paper.bib"><code>paper/paper.bib</code></a>.</p>
 
 
 
