@@ -1,52 +1,108 @@
 # biomedical-signal-forensics-lab
 
-An open-source Python toolkit for auditing wearable physiological signal
-pipelines. It targets four failure modes that commonly invalidate
-downstream conclusions in digital-health research.
+*An open-source Python toolkit for auditing wearable physiological signal
+pipelines.*
+
+[![PyPI version](https://img.shields.io/pypi/v/biomedical-signal-forensics-lab.svg)](https://pypi.org/project/biomedical-signal-forensics-lab/)
+[![Python versions](https://img.shields.io/pypi/pyversions/biomedical-signal-forensics-lab.svg)](https://pypi.org/project/biomedical-signal-forensics-lab/)
+[![CI](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20349806.svg)](https://doi.org/10.5281/zenodo.20349806)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/LICENSE)
 
 !!! warning "Research prototype only"
-    This toolkit is a research prototype. Not medical advice, diagnosis,
-    treatment, or a medical device.
+    This toolkit is a research prototype. It is not medical advice, diagnosis,
+    treatment, or a medical device. Outputs are statistical estimates only.
 
-## What this toolkit does
+## What it does
 
-1. **Signal-quality auditing.** Four signal-quality binarisations
-   (in-house, [Orphanidou 2015](https://doi.org/10.1088/0967-3334/36/8/1781),
-   [Sukor 2011](https://doi.org/10.1088/0967-3334/32/4/004),
-   [Elgendi 2016](https://doi.org/10.3390/bioengineering3040021)) compared
-   on the same windows, with pairwise Cohen's kappa and consensus-failure
-   rates.
-2. **Algorithmic fairness audit.** Per-stratum performance differences
-   detected and decomposed on synthetic cohorts with injected disparities
-   in device family and skin tone.
-3. **Causal sensitivity analysis.** AIPW doubly-robust estimation with
-   E-values and back-door adjustment under a user-supplied DAG.
-4. **Downstream-task impact testing.** Per-fold AUROC comparison under
-   different preprocessing regimes, paired Wilcoxon signed-rank test
-   over LOSO folds.
+Auditing wearable physiological signal pipelines for four failure modes that
+commonly invalidate downstream conclusions in digital-health research.
 
-## Key results on real wrist PPG (WESAD, n=15)
+```mermaid
+flowchart LR
+    A[Wrist PPG<br/>Chest ECG] --> B[Audit pipeline]
+    B --> C[Signal-Quality Audit<br/>4-way SQI:<br/>in-house + Orphanidou<br/>+ Sukor + Elgendi]
+    B --> D[Algorithmic Fairness<br/>device, skin tone,<br/>per-subject drift]
+    B --> E[Causal Sensitivity<br/>AIPW + E-values<br/>+ negative controls]
+    B --> F[Downstream Impact<br/>LOSO + Wilcoxon<br/>on stress detection]
+    C --> G[Methodology<br/>recommendations]
+    D --> G
+    E --> G
+    F --> G
+    classDef pipeline fill:#0b3d91,stroke:#0b3d91,color:#fff
+    classDef audit fill:#f1f5f9,stroke:#0b3d91,color:#0b3d91
+    classDef output fill:#e63946,stroke:#e63946,color:#fff
+    class B pipeline
+    class C,D,E,F audit
+    class G output
+```
 
-- Bland-Altman bias **+3.57 bpm**, 95% LoA **[-23.14, +30.28]** bpm,
-  MAE 9.66 bpm, Pearson r = +0.70.
-- Three published SQI baselines collectively reject **44.6%** of windows
-  (2,936 of 6,585) that the in-house default threshold accepts.
-- Downstream classifier AUROC differs by 0.019 between raw and cleaned
-  preprocessing; paired Wilcoxon p = 1.5e-4 over 15 LOSO folds.
+## Installation
 
-## Where to go next
+```bash
+pip install biomedical-signal-forensics-lab
+```
 
-- [Getting started](getting-started.md): install and run the pipeline.
-- [Reproducing the paper](reproducing-paper.md): step-by-step
-  reproduction of every numerical claim.
-- [Reporting standards](reporting-standards.md): per-item TRIPOD+AI and
-  STARD 2015 compliance.
-- [API reference](api-reference.md): module-level documentation.
-- [Citing](citing.md): how to cite the software.
+Or from source for development:
 
-## Status
+```bash
+git clone https://github.com/ceyhunolcan/biomedical-signal-forensics-lab.git
+cd biomedical-signal-forensics-lab
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+pytest
+```
 
-- Latest release: see the [GitHub releases page](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/releases).
-- Tests: 235 passing on Python 3.10, 3.11, 3.12.
-- License: [MIT](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/LICENSE).
-- DOI: [10.5281/zenodo.20349806](https://doi.org/10.5281/zenodo.20349806).
+## Three-line example
+
+```python
+from biomedical_signal_forensics_lab.signals import orphanidou_sqi, sukor_sqi, elgendi_sqi
+from biomedical_signal_forensics_lab.data import load_wesad
+
+windows = load_wesad("/path/to/WESAD")
+report = {sqi.__name__: sqi(windows) for sqi in (orphanidou_sqi, sukor_sqi, elgendi_sqi)}
+```
+
+## Headline findings on WESAD (n = 15)
+
+| Metric | Value | Source |
+|---|---|---|
+| Three-baseline consensus rejection rate | **44.6%** | `results/wesad_deep_analysis.json` |
+| Bland-Altman bias (PPG minus ECG) | **+3.57 bpm** | LoA [-23.14, +30.28] |
+| Median pairwise SQI Cohen's kappa | **-0.20** | three published baselines |
+| LOSO AUROC after audit | **0.823** | up from 0.804 (delta = +0.019) |
+| Test suite | **235 passing** | Python 3.10 / 3.11 / 3.12 |
+
+[Full results page with figures and tables](results.md){ .md-button .md-button--primary }
+[Methods documentation](methods.md){ .md-button }
+[Comparison vs other tools](comparison.md){ .md-button }
+
+## Where to next
+
+- [Getting started](getting_started.md): installation, environment, first run
+- [Reproducing the paper](reproducing_paper.md): end-to-end commands to regenerate every figure and table in the manuscript
+- [Reporting standards](reporting_standards.md): TRIPOD+AI, STARD, CONSORT-AI, DECIDE-AI compliance
+- [API reference](api/index.md): auto-generated from docstrings via mkdocstrings
+- [Citing](citing.md): BibTeX, CITATION.cff, Zenodo DOI
+
+## Author and contact
+
+Ceyhun Olcan,
+Center for Technology and Behavioral Health,
+Geisel School of Medicine at Dartmouth,
+Lebanon, NH, USA.
+ORCID: [0000-0002-6326-6071](https://orcid.org/0000-0002-6326-6071).
+
+## How to cite
+
+```bibtex
+@software{olcan2026biomedical,
+  author       = {Olcan, Ceyhun},
+  title        = {{biomedical-signal-forensics-lab}: An open-source toolkit
+                  for auditing wearable physiological signal pipelines},
+  year         = {2026},
+  version      = {v0.16.0},
+  url          = {https://github.com/ceyhunolcan/biomedical-signal-forensics-lab},
+  doi          = {10.5281/zenodo.20349806}
+}
+```

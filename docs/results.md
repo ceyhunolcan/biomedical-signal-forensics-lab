@@ -27,7 +27,7 @@ are written to `results/wesad_deep_analysis.json` at run time.
 
 ## Figure 1. Verdict gap between in-house thresholds and three published SQI baselines
 
-![Verdict gap](../paper/figures/fig4_rejection_cascade.png)
+![Verdict gap](figures/fig4_rejection_cascade.png)
 
 The in-house threshold-based pipeline passes every one of the 6,585 windows.
 Applying three independent published baselines to the same windows produces a
@@ -36,7 +36,7 @@ and Elgendi simultaneously). The verdict gap motivates the four-way SQI audit.
 
 ## Figure 2. Per-baseline pass rates
 
-![Per-baseline pass rates](../paper/figures/fig2_pass_rate_bars.png)
+![Per-baseline pass rates](figures/fig2_pass_rate_bars.png)
 
 Each published baseline applied independently passes between 21.5% and 25.7%
 of windows. The in-house pipeline passes 100%. The four baselines disagree
@@ -45,7 +45,7 @@ analysable.
 
 ## Figure 3. Pairwise Cohen's kappa across published SQI baselines
 
-![Pairwise kappa heatmap](../paper/figures/fig3_kappa_heatmap.png)
+![Pairwise kappa heatmap](figures/fig3_kappa_heatmap.png)
 
 Pairwise Cohen's kappa across the three published baselines. Two of the three
 pairs disagree (negative kappa); the third agreement (Orphanidou vs Sukor,
@@ -55,7 +55,7 @@ undefined (zero marginal variance) against any other baseline.
 
 ## Figure 4. Downstream stress-detection outcomes
 
-![Downstream outcomes](../paper/figures/fig5_downstream_outcomes.png)
+![Downstream outcomes](figures/fig5_downstream_outcomes.png)
 
 Left panel: LOSO AUROC of a stress classifier rises from 0.804 to 0.823 with
 the full audit pipeline applied (delta = +0.019). Right panel: post-
@@ -66,19 +66,23 @@ agreement but produces a small detectable downstream effect at n = 15.
 
 ## Figure 5. Bland-Altman of wrist PPG vs chest ECG heart rate
 
-This figure is generated from the analysis JSON, not from cited summary
-statistics. To produce it locally:
+![Bland-Altman](figures/fig1_bland_altman.png)
+
+Generated directly from the WESAD window table (`results/real_data/wesad_deep/window_table.csv`)
+rather than from cited summary statistics. To regenerate locally:
 
 ```bash
 python scripts/figures/plot_bland_altman.py \
-  --input results/wesad_deep_analysis.json \
+  --input results/real_data/wesad_deep/window_table.csv \
   --output paper/figures/fig1_bland_altman.png
 ```
 
-Expected output: bias = +3.57 bpm, 95% LoA = [-23.14, +30.28], MAE = 9.66 bpm,
-Pearson r = +0.70. The bias and the width of the limits of agreement together
-indicate that wrist PPG systematically overestimates HR by approximately 3.6
-bpm with a large window-to-window spread.
+After dropping 16 of 6,585 windows with NaN in either HR estimate, 6,569
+paired observations are retained. Bias = +3.5728 bpm, 95% LoA = [-23.1347,
++30.2802], MAE = 9.6583 bpm, Pearson r = +0.6975. The bias and the width of
+the limits of agreement together indicate that wrist PPG systematically
+overestimates HR by approximately 3.6 bpm with a large window-to-window
+spread.
 
 ## Table 1. Per-baseline window pass rates
 
