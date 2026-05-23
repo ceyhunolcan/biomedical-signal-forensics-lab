@@ -22,3 +22,6 @@ results/reports/*.md
 !results/reports/.gitkeep
 README.old.md
 site/
+dist/
+build/
+*.egg-info/
