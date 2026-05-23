@@ -13,7 +13,7 @@ see [Getting started](getting-started.md) or
 
 PPG and ECG preprocessing, along with four signal-quality baselines.
 
-::: src.signals
+::: biomedical_signal_forensics_lab.signals
     options:
       show_submodules: true
       members_order: source
@@ -23,7 +23,7 @@ PPG and ECG preprocessing, along with four signal-quality baselines.
 WESAD real-data validation, four-way SQI agreement, Bland-Altman,
 bootstrap CIs.
 
-::: src.evaluation
+::: biomedical_signal_forensics_lab.evaluation
     options:
       show_submodules: true
       members_order: source
@@ -32,7 +32,7 @@ bootstrap CIs.
 
 Back-door adjustment, AIPW doubly-robust estimation, E-values.
 
-::: src.confounding
+::: biomedical_signal_forensics_lab.confounding
     options:
       show_submodules: true
       members_order: source
@@ -41,7 +41,7 @@ Back-door adjustment, AIPW doubly-robust estimation, E-values.
 
 ICC, test-retest stability, bootstrap reliability primitives.
 
-::: src.reliability
+::: biomedical_signal_forensics_lab.reliability
     options:
       show_submodules: true
       members_order: source
@@ -50,7 +50,7 @@ ICC, test-retest stability, bootstrap reliability primitives.
 
 Downstream LF/HF biomarker classifier with LOSO cross-validation.
 
-::: src.models
+::: biomedical_signal_forensics_lab.models
     options:
       show_submodules: true
       members_order: source
@@ -59,7 +59,7 @@ Downstream LF/HF biomarker classifier with LOSO cross-validation.
 
 Publication-grade figure generation and summary JSON writers.
 
-::: src.reports
+::: biomedical_signal_forensics_lab.reports
     options:
       show_submodules: true
       members_order: source

@@ -117,7 +117,9 @@ def elgendi_window(window: np.ndarray,
     Args:
         window: 1D PPG signal samples.
         fs: sampling rate in Hz.
-        ssqi_min, ksqi_min, esqi_max: acceptance thresholds. See module
+        ssqi_min: SSQI acceptance threshold. See module constants.
+        ksqi_min: KSQI acceptance threshold. See module constants.
+        esqi_max: ESQI acceptance threshold. See module constants.
             docstring for defaults and recommended recalibration policy.
         apply_bandpass: if True, run the standard PPG bandpass filter
             (0.5-8 Hz, 4th-order Butterworth) before computing statistics.

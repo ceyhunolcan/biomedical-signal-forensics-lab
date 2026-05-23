@@ -1,3 +1,4 @@
+<!--start-->
 # TRIPOD+AI compliance checklist
 
 **Reference**: Collins GS, Moons KGM, Dhiman P, et al. *TRIPOD+AI statement:
@@ -237,3 +238,4 @@ Spiegelhalter test before clinical use is considered.
 
 **Items to address before submission**: item 19 (author block / funding
 statement). Tracked in the npj DM polish queue.
+<!--end-->
