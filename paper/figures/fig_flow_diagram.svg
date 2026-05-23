@@ -2863,7 +2863,7 @@ L 272.7 193.051804
      <use xlink:href="#DejaVuSans-67" transform="translate(670.410156 0)"/>
      <use xlink:href="#DejaVuSans-3a" transform="translate(733.886719 0)"/>
     </g>
-    <!-- Resample to common time base; segment into non-overlapping 30-second windows; -->
+    <!-- Resample to common time base; segment into non-overlapping 5-second windows; -->
     <g style="fill: #0b1118" transform="translate(83.476406 223.523437) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-76" d="M 191 3500 

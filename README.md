@@ -80,7 +80,7 @@ This toolkit is built for research groups working with wearable-derived physiolo
 - Single-record diagnostic queries (the framework operates on cohort-scale windowed data)
 - Production deployment without first recalibrating thresholds on representative real-world data from your device and population
 
-## Key results on WESAD (n = 15 subjects, 6,585 thirty-second windows)
+## Key results on WESAD (n = 15 subjects, 6,585 5-second windows)
 
 | Metric | Value | Interpretation |
 |---|---|---|

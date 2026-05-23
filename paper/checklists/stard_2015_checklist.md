@@ -168,7 +168,7 @@ distinguishing pre-specified from exploratory.
 **Item 18.** Intended sample size and how it was determined.
 
 - *This paper.* n=15 subjects (all available WESAD subjects); 6,585 windows
-  followed mechanically from 30-second non-overlapping segmentation. No
+  followed mechanically from 5-second non-overlapping segmentation. No
   formal power calculation; this is an exploratory audit. Acknowledged in
   Section 6.
 

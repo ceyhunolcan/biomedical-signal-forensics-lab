@@ -1,7 +1,7 @@
 # Results
 
 Headline empirical findings from the WESAD validation cohort (Schmidt et al.
-2018), n = 15 subjects, 6,585 thirty-second windows of synchronised wrist-worn
+2018), n = 15 subjects, 6,585 5-second windows of synchronised wrist-worn
 PPG and chest-worn ECG. All figures and tables are reproducible from the
 analysis pipeline in `scripts/run_deep_real_analysis.py`; the values shown here
 are written to `results/wesad_deep_analysis.json` at run time.
@@ -11,7 +11,7 @@ are written to `results/wesad_deep_analysis.json` at run time.
 | Metric | Value | 95% CI or note |
 |---|---|---|
 | Subjects | 15 | WESAD release |
-| Thirty-second windows | 6,585 | post artefact rejection |
+| 5-second windows | 6,585 | post artefact rejection |
 | Three-baseline consensus rejection rate | **44.6%** | 2,936 / 6,585 |
 | In-house pipeline pass rate | 1.0000 | 6,585 / 6,585 |
 | Bland-Altman bias (PPG minus ECG) | **+3.57 bpm** | LoA [-23.14, +30.28] |

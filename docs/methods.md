@@ -9,7 +9,7 @@ quantitative evidence that feeds a single set of methodology recommendations.
 
 ## 1. Signal-quality audit
 
-The signal-quality component evaluates each thirty-second window of wrist PPG
+The signal-quality component evaluates each 5-second window of wrist PPG
 against four independent indicators:
 
 | Indicator | Reference | Threshold logic |
