@@ -20,3 +20,4 @@ results/reports/*.md
 !results/figures/.gitkeep
 !results/tables/.gitkeep
 !results/reports/.gitkeep
+README.old.md
