@@ -149,7 +149,7 @@ flowchart TB
 ```
 configs/                  YAML configs (default, model, features)
 data/                     synthetic/, processed/, raw/   (gitignored payloads)
-src/lhfm/                 the importable package — `from lhfm import …`
+src/lhfm/                 the importable package - `from lhfm import …`
   data/                   synthetic generator, preprocessing, validation
   features/               per-modality feature engineering modules (causal stats)
   models/                 encoder, transformer, SSL, downstream heads
@@ -170,7 +170,7 @@ checkpoints/              trained weights + .meta.json sidecars (gitignored)
 releases/                 bundled artifacts produced by `make release-bundle`
 ```
 
-The package is installed editable as `lhfm`, not `src` — every import in the
+The package is installed editable as `lhfm`, not `src` - every import in the
 codebase reads `from lhfm.…`. Scripts add `src/` to `sys.path` so they work
 without `pip install -e .` for quick iteration.
 
@@ -220,7 +220,7 @@ lhfm climate-holdout --holdout heat_wave
 lhfm dashboard
 ```
 
-The CLI is a thin multiplexer over `scripts/*.py` — every subcommand
+The CLI is a thin multiplexer over `scripts/*.py` - every subcommand
 still works as `python scripts/<name>.py ...` if you prefer.
 
 ### Evaluation pipeline
@@ -374,7 +374,7 @@ and random-forest baselines trained on identical features, LHFM achieves:
 
 LHFM beats both classical baselines by roughly 20 AUROC points on
 high-stress prediction. On sleep disruption, the classical baselines
-win — we report it because it is real. The wide CIs reflect a small
+win - we report it because it is real. The wide CIs reflect a small
 test fold; replication on the larger GLOBEM cohort is in progress.
 
 See **[docs/lifesnaps_results.md](docs/lifesnaps_results.md)** for the
@@ -407,7 +407,7 @@ Three of the four downstream tasks are thresholds on EMA items
 (`survey_mood`, `survey_stress`, `sleep_efficiency`) that are themselves
 present in the feature table. A model with EMA features in its input gets
 to look at every preceding day's value of the very scale it's predicting
-tomorrow — i.e., it can succeed by doing trivial next-day autoregression
+tomorrow - i.e., it can succeed by doing trivial next-day autoregression
 on the target. That is not a foundation-model contribution.
 
 The methodologically honest run is therefore the **EMA-blind variant**:
@@ -477,7 +477,7 @@ file rather than rewriting code.
 
 ## Citation
 
-Citation metadata lives in `CITATION.cff` — GitHub will render a "Cite this
+Citation metadata lives in `CITATION.cff` - GitHub will render a "Cite this
 repository" button from it. The shortform is:
 
 ```
