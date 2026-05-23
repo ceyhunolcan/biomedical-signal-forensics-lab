@@ -5,7 +5,7 @@ pipelines.*
 
 [![PyPI version](https://img.shields.io/pypi/v/biomedical-signal-forensics-lab.svg)](https://pypi.org/project/biomedical-signal-forensics-lab/)
 [![Python versions](https://img.shields.io/pypi/pyversions/biomedical-signal-forensics-lab.svg)](https://pypi.org/project/biomedical-signal-forensics-lab/)
-[![CI](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/ci.yml)
+[![CI](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/tests.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20349806.svg)](https://doi.org/10.5281/zenodo.20349806)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/LICENSE)
 

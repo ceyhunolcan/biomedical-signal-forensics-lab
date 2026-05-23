@@ -13,7 +13,7 @@
   <a href="https://pypi.org/project/biomedical-signal-forensics-lab/"><img src="https://img.shields.io/pypi/pyversions/biomedical-signal-forensics-lab.svg" alt="Python versions"/></a>
   <a href="https://pepy.tech/project/biomedical-signal-forensics-lab"><img src="https://static.pepy.tech/badge/biomedical-signal-forensics-lab" alt="Downloads"/></a>
   <a href="https://ceyhunolcan.github.io/biomedical-signal-forensics-lab/"><img src="https://img.shields.io/badge/docs-online-blue.svg" alt="Documentation"/></a>
-  <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/ci.yml"><img src="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/ci.yml/badge.svg" alt="CI"/></a>
+  <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/tests.yml"><img src="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/actions/workflows/tests.yml/badge.svg" alt="CI"/></a>
   <a href="https://doi.org/10.5281/zenodo.20349806"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20349806.svg" alt="DOI"/></a>
   <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"/></a>
 </p>
