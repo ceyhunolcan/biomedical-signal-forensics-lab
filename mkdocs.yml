@@ -85,6 +85,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting started: getting-started.md
+  - Methods: methods.md
+  - Results: results.md
+  - Comparison vs other tools: comparison.md
   - Reproducing the paper: reproducing-paper.md
   - Reporting standards: reporting-standards.md
   - API reference: api-reference.md

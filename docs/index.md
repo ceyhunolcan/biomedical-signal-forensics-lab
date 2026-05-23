@@ -79,10 +79,10 @@ report = {sqi.__name__: sqi(windows) for sqi in (orphanidou_sqi, sukor_sqi, elge
 
 ## Where to next
 
-- [Getting started](getting_started.md): installation, environment, first run
-- [Reproducing the paper](reproducing_paper.md): end-to-end commands to regenerate every figure and table in the manuscript
-- [Reporting standards](reporting_standards.md): TRIPOD+AI, STARD, CONSORT-AI, DECIDE-AI compliance
-- [API reference](api/index.md): auto-generated from docstrings via mkdocstrings
+- [Getting started](getting-started.md): installation, environment, first run
+- [Reproducing the paper](reproducing-paper.md): end-to-end commands to regenerate every figure and table in the manuscript
+- [Reporting standards](reporting-standards.md): TRIPOD+AI, STARD, CONSORT-AI, DECIDE-AI compliance
+- [API reference](api-reference.md): auto-generated from docstrings via mkdocstrings
 - [Citing](citing.md): BibTeX, CITATION.cff, Zenodo DOI
 
 ## Author and contact

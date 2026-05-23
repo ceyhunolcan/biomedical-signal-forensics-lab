@@ -2,7 +2,7 @@
 
 A narrative walk-through of the four audit components. For the manuscript-grade
 methods text see `paper/paper.md` and the reporting-standards checklists in
-`paper/checklists/`; for inline API reference see the [API reference](api/index.md).
+`paper/checklists/`; for inline API reference see the [API reference](api-reference.md).
 
 The audit is organised around four cooperating components, each producing
 quantitative evidence that feeds a single set of methodology recommendations.
@@ -109,7 +109,7 @@ clinical truth.
 ## Reporting standards
 
 For the formal reporting-standards mapping see the [Reporting standards
-page](reporting_standards.md) and the EQUATOR-Network checklists in
+page](reporting-standards.md) and the EQUATOR-Network checklists in
 `paper/checklists/`. In short:
 
 - **TRIPOD+AI** (Collins et al. 2024) applies and is mapped item by item
