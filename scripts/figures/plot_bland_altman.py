@@ -27,6 +27,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 NAVY = "#0b3d91"
@@ -35,22 +36,35 @@ MUTED = "#666"
 TEXT = "#1a1a2e"
 
 
-def load_paired_hr(json_path: Path) -> tuple[np.ndarray, np.ndarray]:
-    raw = json.loads(json_path.read_text())
+def load_paired_hr(input_path: Path) -> tuple[np.ndarray, np.ndarray]:
+    """Load paired heart rates from JSON or CSV.
 
-    # Schema A: dict with hr_ppg / hr_ecg arrays
+    Supports:
+      - CSV with columns hr_ppg and hr_ecg (per-window table from
+        run_deep_real_analysis.py)
+      - JSON dict with top-level keys hr_ppg and hr_ecg mapping to arrays
+      - JSON list of records each with hr_ppg and hr_ecg fields
+    """
+    suffix = input_path.suffix.lower()
+
+    if suffix == ".csv":
+        df = pd.read_csv(input_path)
+        if "hr_ppg" not in df.columns or "hr_ecg" not in df.columns:
+            print(f"ERROR: CSV columns are {list(df.columns)}; expected hr_ppg "
+                  "and hr_ecg.", file=sys.stderr)
+            sys.exit(1)
+        return df["hr_ppg"].to_numpy(dtype=float), df["hr_ecg"].to_numpy(dtype=float)
+
+    raw = json.loads(input_path.read_text())
+
     if isinstance(raw, dict) and "hr_ppg" in raw and "hr_ecg" in raw:
-        ppg = np.asarray(raw["hr_ppg"], dtype=float)
-        ecg = np.asarray(raw["hr_ecg"], dtype=float)
-        return ppg, ecg
+        return (np.asarray(raw["hr_ppg"], dtype=float),
+                np.asarray(raw["hr_ecg"], dtype=float))
 
-    # Schema B: list of records
     if isinstance(raw, list) and raw and isinstance(raw[0], dict):
-        ppg = np.asarray([r["hr_ppg"] for r in raw], dtype=float)
-        ecg = np.asarray([r["hr_ecg"] for r in raw], dtype=float)
-        return ppg, ecg
+        return (np.asarray([r["hr_ppg"] for r in raw], dtype=float),
+                np.asarray([r["hr_ecg"] for r in raw], dtype=float))
 
-    # Schema unknown: print top-level keys so the user can adapt
     if isinstance(raw, dict):
         keys = sorted(raw.keys())
         print(f"ERROR: top-level dict has keys {keys} but neither schema A "
