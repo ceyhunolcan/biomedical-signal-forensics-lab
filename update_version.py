@@ -67,14 +67,14 @@ def main() -> None:
     if not pyproject.exists():
         raise SystemExit(f"pyproject.toml not found at {pyproject}")
     if not init_py.exists():
-        raise SystemExit(f"src/__init__.py not found at {init_py}")
+        raise SystemExit(f"src/biomedical_signal_forensics_lab/__init__.py not found at {init_py}")
 
     target = sys.argv[1] if len(sys.argv) > 1 else TARGET_VERSION
     prior_a, _ = update_pyproject(pyproject, target)
     prior_b, _ = update_init(init_py, target)
 
     print(f"pyproject.toml: {prior_a} -> {target}")
-    print(f"src/__init__.py: {prior_b} -> {target}")
+    print(f"src/biomedical_signal_forensics_lab/__init__.py: {prior_b} -> {target}")
 
 
 if __name__ == "__main__":
