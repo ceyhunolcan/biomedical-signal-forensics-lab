@@ -1,0 +1,5832 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An open-source toolkit for auditing wearable physiological signals: signal quality, algorithmic fairness, causal sensitivity, and downstream-task impact.">
+      
+      
+        <meta name="author" content="Ceyhun Olcan">
+      
+      
+        <link rel="canonical" href="https://ceyhunolcan.github.io/biomedical-signal-forensics-lab/api-reference/">
+      
+      
+        <link rel="prev" href="../reporting-standards/">
+      
+      
+        <link rel="next" href="../citing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>API reference - biomedical-signal-forensics-lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="biomedical-signal-forensics-lab" class="md-header__button md-logo" aria-label="biomedical-signal-forensics-lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            biomedical-signal-forensics-lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceyhunolcan/biomedical-signal-forensics-lab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="biomedical-signal-forensics-lab" class="md-nav__button md-logo" aria-label="biomedical-signal-forensics-lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    biomedical-signal-forensics-lab
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceyhunolcan/biomedical-signal-forensics-lab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reproducing-paper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducing the paper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reporting-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reporting standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="signals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.activity_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        activity_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.ecg_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ecg_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.elgendi_sqi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        elgendi_sqi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.hrv_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hrv_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.orphanidou_sqi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        orphanidou_sqi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.ppg_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ppg_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.signal_quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal_quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.sleep_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sleep_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.sukor_sqi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sukor_sqi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.cross_cohort_check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cross_cohort_check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.deep_real_analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deep_real_analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        robustness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.synthetic_to_real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        synthetic_to_real
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confounding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        confounding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="confounding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.behavioral_confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        behavioral_confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.causal_inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        causal_inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.environmental_confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        environmental_confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.heat_sleep_confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        heat_sleep_confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.missingness_dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missingness_dynamics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reliability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="reliability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.biomarker_trust_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biomarker_trust_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.change_point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        change_point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.device_bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        device_bias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.fairness_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fairness_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.intraclass_correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        intraclass_correlation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.temporal_stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        temporal_stability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.test_retest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test_retest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.weight_optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        weight_optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.models.anomaly_detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        anomaly_detector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.models.quality_autoencoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        quality_autoencoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.models.sequence_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sequence_model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.figure_builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        figure_builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.real_data_figures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        real_data_figures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.report_generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report_generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.trust_report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trust_report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../citing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="signals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.activity_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        activity_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.ecg_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ecg_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.elgendi_sqi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        elgendi_sqi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.hrv_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hrv_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.orphanidou_sqi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        orphanidou_sqi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.ppg_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ppg_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.signal_quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal_quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.sleep_processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sleep_processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.signals.sukor_sqi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sukor_sqi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.cross_cohort_check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cross_cohort_check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.deep_real_analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deep_real_analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        robustness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.evaluation.synthetic_to_real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        synthetic_to_real
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confounding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        confounding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="confounding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.behavioral_confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        behavioral_confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.causal_inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        causal_inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.environmental_confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        environmental_confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.heat_sleep_confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        heat_sleep_confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.confounding.missingness_dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missingness_dynamics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reliability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="reliability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.biomarker_trust_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biomarker_trust_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.change_point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        change_point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.device_bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        device_bias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.fairness_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fairness_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.intraclass_correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        intraclass_correlation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.temporal_stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        temporal_stability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.test_retest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test_retest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reliability.weight_optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        weight_optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.models.anomaly_detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        anomaly_detector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.models.quality_autoencoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        quality_autoencoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.models.sequence_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sequence_model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.figure_builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        figure_builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.real_data_figures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        real_data_figures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.report_generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report_generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.reports.trust_report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trust_report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="api-reference">API reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>The toolkit is organised into the following modules. Click any module
+to see its public functions, classes, and constants, auto-generated
+from docstrings via
+<a href="https://mkdocstrings.github.io/">mkdocstrings</a>.</p>
+<p>If you are looking for high-level guidance instead of API specifics,
+see <a href="../getting-started/">Getting started</a> or
+<a href="../reproducing-paper/">Reproducing the paper</a>.</p>
+<h2 id="signals">Signals<a class="headerlink" href="#signals" title="Permanent link">&para;</a></h2>
+<p>PPG and ECG preprocessing, along with four signal-quality baselines.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="src.signals" class="doc doc-heading">
+            <code>src.signals</code>
+
+
+<a href="#src.signals" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Signal processing: ECG, PPG, HRV, sleep, activity, quality indices.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.activity_processing" class="doc doc-heading">
+            <code>activity_processing</code>
+
+
+<a href="#src.signals.activity_processing" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Activity / step-count reliability.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.ecg_processing" class="doc doc-heading">
+            <code>ecg_processing</code>
+
+
+<a href="#src.signals.ecg_processing" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>ECG processing: bandpass, R-peak detection, RR intervals, SQI.</p>
+<p>Deliberately classical methods. No deep learning here: the point is
+that the downstream forensics layer should work even when the signal
+processing is plain-vanilla.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.ecg_processing.detect_r_peaks" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">detect_r_peaks</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">refractory_ms</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span></code>
+
+<a href="#src.signals.ecg_processing.detect_r_peaks" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Very simple amplitude-threshold detector after bandpass + squaring.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.ecg_processing.signal_quality_index" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">signal_quality_index</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span></code>
+
+<a href="#src.signals.ecg_processing.signal_quality_index" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>A bounded [0, 1] SQI: penalize flatness, saturation, and very high noise.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.elgendi_sqi" class="doc doc-heading">
+            <code>elgendi_sqi</code>
+
+
+<a href="#src.signals.elgendi_sqi" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Elgendi 2016 PPG signal-quality indices.</p>
+<p>Implements the skewness-based SQI (SSQI) from:</p>
+<p>Elgendi M. Optimal Signal Quality Index for Photoplethysmogram Signals.
+  Bioengineering, 3(4):21, 2016. https://doi.org/10.3390/bioengineering3040021</p>
+<p>Elgendi (2016) compared eight candidate per-window PPG SQI metrics on 106
+annotated 60-second recordings labeled as 'excellent', 'acceptable', or
+'unfit for diagnosis' by two independent reviewers with adjudication by a
+third expert. Of the eight metrics, the skewness-based index (SSQI) had the
+highest F1 score for the binary acceptable-versus-unfit decision and is
+recommended as the headline metric. We expose SSQI as the primary baseline
+and provide kurtosis (KSQI) and entropy (ESQI) as auxiliary metrics for
+robustness checks.</p>
+
+
+<details class="the-three-statistics-together-cover-a-complementary-set-of-failure-modes" open>
+  <summary>The three statistics together cover a complementary set of failure modes</summary>
+  <ul>
+<li>SSQI: distribution asymmetry. A clean PPG has positive skew (long upper
+  tail from systolic peaks). Saturated or flat signals lose this asymmetry.</li>
+<li>KSQI: distribution tailedness. Heavy-tailed distributions indicate
+  spike artifacts.</li>
+<li>ESQI: amplitude entropy in moving sub-windows. Highly random amplitude
+  distributions indicate broadband noise.</li>
+</ul>
+</details>        <p>Elgendi's recommended thresholds were tuned on fingertip PPG; we report the
+continuous statistics and let the recalibration machinery (Section 4.3)
+re-tune binarization for wrist PPG. Default acceptance thresholds:
+  SSQI &gt; 0   (any positive skew)
+  KSQI &gt; 3   (super-Gaussian: heavier tail than normal)
+  ESQI &lt; 0.9 (not pure noise)</p>
+<p>These defaults are intentionally lenient; users should recalibrate against
+either expert labels or a reference SQI on their own data.</p>
+<p>Each function operates on a single window (typically 5-30 seconds at 64 Hz
+for wrist PPG or 125 Hz for fingertip PPG) and returns an ElgendiSQI
+dataclass with the continuous statistics, the per-statistic acceptance
+flags, and the overall binary acceptance verdict.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="src.signals.elgendi_sqi.ElgendiSQI" class="doc doc-heading">
+            <code>ElgendiSQI</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#src.signals.elgendi_sqi.ElgendiSQI" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Per-window Elgendi 2016 SQI report.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="src.signals.elgendi_sqi.ElgendiSQI.acceptable">acceptable</span></code></td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>overall pass (SSQI &gt; SSQI_MIN AND KSQI &gt; KSQI_MIN AND
+ESQI &lt; ESQI_MAX). All three must pass for the window to be
+accepted under the default policy. Single-statistic users can
+inspect ssqi_ok, ksqi_ok, esqi_ok individually.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.signals.elgendi_sqi.ElgendiSQI.skewness">skewness</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>third standardized moment of the window after bandpass.
+Clean PPG has positive skew; SSQI is its raw value.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.signals.elgendi_sqi.ElgendiSQI.kurtosis">kurtosis</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>fourth standardized moment (Fisher convention, so
+normal-distribution kurtosis = 0). KSQI is <code>kurtosis + 3</code> in the
+Pearson convention used in Elgendi 2016.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.signals.elgendi_sqi.ElgendiSQI.entropy">entropy</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>normalized Shannon entropy of the amplitude distribution
+computed over a 16-bin histogram, scaled to [0, 1].</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.signals.elgendi_sqi.ElgendiSQI.ssqi_ok,">ssqi_ok,</span></code></td>
+            <td>
+                  <code>(<span title="src.signals.elgendi_sqi.ElgendiSQI.ksqi_ok">ksqi_ok</span>, <span title="src.signals.elgendi_sqi.ElgendiSQI.esqi_ok">esqi_ok</span>)</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>per-statistic acceptance flags.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.signals.elgendi_sqi.ElgendiSQI.n_samples">n_samples</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>number of samples in the window after bandpass.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.elgendi_sqi.elgendi_window" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">elgendi_window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ssqi_min</span><span class="o">=</span><span class="n">SSQI_MIN</span><span class="p">,</span> <span class="n">ksqi_min</span><span class="o">=</span><span class="n">KSQI_MIN</span><span class="p">,</span> <span class="n">esqi_max</span><span class="o">=</span><span class="n">ESQI_MAX</span><span class="p">,</span> <span class="n">apply_bandpass</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#src.signals.elgendi_sqi.elgendi_window" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute Elgendi 2016 SSQI / KSQI / ESQI on a single PPG window.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>window</code>
+            </td>
+            <td>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>1D PPG signal samples.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>fs</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>sampling rate in Hz.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ssqi_min, ksqi_min, esqi_max</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>acceptance thresholds. See module
+docstring for defaults and recommended recalibration policy.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>apply_bandpass</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>if True, run the standard PPG bandpass filter
+(0.5-8 Hz, 4th-order Butterworth) before computing statistics.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>invert</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>if True, multiply the signal by -1 before computing
+statistics. Some devices (Empatica E4 wrist PPG in particular) report
+PPG inverted relative to fingertip conventions, which flips the
+sign of skewness. Use <code>batch_elgendi(..., auto_invert=True)</code> to
+auto-detect from the cohort.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ElgendiSQI
+
+
+  
+      dataclass
+   (src.signals.elgendi_sqi.ElgendiSQI)" href="#src.signals.elgendi_sqi.ElgendiSQI">ElgendiSQI</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ElgendiSQI dataclass with the continuous statistics and acceptance</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ElgendiSQI
+
+
+  
+      dataclass
+   (src.signals.elgendi_sqi.ElgendiSQI)" href="#src.signals.elgendi_sqi.ElgendiSQI">ElgendiSQI</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>flags. All NaN/empty edge cases return acceptable=False with</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ElgendiSQI
+
+
+  
+      dataclass
+   (src.signals.elgendi_sqi.ElgendiSQI)" href="#src.signals.elgendi_sqi.ElgendiSQI">ElgendiSQI</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>statistics set to NaN.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.elgendi_sqi.batch_elgendi" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">batch_elgendi</span><span class="p">(</span><span class="n">windows</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ssqi_min</span><span class="o">=</span><span class="n">SSQI_MIN</span><span class="p">,</span> <span class="n">ksqi_min</span><span class="o">=</span><span class="n">KSQI_MIN</span><span class="p">,</span> <span class="n">esqi_max</span><span class="o">=</span><span class="n">ESQI_MAX</span><span class="p">,</span> <span class="n">auto_invert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pilot_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
+
+<a href="#src.signals.elgendi_sqi.batch_elgendi" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute Elgendi SQI on a batch of windows.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>windows</code>
+            </td>
+            <td>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>2D array of shape (n_windows, n_samples) or a list of 1D
+arrays. Variable-length windows are accepted by passing a list.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>fs</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>sampling rate in Hz.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>auto_invert</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>if True (default), compute Elgendi statistics on the
+first <code>pilot_size</code> windows, and if the median skewness across
+that pilot is negative, invert the entire batch before
+computing the full result. This handles devices that report PPG
+with reversed polarity (e.g., Empatica E4 wrist PPG). Set to
+False to disable polarity detection.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pilot_size</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>number of windows used for polarity detection.</p>
+              </div>
+            </td>
+            <td>
+                  <code>100</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="pandas.DataFrame">DataFrame</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>DataFrame with one row per window containing all ElgendiSQI fields</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="pandas.DataFrame">DataFrame</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>plus a <code>polarity_inverted</code> boolean column (True if auto_invert</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="pandas.DataFrame">DataFrame</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>decided to invert).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.elgendi_sqi.four_way_sqi_agreement" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">four_way_sqi_agreement</span><span class="p">(</span><span class="n">in_house_pass</span><span class="p">,</span> <span class="n">orphanidou_pass</span><span class="p">,</span> <span class="n">sukor_pass</span><span class="p">,</span> <span class="n">elgendi_pass</span><span class="p">)</span></code>
+
+<a href="#src.signals.elgendi_sqi.four_way_sqi_agreement" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute pairwise Cohen's kappa and Spearman rho for all four SQIs.</p>
+<p>The 'all three published baselines agree against in-house' argument
+becomes stronger when there are three baselines instead of two; the
+headline statistic is the median pairwise kappa between Orphanidou,
+Sukor, and Elgendi.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dict with pairwise kappas, fraction of windows accepted by all</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>published baselines, fraction accepted by in-house but not by any</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>published baseline (the most damning category for the in-house SQI),</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>and the median pairwise published-vs-published kappa.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.hrv_processing" class="doc doc-heading">
+            <code>hrv_processing</code>
+
+
+<a href="#src.signals.hrv_processing" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>HRV metrics: RMSSD, SDNN, mean RR, artifact-corrected variants.</p>
+<p>Operates on RR interval arrays (in milliseconds).</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.hrv_processing.artifact_corrected_rmssd" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">artifact_corrected_rmssd</span><span class="p">(</span><span class="n">rr_ms</span><span class="p">,</span> <span class="n">lo</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span></code>
+
+<a href="#src.signals.hrv_processing.artifact_corrected_rmssd" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Drop impossible RRs, linearly interpolate, then compute RMSSD.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.orphanidou_sqi" class="doc doc-heading">
+            <code>orphanidou_sqi</code>
+
+
+<a href="#src.signals.orphanidou_sqi" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Template-matching signal quality, following Orphanidou et al. 2015.</p>
+
+
+<details class="reference" open>
+  <summary>Reference</summary>
+  <p>Orphanidou, C., Bonnici, T., Charlton, P., Clifton, D., Vallance, D.,
+&amp; Tarassenko, L. (2015). Signal-quality indices for the electrocardiogram
+and photoplethysmogram derived from optical pulse-rate measurements.
+IEEE J. Biomed. Health Inform., 19(3), 832-838.</p>
+</details>        <p>The method has four rules that a window must satisfy to be 'acceptable':
+  1. Heart-rate estimated from peaks is in [40, 180] bpm
+  2. The maximum RR-interval gap is below a fixed threshold (3 s here)
+  3. The maximum RR/min RR ratio is below 2.2
+  4. The average correlation between each beat and the median beat template
+     is above 0.66 for ECG (0.86 for PPG)</p>
+
+
+<details class="we-expose" open>
+  <summary>We expose</summary>
+  <ul>
+<li><code>orphanidou_ecg_sqi(window, fs)</code> -&gt; dict with continuous metrics and bool</li>
+<li><code>orphanidou_ppg_sqi(window, fs)</code> -&gt; same shape, different thresholds</li>
+<li><code>head_to_head(windows, ground_truth, fs, modality)</code> -&gt; agreement summary</li>
+</ul>
+</details>        <p>The point of including this is not to compete with the in-house SQI but to
+demonstrate that the in-house SQI agrees with an established published
+method on the same windows. Agreement on synthetic data is necessary but
+not sufficient. Anyone who runs the framework on real data should run this
+side-by-side and report both.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.orphanidou_sqi.orphanidou_ecg_sqi" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">orphanidou_ecg_sqi</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span></code>
+
+<a href="#src.signals.orphanidou_sqi.orphanidou_ecg_sqi" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply Orphanidou's four ECG rules to a single window.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.orphanidou_sqi.orphanidou_ppg_sqi" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">orphanidou_ppg_sqi</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span></code>
+
+<a href="#src.signals.orphanidou_sqi.orphanidou_ppg_sqi" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply Orphanidou's four PPG rules to a single window.</p>
+<p>Note: the PPG variant uses a stricter template correlation threshold
+because clean PPG pulses are more morphologically consistent than QRS
+complexes.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.orphanidou_sqi.head_to_head" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">head_to_head</span><span class="p">(</span><span class="n">windows</span><span class="p">,</span> <span class="n">in_house_sqi</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">modality</span><span class="o">=</span><span class="s1">&#39;ppg&#39;</span><span class="p">,</span> <span class="n">in_house_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span></code>
+
+<a href="#src.signals.orphanidou_sqi.head_to_head" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compare the in-house SQI estimates against Orphanidou's rules.</p>
+<h6 id="src.signals.orphanidou_sqi.head_to_head--parameters">Parameters<a class="headerlink" href="#src.signals.orphanidou_sqi.head_to_head--parameters" title="Permanent link">&para;</a></h6>
+<p>windows
+    (n_windows, window_len) array of signal windows.
+in_house_sqi
+    (n_windows,) array of the in-house continuous SQI in [0, 1].
+    If shorter than windows, both arrays are truncated to the common
+    length and a warning is logged.
+fs
+    Sampling rate of the windows.
+modality
+    'ecg' or 'ppg'. Switches the Orphanidou template threshold.
+in_house_threshold
+    Threshold for binarizing the in-house SQI when computing the
+    crosstab. Default 0.7.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.ppg_processing" class="doc doc-heading">
+            <code>ppg_processing</code>
+
+
+<a href="#src.signals.ppg_processing" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>PPG processing: smoothing, pulse-peak detection, motion estimation, SQI.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.ppg_processing.motion_artifact_score" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">motion_artifact_score</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span></code>
+
+<a href="#src.signals.ppg_processing.motion_artifact_score" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>High-frequency / low-frequency power ratio. Higher → more motion.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.signal_quality" class="doc doc-heading">
+            <code>signal_quality</code>
+
+
+<a href="#src.signals.signal_quality" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Aggregate signal-quality scoring across ECG, PPG, and daily summaries.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.signal_quality.daily_signal_quality" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">daily_signal_quality</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code>
+
+<a href="#src.signals.signal_quality.daily_signal_quality" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>A simple per-day quality estimate from wear-time and motion proxy.</p>
+<p>Missing source columns are treated as 'no information'. Returns a Series
+of NaN of the same length as <code>df</code> when both source columns are absent.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.sleep_processing" class="doc doc-heading">
+            <code>sleep_processing</code>
+
+
+<a href="#src.signals.sleep_processing" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Sleep-summary reliability metrics.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.sleep_processing.regularity_index" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">regularity_index</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span></code>
+
+<a href="#src.signals.sleep_processing.regularity_index" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>1 - normalized std of sleep duration. Higher = more regular.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.signals.sukor_sqi" class="doc doc-heading">
+            <code>sukor_sqi</code>
+
+
+<a href="#src.signals.sukor_sqi" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Sukor 2011 PPG signal-quality decision rules.</p>
+<p>Implements the four-feature decision-tree style SQI from:</p>
+<p>Sukor JA, Redmond SJ, Lovell NH. Signal quality measures for pulse oximetry
+  through waveform morphology analysis. Physiological Measurement, 2011.</p>
+<p>Sukor's method is a published PPG-specific SQI baseline. We use it alongside
+Orphanidou 2015 to give the in-house SQI a two-witness comparison rather than
+relying on a single published baseline.</p>
+<p>Sukor's four features per detected pulse:
+  1. Pulse waveform shape: ratio of systolic peak amplitude to diastolic peak
+  2. Pulse-to-pulse interval consistency (similar to Orphanidou's RR check)
+  3. Pulse amplitude variability
+  4. Trough-to-trough interval consistency</p>
+<p>A pulse is acceptable if all four features fall within their published ranges.
+A window is acceptable if at least 80% of its detected pulses are acceptable.</p>
+<p>This is a faithful re-implementation of the published thresholds, adapted to
+window-level scoring for compatibility with our pipeline.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.sukor_sqi.sukor_ppg_sqi" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">sukor_ppg_sqi</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span></code>
+
+<a href="#src.signals.sukor_sqi.sukor_ppg_sqi" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply Sukor 2011 four-feature rules to a single PPG window.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.signals.sukor_sqi.batch_sukor" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">batch_sukor</span><span class="p">(</span><span class="n">windows</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span></code>
+
+<a href="#src.signals.sukor_sqi.batch_sukor" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run Sukor SQI on a batch of windows.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<p>WESAD real-data validation, four-way SQI agreement, Bland-Altman,
+bootstrap CIs.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="src.evaluation" class="doc doc-heading">
+            <code>src.evaluation</code>
+
+
+<a href="#src.evaluation" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Evaluation: metrics, robustness, calibration, sim-to-real comparison.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.evaluation.calibration" class="doc doc-heading">
+            <code>calibration</code>
+
+
+<a href="#src.evaluation.calibration" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Reliability-diagram-style calibration data.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.evaluation.cross_cohort_check" class="doc doc-heading">
+            <code>cross_cohort_check</code>
+
+
+<a href="#src.evaluation.cross_cohort_check" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Cross-cohort generalization check.</p>
+<p>A partial defense against the 'circular evaluation' critique. We build a
+second synthetic cohort with parameters intentionally different from the
+defaults (different baselines, different effect signs, different
+within-participant noise), then run the same audit framework on it and
+report:</p>
+<ol>
+<li>The trust-score distribution shifts in the expected direction.</li>
+<li>The fairness audit recovers the new injected effects.</li>
+<li>The Orphanidou agreement holds (it should: the SQI computation
+     doesn't depend on the generative parameters).</li>
+<li>The bootstrap test-retest reliability tracks the new within-participant
+     noise scale (more noise → lower r).</li>
+</ol>
+<p>This is not real-data validation. It's a sanity check that the framework's
+outputs are sensitive to the cohort's properties rather than to the
+particular default parameters. Run from <code>scripts/run_cross_cohort_check.py</code>.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="src.evaluation.cross_cohort_check.CohortRegime" class="doc doc-heading">
+            <code>CohortRegime</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#src.evaluation.cross_cohort_check.CohortRegime" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>A named set of generator overrides for one regime.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.cross_cohort_check.evaluate_regime" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">evaluate_regime</span><span class="p">(</span><span class="n">regime</span><span class="p">,</span> <span class="n">n_participants</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">n_days</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.cross_cohort_check.evaluate_regime" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generate a cohort under the regime, run the relevant audit pieces, return a row.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.cross_cohort_check.predicted_vs_observed" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">predicted_vs_observed</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.cross_cohort_check.predicted_vs_observed" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compare observed audit outputs against the qualitative predictions per regime.</p>
+<p>Each row is a predicted relationship that should hold across regimes.</p>
+<p>Returns an empty result-typed DataFrame if <code>table</code> is empty or has no
+'regime' column. Predictions involving regimes that aren't present
+return NaN observations with pass=None (i.e., 'skipped' rather than
+'failed').</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.evaluation.deep_real_analysis" class="doc doc-heading">
+            <code>deep_real_analysis</code>
+
+
+<a href="#src.evaluation.deep_real_analysis" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Deep cross-modality analysis of real wearable data.</p>
+
+
+<details class="computes-for-every-extracted-window" open>
+  <summary>Computes for every extracted window</summary>
+  <ul>
+<li>HR from chest ECG (gold standard)</li>
+<li>HR from wrist PPG (the realistic device)</li>
+<li>In-house PPG SQI</li>
+<li>In-house ECG SQI</li>
+<li>Orphanidou 2015 PPG SQI (published baseline 1)</li>
+<li>Sukor 2011 PPG SQI (published baseline 2)</li>
+<li>PPG motion artifact score</li>
+</ul>
+</details>        <p>Then runs a series of validation analyses:</p>
+<ol>
+<li>
+<p><strong>Cross-modality HR agreement</strong> (HR_PPG vs HR_ECG): mean absolute error,
+   bias, 95% limits of agreement (Bland-Altman 1986), Pearson correlation.</p>
+</li>
+<li>
+<p><strong>Per-state effects</strong>: for each subject, paired Wilcoxon signed-rank test
+   on baseline vs stress windows for SQI, motion, and HR-PPG-vs-ECG error.</p>
+</li>
+<li>
+<p><strong>Three-way SQI agreement</strong> (in-house vs Orphanidou vs Sukor): pairwise
+   Spearman, Cohen's kappa for binary acceptance, three-way confusion table.</p>
+</li>
+<li>
+<p><strong>Motion-vs-SQI</strong>: correlation between PPG motion score and the absolute
+   HR-PPG-vs-ECG disagreement. If motion predicts disagreement, that's the
+   confounding-detection logic working on real signals.</p>
+</li>
+<li>
+<p><strong>Recalibration experiment</strong>: split windows 50/50 by subject, fit new
+   in-house SQI thresholds on the calibration half to match Orphanidou's
+   pass/fail pattern, evaluate the recalibrated SQI on the held-out half.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="src.evaluation.deep_real_analysis.FourWaySQIAgreement" class="doc doc-heading">
+            <code>FourWaySQIAgreement</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#src.evaluation.deep_real_analysis.FourWaySQIAgreement" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Pairwise agreement among four PPG SQI methods, including Elgendi 2016.</p>
+<p>Reported alongside the three-way result to give the manuscript a more
+bulletproof 'in-house is the outlier' argument: when all three published
+baselines reject a window and the in-house method accepts it, the
+in-house method is unambiguously the outlier rather than the baselines
+being weak. The headline statistic for that argument is
+<code>inhouse_passes_when_all_published_fail</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.hr_from_ecg_window" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">hr_from_ecg_window</span><span class="p">(</span><span class="n">ecg_window</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.hr_from_ecg_window" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Estimate HR from a single ECG window in bpm. Returns NaN if undetermined.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.hr_from_ppg_window" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">hr_from_ppg_window</span><span class="p">(</span><span class="n">ppg_window</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.hr_from_ppg_window" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Estimate HR from a single PPG window in bpm. Returns NaN if undetermined.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.compute_window_table" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">compute_window_table</span><span class="p">(</span><span class="n">ecg_arr</span><span class="p">,</span> <span class="n">ppg_arr</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">ecg_fs</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">ppg_fs</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.compute_window_table" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>For every window, compute HR from both modalities plus all three SQIs.</p>
+<h6 id="src.evaluation.deep_real_analysis.compute_window_table--returns">Returns<a class="headerlink" href="#src.evaluation.deep_real_analysis.compute_window_table--returns" title="Permanent link">&para;</a></h6>
+<p>A DataFrame with one row per window. Columns include the meta fields
+(subject_id, label_name, etc.) plus:
+  - hr_ecg, hr_ppg, hr_abs_diff
+  - inhouse_ecg_sqi, inhouse_ppg_sqi, inhouse_ppg_motion
+  - orphanidou_acceptable, orphanidou_template_corr
+  - sukor_acceptable, sukor_pp_cv, sukor_amp_cv</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.cross_modality_hr_agreement" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cross_modality_hr_agreement</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.cross_modality_hr_agreement" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Bland-Altman style agreement statistics for HR_PPG vs HR_ECG.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.per_state_comparison" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">per_state_comparison</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">state_a</span><span class="o">=</span><span class="s1">&#39;baseline&#39;</span><span class="p">,</span> <span class="n">state_b</span><span class="o">=</span><span class="s1">&#39;stress&#39;</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.per_state_comparison" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>For each metric, compare state_a vs state_b within each subject.</p>
+<p>Returns one row per subject with mean values in each state and an
+unpaired Wilcoxon rank-sum p-value.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.cohens_kappa" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cohens_kappa</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.cohens_kappa" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Cohen's kappa for two binary rater outputs.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.three_way_sqi_agreement" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">three_way_sqi_agreement</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">inhouse_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.three_way_sqi_agreement" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Pairwise agreement among three PPG SQI methods.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.four_way_sqi_agreement" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">four_way_sqi_agreement</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">inhouse_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.four_way_sqi_agreement" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute pairwise kappas across four PPG SQIs and the headline
+'in-house outlier' statistic.</p>
+<p>If the input dataframe does not contain Elgendi columns (because it was
+generated by an older version of the pipeline), returns a result with
+NaN fields rather than raising. This preserves backwards compatibility
+with old <code>window_table.csv</code> files.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.motion_effect_analysis" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">motion_effect_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.motion_effect_analysis" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Does the PPG motion score predict SQI failures and HR-modality disagreement?</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.deep_real_analysis.recalibrate_inhouse_sqi" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">recalibrate_inhouse_sqi</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">original_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.deep_real_analysis.recalibrate_inhouse_sqi" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Refit the in-house PPG SQI threshold to maximize Orphanidou agreement.</p>
+<p>Splits windows 50/50, fits a new threshold on the calibration half to
+maximize Cohen's kappa against Orphanidou, then evaluates that threshold
+on the held-out half.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.evaluation.metrics" class="doc doc-heading">
+            <code>metrics</code>
+
+
+<a href="#src.evaluation.metrics" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Common metrics used by the leaderboard and the audit report.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.evaluation.robustness" class="doc doc-heading">
+            <code>robustness</code>
+
+
+<a href="#src.evaluation.robustness" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Robustness: how stable is a metric under input perturbations?</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.evaluation.robustness.perturbation_stability" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">perturbation_stability</span><span class="p">(</span><span class="n">scorer</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">noise_std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+<a href="#src.evaluation.robustness.perturbation_stability" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Add Gaussian noise to selected columns, see how much the score moves.</p>
+<p>A seeded local RNG is used so successive calls with the same seed produce
+identical results. Returns NaN if the scorer fails on every perturbation.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.evaluation.synthetic_to_real" class="doc doc-heading">
+            <code>synthetic_to_real</code>
+
+
+<a href="#src.evaluation.synthetic_to_real" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Comparison harness for synthetic-to-real generalization.</p>
+<p>This module is a stub: the framework is designed so that a real dataset
+can replace the synthetic one through the same column schema. The function
+below documents the contract.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="confounding">Confounding<a class="headerlink" href="#confounding" title="Permanent link">&para;</a></h2>
+<p>Back-door adjustment, AIPW doubly-robust estimation, E-values.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="src.confounding" class="doc doc-heading">
+            <code>src.confounding</code>
+
+
+<a href="#src.confounding" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Confounding detection: environmental, behavioral, missingness.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.confounding.behavioral_confounding" class="doc doc-heading">
+            <code>behavioral_confounding</code>
+
+
+<a href="#src.confounding.behavioral_confounding" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Behavioral confounders: activity → PPG, low wear → reliability.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.confounding.causal_inference" class="doc doc-heading">
+            <code>causal_inference</code>
+
+
+<a href="#src.confounding.causal_inference" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Causal confounding analysis: DAG, g-computation, doubly-robust estimation.</p>
+<p>The default <code>environmental_confounding.py</code> reports Pearson correlations. That's a
+screening signal: useful, but a reviewer is right to want more before any
+adjusted-effect claim. This module provides three things:</p>
+<ol>
+<li>A minimal DAG representation (no networkx dependency) with enough structure
+   to identify a valid adjustment set under the back-door criterion.</li>
+<li>G-computation (standardization): fit an outcome model conditional on the
+   treatment and adjustment set, then average over the empirical covariate
+   distribution to get an adjusted marginal effect. Includes bootstrap CIs.</li>
+<li>Doubly-robust AIPW (augmented inverse-probability weighting): combines a
+   propensity model and an outcome model so that the estimate is consistent
+   if either model is correct. Includes bootstrap CIs.</li>
+</ol>
+<p>All of this is "first-order" causal inference. We do not handle time-varying
+confounding or instrumental variables. The point is to give a defensible
+adjusted effect alongside the screening correlation.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="src.confounding.causal_inference.DAG" class="doc doc-heading">
+            <code>DAG</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#src.confounding.causal_inference.DAG" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>A directed acyclic graph encoded as a dict of node → list of parents.</p>
+<p>Parents-of-X means "variables that directly cause X". This convention makes
+the back-door identification logic cleaner. Use <code>add_edge(parent, child)</code>
+if you prefer to think in arrows.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="src.confounding.causal_inference.DAG.has_cycle" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">has_cycle</span><span class="p">()</span></code>
+
+<a href="#src.confounding.causal_inference.DAG.has_cycle" class="headerlink" title="Permanent link">&para;</a></h5>
+
+
+    <div class="doc doc-contents ">
+
+        <p>True if the graph has a cycle (i.e., is not actually a DAG).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="src.confounding.causal_inference.DAG.back_door_adjustment_set" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">back_door_adjustment_set</span><span class="p">(</span><span class="n">treatment</span><span class="p">,</span> <span class="n">outcome</span><span class="p">)</span></code>
+
+<a href="#src.confounding.causal_inference.DAG.back_door_adjustment_set" class="headerlink" title="Permanent link">&para;</a></h5>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return a valid adjustment set under a sufficient (but not always minimal)
+back-door criterion: take the ancestors of treatment that are also
+ancestors of outcome, excluding descendants of treatment.</p>
+<p>This is the 'all-common-causes' rule. It is conservative but always
+valid in a DAG with no unmeasured confounders among the listed nodes.</p>
+<p>Raises ValueError if the graph contains a cycle or if treatment == outcome.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.confounding.causal_inference.g_computation" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">g_computation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">treatment</span><span class="p">,</span> <span class="n">outcome</span><span class="p">,</span> <span class="n">adjustment_set</span><span class="p">,</span> <span class="n">n_bootstrap</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">learner</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span></code>
+
+<a href="#src.confounding.causal_inference.g_computation" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Adjusted marginal effect E[Y | do(T=1)] − E[Y | do(T=0)] by standardization.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.confounding.causal_inference.aipw" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">aipw</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">treatment</span><span class="p">,</span> <span class="n">outcome</span><span class="p">,</span> <span class="n">adjustment_set</span><span class="p">,</span> <span class="n">n_bootstrap</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">learner</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">))</span></code>
+
+<a href="#src.confounding.causal_inference.aipw" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Augmented inverse-propensity weighted estimator.</p>
+<p>Consistent if either the outcome model or the propensity model is correct.
+Continuous treatments are median-binarized first; results are interpreted
+as the effect of being above vs below the cohort median.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.confounding.causal_inference.default_wearable_dag" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">default_wearable_dag</span><span class="p">()</span></code>
+
+<a href="#src.confounding.causal_inference.default_wearable_dag" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Encodes the assumed causal structure of the synthetic cohort:</p>
+<p>age, sex          → baseline_hr, baseline_hrv
+  heat_index        → sleep_efficiency, hrv_rmssd
+  stress_proxy      → sleep_efficiency, hrv_rmssd, missing
+  activity          → resting_hr, hrv_rmssd, ppg_motion
+  device_type       → resting_hr, sqi
+  skin_tone         → ppg_sqi
+  sleep_efficiency  → hrv_rmssd  (mediator)</p>
+<p>The graph is small on purpose. Anyone applying this to a real cohort should
+write down their own DAG; this one is a starting point and a worked example.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.confounding.causal_inference.screening_vs_adjusted_table" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">screening_vs_adjusted_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">dag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">learner</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">default_covariates</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#src.confounding.causal_inference.screening_vs_adjusted_table" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>For each (confounder, outcome) pair, report screening r AND AIPW adjusted effect.</p>
+<p>If the DAG yields an empty back-door set (e.g., the treatment is a root
+node), we fall back to <code>default_covariates</code> to give a useful adjusted
+estimate. This is a deliberate convenience: anyone with a real DAG should
+pass it in.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.confounding.environmental_confounding" class="doc doc-heading">
+            <code>environmental_confounding</code>
+
+
+<a href="#src.confounding.environmental_confounding" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Environmental confounders: heat, AQI, humidity.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.confounding.heat_sleep_confounding" class="doc doc-heading">
+            <code>heat_sleep_confounding</code>
+
+
+<a href="#src.confounding.heat_sleep_confounding" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>A focused module on heat × sleep confounding.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.confounding.missingness_dynamics" class="doc doc-heading">
+            <code>missingness_dynamics</code>
+
+
+<a href="#src.confounding.missingness_dynamics" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Missingness as signal: clustering, consecutive dropout, state dependence.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.confounding.missingness_dynamics.consecutive_run_lengths" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">consecutive_run_lengths</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span></code>
+
+<a href="#src.confounding.missingness_dynamics.consecutive_run_lengths" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return lengths of consecutive 1-runs in a binary array.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.confounding.missingness_dynamics.state_dependent_missingness" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">state_dependent_missingness</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code>
+
+<a href="#src.confounding.missingness_dynamics.state_dependent_missingness" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Does missingness correlate with stress / poor sleep / heat?</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="reliability">Reliability<a class="headerlink" href="#reliability" title="Permanent link">&para;</a></h2>
+<p>ICC, test-retest stability, bootstrap reliability primitives.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="src.reliability" class="doc doc-heading">
+            <code>src.reliability</code>
+
+
+<a href="#src.reliability" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Reliability engine: ICC, test-retest, drift, device bias, trust score.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.biomarker_trust_score" class="doc doc-heading">
+            <code>biomarker_trust_score</code>
+
+
+<a href="#src.reliability.biomarker_trust_score" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Digital Biomarker Trust Score (DBTS).</p>
+<p>Six sub-scores → weighted composite in [0, 100] with a categorical label.
+All weights and thresholds are loaded from configs/reliability.yaml so the
+score is auditable.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="src.reliability.biomarker_trust_score.DigitalBiomarkerTrustScore" class="doc doc-heading">
+            <code>DigitalBiomarkerTrustScore</code>
+
+
+<a href="#src.reliability.biomarker_trust_score.DigitalBiomarkerTrustScore" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Compute the trust score and its sub-components from a participant frame.</p>
+<p>Inputs are kept simple on purpose: a per-participant dataframe with the
+daily columns plus any computed artifact / signal quality columns. We
+derive each sub-score with a transparent rule and combine via the
+configured weights.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.change_point" class="doc doc-heading">
+            <code>change_point</code>
+
+
+<a href="#src.reliability.change_point" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Change-point detection on participant time-series.</p>
+<p>Firmware updates, manufacturer pipeline changes, and silent algorithm swaps
+introduce step changes in wearable-derived signals. The reliability stack
+already catches these as "low temporal stability," but never attributes them
+to a discrete event. This module produces explicit change-point timestamps
+and a before-vs-after stratification.</p>
+<p>Two methods:</p>
+<ol>
+<li><code>bocpd</code>: a Bayesian online change-point detector with a constant hazard
+   prior and a Normal-Inverse-Gamma model of run-length means. The full
+   message-passing recursion is implemented in numpy with light bookkeeping.</li>
+<li><code>binary_segmentation</code>: a fast offline alternative that recursively splits
+   on the most likely change-point under a sum-of-squared-errors criterion,
+   stopping when the proposed segment fails an F-test.</li>
+</ol>
+<p>The two methods agree on textbook step changes (see tests). They disagree on
+ambiguous drifts, where bocpd is more conservative.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.change_point.bocpd" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">bocpd</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">hazard</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">50.0</span><span class="p">,</span> <span class="n">mu0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kappa0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">alpha0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">beta0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">min_collapse</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></code>
+
+<a href="#src.reliability.change_point.bocpd" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Bayesian online change-point detection.</p>
+<p>NaN samples are removed before processing. If you need to preserve
+absolute indices, mask externally before calling.</p>
+<h6 id="src.reliability.change_point.bocpd--parameters">Parameters<a class="headerlink" href="#src.reliability.change_point.bocpd--parameters" title="Permanent link">&para;</a></h6>
+<p>values
+    1D array of observations.
+hazard
+    Constant prior probability of a change at each step. 1/50 ≈ "one
+    expected change per 50 samples". Lower = more conservative.
+mu0, kappa0, alpha0, beta0
+    Normal-Inverse-Gamma prior hyperparameters. If <code>mu0</code> is None, it is
+    initialized to the mean of the first 5 observations. Defaults
+    elsewhere are weakly informative.
+min_collapse
+    Required drop in the MAP run length to register a change-point. A
+    change at time t shows up as <code>argmax(R_t)</code> collapsing from a large
+    value (the length of the current stationary regime) back to 0 or 1.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.change_point.binary_segmentation" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">binary_segmentation</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">min_segment</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">f_stat_threshold</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#src.reliability.change_point.binary_segmentation" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Recursive binary segmentation with an F-statistic stopping rule.</p>
+<p><code>f_stat_threshold</code> corresponds to a fairly aggressive p ~ 0.005 floor for
+typical sample sizes; raise for more conservative detection.</p>
+<p>NaN samples are stripped before processing. If <code>detrend=True</code>, a linear
+trend is subtracted from the series first; this helps avoid spurious
+change-points on slow continuous drifts (a known weakness of step-change
+detectors).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.change_point.scan_cohort" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">scan_cohort</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;binary_segmentation&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+<a href="#src.reliability.change_point.scan_cohort" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run change-point detection for every participant's series of <code>metric</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.change_point.stratify_before_after" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">stratify_before_after</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">cp_index</span><span class="p">)</span></code>
+
+<a href="#src.reliability.change_point.stratify_before_after" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return summary statistics for the before and after segments.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.device_bias" class="doc doc-heading">
+            <code>device_bias</code>
+
+
+<a href="#src.reliability.device_bias" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Estimate device-class bias on key biomarkers.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.device_bias.per_column_bias" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">per_column_bias</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">device_col</span><span class="o">=</span><span class="s1">&#39;device_type&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#src.reliability.device_bias.per_column_bias" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>For each device class, report mean - reference_mean for each column.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.device_bias.bias_severity" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">bias_severity</span><span class="p">(</span><span class="n">bias_df</span><span class="p">)</span></code>
+
+<a href="#src.reliability.device_bias.bias_severity" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Aggregate device-bias severity in [0, 1].</p>
+<p>Defined as the maximum absolute mean_diff across rows, divided by a
+fixed scale (10 bpm / 10 ms) and clipped to [0, 1]. This is a simple
+heuristic, not a standardized effect size, so it depends on the unit of
+<code>mean_diff</code>. For metrics whose natural scale differs from 10, pre-scale
+or use a different aggregator.</p>
+<p>Returns 0.0 on an empty frame.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.fairness_audit" class="doc doc-heading">
+            <code>fairness_audit</code>
+
+
+<a href="#src.reliability.fairness_audit" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Stratified fairness audit.</p>
+<p>For any categorical column (device_type, sex, age band, a skin-tone proxy
+quartile), compute the full DBTS panel within each level and emit:</p>
+<ul>
+<li>a tidy per-stratum table with all six components and the overall score;</li>
+<li>a per-component disparity table (max minus min across strata);</li>
+<li>a 'forest-plot-ready' frame with bootstrapped confidence intervals.</li>
+</ul>
+<p>The plot itself is in <code>src/reports/figure_builder.py::fairness_forest_plot</code>.</p>
+<p>This module deliberately stays domain-agnostic. It does not know what
+"fair" means; it surfaces the disparities so a human can decide what to
+do about them.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.fairness_audit.fairness_audit" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fairness_audit</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">stratify_by</span><span class="p">,</span> <span class="n">bin_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">n_bootstrap</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">scorer</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#src.reliability.fairness_audit.fairness_audit" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run DBTS for every level of <code>stratify_by</code>.</p>
+<h6 id="src.reliability.fairness_audit.fairness_audit--parameters">Parameters<a class="headerlink" href="#src.reliability.fairness_audit.fairness_audit--parameters" title="Permanent link">&para;</a></h6>
+<p>df
+    Daily-summary frame, schema-compliant.
+stratify_by
+    Column to stratify on. If numeric, will be quartile-binned (or
+    median-split when there aren't enough unique values).
+bin_strategy
+    'auto' (default), 'quartile', or 'none'. 'none' requires the column
+    to be categorical or low-cardinality already.
+n_bootstrap
+    Bootstrap resamples for the per-stratum CI. Set to 0 to skip.
+scorer
+    Optional pre-built scorer (uses default config if None).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.fairness_audit.disparity_summary" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">disparity_summary</span><span class="p">(</span><span class="n">stratum_table</span><span class="p">)</span></code>
+
+<a href="#src.reliability.fairness_audit.disparity_summary" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Max minus min across strata, per component. Quick read of who's worst off.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.fairness_audit.multi_stratify" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">multi_stratify</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">stratify_columns</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+<a href="#src.reliability.fairness_audit.multi_stratify" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run the audit across multiple stratifiers; return a dict keyed by column.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.intraclass_correlation" class="doc doc-heading">
+            <code>intraclass_correlation</code>
+
+
+<a href="#src.reliability.intraclass_correlation" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>ICC(2,1): two-way random, single rater, absolute agreement.</p>
+<p>Treats each participant as a 'target' and each day as a 'rater'.
+This is an unconventional use of the formula. The classical
+Shrout &amp; Fleiss (1979) ICC assumes a small fixed set of human raters scoring
+each subject. Here we substitute calendar days within a participant as the
+'raters'. The substitution is empirically defensible (see
+<code>compare_to_test_retest</code> below): on the bundled synthetic cohort, the ICC
+ranking matches the proper week-pair test-retest ranking, with the ICC
+being uniformly more conservative because it counts day-to-day fluctuation
+as rater disagreement.</p>
+<p>The classical numerical implementation here was sanity-checked against the
+textbook example from Shrout &amp; Fleiss (1979) Table 1 and recovers the
+published ICC(2,1) value of 0.290.</p>
+<p>For a clinical paper the better metric is probably the bootstrap week-pair
+correlation in <code>reliability/test_retest.py</code>. The ICC value here is included
+for backward compatibility and as a within-participant noise-floor signal.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="src.reliability.intraclass_correlation.MethodComparison" class="doc doc-heading">
+            <code>MethodComparison</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#src.reliability.intraclass_correlation.MethodComparison" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Empirical comparison of ICC(2,1) days-as-raters against bootstrap week-pair r.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.intraclass_correlation.icc_2_1" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">icc_2_1</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span></code>
+
+<a href="#src.reliability.intraclass_correlation.icc_2_1" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Intraclass correlation, ICC(2,1) form: two-way random, single rater,
+absolute agreement.</p>
+<h6 id="src.reliability.intraclass_correlation.icc_2_1--parameters">Parameters<a class="headerlink" href="#src.reliability.intraclass_correlation.icc_2_1--parameters" title="Permanent link">&para;</a></h6>
+<p>matrix : np.ndarray
+    Shape (n_subjects, n_raters).
+nan_policy : {'drop', 'raise'}
+    - 'drop' (default): drop any subject row that contains a NaN.
+    - 'raise': raise ValueError if any NaN is present.</p>
+<h6 id="src.reliability.intraclass_correlation.icc_2_1--returns">Returns<a class="headerlink" href="#src.reliability.intraclass_correlation.icc_2_1--returns" title="Permanent link">&para;</a></h6>
+<p>float
+    ICC value, or NaN if the cleaned input has fewer than 2 subjects or
+    2 raters.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.intraclass_correlation.compute_from_dataframe" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">compute_from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">window_days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span></code>
+
+<a href="#src.reliability.intraclass_correlation.compute_from_dataframe" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Take first <code>window_days</code> per participant, drop incomplete, compute ICC.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.intraclass_correlation.compare_to_test_retest" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">compare_to_test_retest</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">icc_window_days</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">n_bootstrap</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span></code>
+
+<a href="#src.reliability.intraclass_correlation.compare_to_test_retest" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Empirical comparison: ICC(2,1) days-as-raters against bootstrap week-pair r.</p>
+<p>This is the formal defense of the unconventional ICC use. If the two
+methods rank metrics consistently and the ICC is monotonically related
+to the proper test-retest correlation, the ICC is doing useful work
+even though the rater interpretation is unusual.</p>
+<p>Returns one row per metric with both estimates and the week-pair CI.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.temporal_stability" class="doc doc-heading">
+            <code>temporal_stability</code>
+
+
+<a href="#src.reliability.temporal_stability" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Day-to-day stability, rolling CoV, drift.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.temporal_stability.drift_slope" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">drift_slope</span><span class="p">(</span><span class="n">values</span><span class="p">)</span></code>
+
+<a href="#src.reliability.temporal_stability.drift_slope" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Linear-regression slope and p-value of <code>values</code> vs sample index.</p>
+<p>NaN samples are dropped before the regression. Returns NaN slope and
+p-value when fewer than 5 finite samples remain or when the finite
+portion has effectively zero variance.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.test_retest" class="doc doc-heading">
+            <code>test_retest</code>
+
+
+<a href="#src.reliability.test_retest" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Test-retest reliability for daily-summary time series.</p>
+<p>Three functions, in increasing order of methodological seriousness:</p>
+<ul>
+<li>
+<p><code>split_half_correlation</code>: Pearson between the first half and the second
+  half of a single participant's series. Quick, simple, suitable for
+  ranking participants. Single point estimate; no CI.</p>
+</li>
+<li>
+<p><code>week_pair_correlation</code>: For each pair of adjacent non-overlapping weeks
+  within a participant, correlate the within-week means. Standard
+  test-retest formulation when daily measurements are pooled by week.</p>
+</li>
+<li>
+<p><code>cohort_test_retest</code>: Pool participants and report between-participant
+  test-retest reliability of any weekly aggregate of choice. Returns a
+  point estimate plus a participant-level bootstrap 95% CI. This is the
+  one to put in a paper.</p>
+</li>
+</ul>
+<p>The 'classical' (Shrout &amp; Fleiss 1979) ICC is over in
+intraclass_correlation.py. We deliberately keep the two separate because
+they answer different questions: this module asks 'is the same participant
+consistent week to week?', ICC asks 'how much of the total variance is
+between-participant?'.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.test_retest.split_half_correlation" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">split_half_correlation</span><span class="p">(</span><span class="n">values</span><span class="p">)</span></code>
+
+<a href="#src.reliability.test_retest.split_half_correlation" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Pearson correlation between the first and second halves of a series.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.test_retest.per_participant" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">per_participant</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span></code>
+
+<a href="#src.reliability.test_retest.per_participant" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Per-participant split-half correlation (no CI).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.test_retest.week_pair_correlation" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">week_pair_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">min_weeks</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></code>
+
+<a href="#src.reliability.test_retest.week_pair_correlation" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Pool all (week_t, week_{t+1}) pairs across participants, correlate.</p>
+<p>A participant with at least <code>min_weeks</code> weeks of data contributes
+<code>n_weeks - 1</code> pairs. Returns the Pearson correlation across all pooled
+pairs.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.test_retest.cohort_test_retest" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cohort_test_retest</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;week_pair&#39;</span><span class="p">,</span> <span class="n">n_bootstrap</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">min_weeks</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+<a href="#src.reliability.test_retest.cohort_test_retest" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Pool participants, compute a single test-retest estimate, bootstrap the CI.</p>
+<p>Bootstrap resamples participants (cluster bootstrap), which is the
+appropriate unit for clustered repeated-measures data.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.test_retest.cohort_test_retest_table" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cohort_test_retest_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+<a href="#src.reliability.test_retest.cohort_test_retest_table" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run cohort_test_retest for several metrics and return a tidy table.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reliability.weight_optimization" class="doc doc-heading">
+            <code>weight_optimization</code>
+
+
+<a href="#src.reliability.weight_optimization" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Learn trust-score weights from data, tied to a downstream reproducibility task.</p>
+<p>The default DBTS weights are a defensible prior. They are not learned. Anyone
+who actually cares about a specific downstream task (week-over-week stability
+of an HRV-based stress estimate, say) can do better by searching the weight
+simplex for the weighting that maximizes correlation between DBTS and that
+task's stability.</p>
+<p>We provide:</p>
+<ul>
+<li><code>weekly_reproducibility_target</code>: a function that produces a per-participant
+  reproducibility score for a chosen metric. Default metric: HRV RMSSD,
+  default measure: 1 − relative absolute difference between adjacent weeks.</li>
+<li><code>learn_weights</code>: grid + random search over the 6-component simplex,
+  maximizing Spearman ρ between DBTS overall and the per-participant target.</li>
+<li><code>sensitivity_table</code>: how much do conclusions move when the weights change?
+  Reports overall-score correlation between top-k weight settings and the
+  rank stability of the participant ordering they induce.</li>
+</ul>
+<p>Methodology:
+- Search is on the simplex with a Dirichlet-uniform sample plus a refining
+  local grid around the best point. Both phases are exposed so the search
+  budget is auditable.
+- The target is computed on a held-out half of the participants; weight
+  fitting and validation never see the same participants.
+- We never claim the learned weights generalize to a different task. The
+  point is to report the dependence and let the user decide.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.weight_optimization.weekly_reproducibility_target" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">weekly_reproducibility_target</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;hrv_rmssd&#39;</span><span class="p">)</span></code>
+
+<a href="#src.reliability.weight_optimization.weekly_reproducibility_target" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Per-participant week-over-week reproducibility of <code>metric</code>.</p>
+<p>Score is 1 minus the median relative absolute difference between adjacent
+7-day means. Higher = more reproducible. Range roughly [0, 1].</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.weight_optimization.participant_components" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">participant_components</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">scorer</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#src.reliability.weight_optimization.participant_components" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run the DBTS once per participant and return the six component scores.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.weight_optimization.overall_from_components" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">overall_from_components</span><span class="p">(</span><span class="n">components_df</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span></code>
+
+<a href="#src.reliability.weight_optimization.overall_from_components" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the overall score under a given weighting.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.weight_optimization.learn_weights" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">learn_weights</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_metric</span><span class="o">=</span><span class="s1">&#39;hrv_rmssd&#39;</span><span class="p">,</span> <span class="n">n_random</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">n_refine</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">holdout_fraction</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_train_participants</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></code>
+
+<a href="#src.reliability.weight_optimization.learn_weights" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Search the 6-simplex for weights that maximize Spearman ρ vs reproducibility.</p>
+<p>Returns LearnedWeights with NaN ρ values (and default weights) if the cohort
+has fewer than <code>min_train_participants</code> participants with a computable
+reproducibility target, or if the bootstrap never produces a finite Spearman.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reliability.weight_optimization.sensitivity_table" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">sensitivity_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">learned</span><span class="p">,</span> <span class="n">perturbations</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#src.reliability.weight_optimization.sensitivity_table" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>How sensitive is the participant ranking to small weight changes?</p>
+<p>For each perturbation magnitude p, draw Dirichlet noise of scale p around
+the learned weights, recompute the overall score, and report the Spearman
+rank correlation with the original ordering.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="models">Models<a class="headerlink" href="#models" title="Permanent link">&para;</a></h2>
+<p>Downstream LF/HF biomarker classifier with LOSO cross-validation.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="src.models" class="doc doc-heading">
+            <code>src.models</code>
+
+
+<a href="#src.models" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Quality / anomaly models: autoencoder, isolation forest, baselines.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.models.anomaly_detector" class="doc doc-heading">
+            <code>anomaly_detector</code>
+
+
+<a href="#src.models.anomaly_detector" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Isolation Forest anomaly detector + logistic / random forest baselines.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.models.quality_autoencoder" class="doc doc-heading">
+            <code>quality_autoencoder</code>
+
+
+<a href="#src.models.quality_autoencoder" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>A small PyTorch autoencoder used as an unsupervised quality probe.</p>
+<p>We train it on what looks like 'good' data (high signal quality ground truth)
+and use reconstruction error as a quality score for new samples.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.models.sequence_model" class="doc doc-heading">
+            <code>sequence_model</code>
+
+
+<a href="#src.models.sequence_model" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Tiny GRU baseline for sequence-level quality (per-participant time series).</p>
+<p>Trained against per-participant mean reliability_ground_truth as a regression
+sanity check. Not the main contribution: just here so reviewers can see we
+considered the temporal dimension.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="reports">Reports<a class="headerlink" href="#reports" title="Permanent link">&para;</a></h2>
+<p>Publication-grade figure generation and summary JSON writers.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="src.reports" class="doc doc-heading">
+            <code>src.reports</code>
+
+
+<a href="#src.reports" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Report generation, figures, trust-report markdown.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reports.figure_builder" class="doc doc-heading">
+            <code>figure_builder</code>
+
+
+<a href="#src.reports.figure_builder" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Publication-style figures. Matplotlib only.</p>
+<p>Each function takes an already-loaded dataframe and writes a PNG to
+results/figures/. Numbers are deliberately kept legible at small sizes
+so they reproduce well in a PDF.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.figure_builder.fairness_forest_plot" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fairness_forest_plot</span><span class="p">(</span><span class="n">stratum_table</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;results/figures/fairness_forest.png&#39;</span><span class="p">)</span></code>
+
+<a href="#src.reports.figure_builder.fairness_forest_plot" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Forest plot of per-stratum overall trust score with bootstrap CIs.</p>
+<p>Expects the output of <code>fairness_audit</code>: columns stratum_value,
+overall_trust_score, ci_low, ci_high.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reports.real_data_figures" class="doc doc-heading">
+            <code>real_data_figures</code>
+
+
+<a href="#src.reports.real_data_figures" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Publication-quality figures for the deep WESAD analysis.</p>
+
+
+<details class="six-figures" open>
+  <summary>Six figures</summary>
+  <ol>
+<li>Bland-Altman: HR-from-PPG vs HR-from-ECG, color-coded by state</li>
+<li>Scatter HR_PPG vs HR_ECG with identity line and per-subject color</li>
+<li>SQI pass rate by method (in-house vs Orphanidou vs Sukor)</li>
+<li>Per-state distribution panels (4-subplot: SQI, motion, HR error, template corr)</li>
+<li>Motion vs HR disagreement scatter</li>
+<li>Recalibration: original vs recalibrated kappa across thresholds</li>
+</ol>
+</details>
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.real_data_figures.fig_bland_altman_hr" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fig_bland_altman_hr</span><span class="p">(</span><span class="n">window_df</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></code>
+
+<a href="#src.reports.real_data_figures.fig_bland_altman_hr" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Bland-Altman: mean of HR_PPG and HR_ECG vs their difference.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.real_data_figures.fig_hr_scatter" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fig_hr_scatter</span><span class="p">(</span><span class="n">window_df</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></code>
+
+<a href="#src.reports.real_data_figures.fig_hr_scatter" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>HR_PPG vs HR_ECG scatter with identity line.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.real_data_figures.fig_sqi_pass_rates" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fig_sqi_pass_rates</span><span class="p">(</span><span class="n">three_way_result</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></code>
+
+<a href="#src.reports.real_data_figures.fig_sqi_pass_rates" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Bar chart of pass rates across three SQI methods.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.real_data_figures.fig_per_state_panels" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fig_per_state_panels</span><span class="p">(</span><span class="n">window_df</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></code>
+
+<a href="#src.reports.real_data_figures.fig_per_state_panels" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>4-panel boxplot: SQI, motion, HR error, template corr by state.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.real_data_figures.fig_motion_vs_hr_error" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fig_motion_vs_hr_error</span><span class="p">(</span><span class="n">window_df</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></code>
+
+<a href="#src.reports.real_data_figures.fig_motion_vs_hr_error" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Scatter: PPG motion score vs |HR_PPG - HR_ECG|.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.real_data_figures.fig_recalibration_curve" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fig_recalibration_curve</span><span class="p">(</span><span class="n">window_df</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></code>
+
+<a href="#src.reports.real_data_figures.fig_recalibration_curve" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Cohen's kappa vs in-house SQI threshold, with original and recalibrated.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="src.reports.real_data_figures.make_all_figures" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">make_all_figures</span><span class="p">(</span><span class="n">window_df</span><span class="p">,</span> <span class="n">three_way_result</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">)</span></code>
+
+<a href="#src.reports.real_data_figures.make_all_figures" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generate all six figures and return their paths.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reports.report_generator" class="doc doc-heading">
+            <code>report_generator</code>
+
+
+<a href="#src.reports.report_generator" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Top-level audit report generator.</p>
+<p>Produces results/reports/signal_forensics_report.md plus a set of figures.
+Designed to be readable as a standalone document.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="src.reports.trust_report" class="doc doc-heading">
+            <code>trust_report</code>
+
+
+<a href="#src.reports.trust_report" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+        <p>Markdown formatting for a single trust report.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+<p>If a module above does not render, it may be because mkdocstrings could
+not import it during the docs build. Common causes:</p>
+<ul>
+<li>The package is not installed in the docs environment. Run
+  <code>pip install -e .</code> before <code>mkdocs serve</code>.</li>
+<li>A module imports a heavy optional dependency that is not in the docs
+  environment. Lazy imports inside functions are recommended over
+  module-level imports of optional heavy dependencies.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Ceyhun Olcan. Released under the MIT License.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://orcid.org/0000-0002-6326-6071" target="_blank" rel="noopener" title="orcid.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M294.7 188.2h-45.9V342h47.5c67.6 0 83.1-51.3 83.1-76.9 0-41.6-26.5-76.9-84.7-76.9M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496m-80.8 360.8h-29.8V161.3h29.8zM160.3 98.5a19.6 19.6 0 1 1 0 39.2 19.6 19.6 0 1 1 0-39.2M300 369h-81V161.3h80.6c76.7 0 110.4 54.8 110.4 103.9 0 53.3-41.7 103.9-110 103.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

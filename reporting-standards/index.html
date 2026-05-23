@@ -1,0 +1,1378 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An open-source toolkit for auditing wearable physiological signals: signal quality, algorithmic fairness, causal sensitivity, and downstream-task impact.">
+      
+      
+        <meta name="author" content="Ceyhun Olcan">
+      
+      
+        <link rel="canonical" href="https://ceyhunolcan.github.io/biomedical-signal-forensics-lab/reporting-standards/">
+      
+      
+        <link rel="prev" href="../reproducing-paper/">
+      
+      
+        <link rel="next" href="../api-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Reporting standards - biomedical-signal-forensics-lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reporting-standards-compliance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="biomedical-signal-forensics-lab" class="md-header__button md-logo" aria-label="biomedical-signal-forensics-lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            biomedical-signal-forensics-lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reporting standards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceyhunolcan/biomedical-signal-forensics-lab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="biomedical-signal-forensics-lab" class="md-nav__button md-logo" aria-label="biomedical-signal-forensics-lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    biomedical-signal-forensics-lab
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceyhunolcan/biomedical-signal-forensics-lab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reproducing-paper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducing the paper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reporting standards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reporting standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tripodai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRIPOD+AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../citing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tripodai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRIPOD+AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="reporting-standards-compliance">Reporting standards compliance<a class="headerlink" href="#reporting-standards-compliance" title="Permanent link">&para;</a></h1>
+<p>This page summarises compliance with the EQUATOR-Network reporting
+standards relevant to digital-health AI research. The full per-item
+checklists live in <code>paper/checklists/</code> in the repository and are pulled
+in below.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Applies?</th>
+<th>Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRIPOD+AI (Collins et al. 2024)</td>
+<td>Partial (Section 4.6 classifier)</td>
+<td>Per-item compliance below</td>
+</tr>
+<tr>
+<td>STARD 2015 (Bossuyt et al. 2015)</td>
+<td>Yes (Sections 4.1-4.3 SQI-as-test)</td>
+<td>Per-item compliance below</td>
+</tr>
+<tr>
+<td>CONSORT-AI (Liu et al. 2020)</td>
+<td>No (not a randomised trial)</td>
+<td>Applicability assessment below</td>
+</tr>
+<tr>
+<td>DECIDE-AI (Vasey et al. 2022)</td>
+<td>No (not a clinical deployment)</td>
+<td>Applicability assessment below</td>
+</tr>
+</tbody>
+</table>
+<p>The flow diagram in
+<a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/paper/figures/fig_flow_diagram.png">paper/figures/fig_flow_diagram.png</a>
+follows STARD 2015 conventions adapted to the multi-arm structure of
+this audit.</p>
+<hr />
+<h2 id="tripodai">TRIPOD+AI<a class="headerlink" href="#tripodai" title="Permanent link">&para;</a></h2>
+<h1 id="tripodai-compliance-checklist">TRIPOD+AI compliance checklist<a class="headerlink" href="#tripodai-compliance-checklist" title="Permanent link">&para;</a></h1>
+<p><strong>Reference</strong>: Collins GS, Moons KGM, Dhiman P, et al. <em>TRIPOD+AI statement:
+updated guidance for reporting clinical prediction models that use regression
+or machine learning methods.</em> BMJ 2024;385:e078378.
+doi:10.1136/bmj-2023-078378</p>
+<p><strong>Applicability to this paper</strong>: TRIPOD+AI applies to the Section 4.6
+downstream-audit classifier (LF/HF biomarker -&gt; baseline/stress label, LOSO
+cross-validation). It does not apply to the SQI-agreement analysis in
+Sections 4.1-4.3, which is framed as a diagnostic-accuracy comparison (see
+STARD 2015 checklist) rather than a prediction-model deployment. The
+downstream classifier in Section 4.6 is a research-stage demonstration, not a
+clinical-deployment candidate; the items below reflect that scope honestly.</p>
+<p>Item numbering follows the published TRIPOD+AI checklist. Item statements are
+paraphrased; the full text of each item is in the original publication.</p>
+<hr />
+<h2 id="title-and-abstract">Title and abstract<a class="headerlink" href="#title-and-abstract" title="Permanent link">&para;</a></h2>
+<p><strong>Item 1 (Title).</strong> Identifies the study as developing or validating a
+prediction model, mentions the target population, the outcome, and the AI
+methods used.</p>
+<ul>
+<li><em>This paper.</em> The main title positions the work as a "methodology audit of
+  wearable physiological signals," not as a prediction-model paper.
+  Section 4.6 (the downstream audit) is a sub-study; its sub-heading
+  identifies it as a classifier evaluation. The full title is appropriate
+  for the methodology audit as a whole.</li>
+</ul>
+<p><strong>Item 2 (Abstract).</strong> Structured abstract reporting objectives, methods,
+results, conclusions.</p>
+<ul>
+<li><em>This paper.</em> Manuscript abstract is structured. Section 4.6 results
+  (AUROC 0.804 -&gt; 0.823, Wilcoxon p = 1.5e-4) are reported in the abstract.</li>
+</ul>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p><strong>Item 3a (Background and rationale).</strong> Explains the medical context and the
+need for a prediction model.</p>
+<ul>
+<li><em>This paper.</em> Section 1 motivates the audit; Section 4.6 motivates the
+  downstream classifier as a check on whether the SQI-binarisation choice
+  has measurable consequences for a downstream prediction task.</li>
+</ul>
+<p><strong>Item 3b (Objectives).</strong> States objectives, including whether the study
+develops, validates, or updates a model.</p>
+<ul>
+<li><em>This paper.</em> Section 4.6 develops a per-subject LF/HF classifier and
+  evaluates it under two SQI preprocessing regimes (raw vs in-house cleaned).
+  Objective is to test whether SQI choice changes downstream performance.</li>
+</ul>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<p><strong>Item 4a (Source of data).</strong> Describes the data source, including dates,
+geographic location, setting.</p>
+<ul>
+<li><em>This paper.</em> WESAD (Schmidt et al. 2018), released 2018, lab-based
+  acquisition at the University of Siegen. Section 3.1 (Data).</li>
+</ul>
+<p><strong>Item 4b (Eligibility criteria).</strong> Describes participant eligibility.</p>
+<ul>
+<li><em>This paper.</em> All 15 WESAD subjects with successful chest-ECG and wrist-PPG
+  synchronisation included. No additional eligibility filter applied. Stated
+  in Section 3.1.</li>
+</ul>
+<p><strong>Item 5a (Setting).</strong> Geographic and temporal setting.</p>
+<ul>
+<li><em>This paper.</em> Lab-based, single-site, 2018. Stated in Section 3.1.</li>
+</ul>
+<p><strong>Item 5b (Outcome).</strong> Definition of the outcome being predicted, including
+how and when it was measured.</p>
+<ul>
+<li><em>This paper.</em> Outcome is the binary label baseline vs stress, defined by
+  the WESAD protocol annotations. Section 4.6.</li>
+</ul>
+<p><strong>Item 6 (Predictors).</strong> Predictors used, including how and when measured.</p>
+<ul>
+<li><em>This paper.</em> Single predictor: per-subject LF/HF ratio computed on RR
+  intervals derived from chest ECG. Section 4.6.</li>
+</ul>
+<p><strong>Item 7 (Sample size).</strong> Sample size justification.</p>
+<ul>
+<li><em>This paper.</em> n=15 subjects, dictated by WESAD. Section 4.6 explicitly
+  states this is not powered as a confirmatory study; it is a research-stage
+  demonstration. Section 6 (Limitations) acknowledges the small n.</li>
+</ul>
+<p><strong>Item 8 (Missing data).</strong> Handling of missing data.</p>
+<ul>
+<li><em>This paper.</em> No subject-level missingness; all 15 subjects contributed one
+  baseline and one stress LF/HF measurement. Stated in Section 4.6.</li>
+</ul>
+<p><strong>Item 9 (Statistical analysis).</strong> Statistical methods used.</p>
+<ul>
+<li><em>This paper.</em> LOSO cross-validation (15 folds, each with 14 train + 1
+  test); per-fold AUROC; paired Wilcoxon signed-rank test comparing per-fold
+  AUROC under the two preprocessing regimes; bootstrap confidence intervals.
+  Section 4.6.</li>
+</ul>
+<p><strong>Item 10a (Model development).</strong> Predictors selected, methods for model
+specification.</p>
+<ul>
+<li><em>This paper.</em> Single-predictor logistic regression. No predictor selection
+  required. Section 4.6.</li>
+</ul>
+<p><strong>Item 10b (Model specification).</strong> Final model specification.</p>
+<ul>
+<li><em>This paper.</em> Logistic regression with one continuous predictor (LF/HF
+  ratio). Coefficients reported in supplement.</li>
+</ul>
+<p><strong>Item 10c (Model performance).</strong> Discrimination, calibration, etc.</p>
+<ul>
+<li><em>This paper.</em> AUROC reported (mean and per-fold). Calibration not reported
+  because the analysis focus is on relative performance between two
+  preprocessing regimes, not on calibration of the classifier itself. This
+  is stated as a limitation.</li>
+</ul>
+<p><strong>Item 10d (Internal validation).</strong> Description of internal validation.</p>
+<ul>
+<li><em>This paper.</em> LOSO is the internal validation strategy. Section 4.6.</li>
+</ul>
+<h2 id="ai-specific-items">AI-specific items<a class="headerlink" href="#ai-specific-items" title="Permanent link">&para;</a></h2>
+<p><strong>Item AI-1 (Software/version).</strong> Software and version used.</p>
+<ul>
+<li><em>This paper.</em> Python 3.10/3.11/3.12, scikit-learn pinned in
+  <code>pyproject.toml</code>. CI matrix tests all three Python versions.</li>
+</ul>
+<p><strong>Item AI-2 (Reproducibility).</strong> Code and data availability.</p>
+<ul>
+<li><em>This paper.</em> All code public at
+  https://github.com/ceyhunolcan/biomedical-signal-forensics-lab under MIT.
+  WESAD is public via the original release. Section 7 (Reproducibility).</li>
+</ul>
+<p><strong>Item AI-3 (Computational resources).</strong> Computational requirements.</p>
+<ul>
+<li><em>This paper.</em> The full pipeline runs on a laptop in under 10 minutes; no
+  GPU required. Stated in repository README.</li>
+</ul>
+<p><strong>Item AI-4 (Fairness and bias).</strong> Considerations of fairness and bias.</p>
+<ul>
+<li><em>This paper.</em> The synthetic cohort (Sections 3-4.5) was constructed
+  specifically to inject and recover fairness disparities including
+  device-family and skin-tone. WESAD itself is not demographically diverse
+  (15 subjects, demographics not stratified); this limitation is stated in
+  Section 6.</li>
+</ul>
+<h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
+<p><strong>Item 11 (Risk groups).</strong> If applicable, definition of risk groups.</p>
+<ul>
+<li><em>This paper.</em> Not applicable (binary classification, no stratified risk
+  groups).</li>
+</ul>
+<p><strong>Item 12 (Development vs validation).</strong> Numbers in each set.</p>
+<ul>
+<li><em>This paper.</em> LOSO: every subject contributes both as training (in 14
+  folds) and as test (in 1 fold).</li>
+</ul>
+<p><strong>Item 13a (Participants).</strong> Flow of participants through the study.</p>
+<ul>
+<li><em>This paper.</em> See Figure 1 flow diagram.</li>
+</ul>
+<p><strong>Item 13b (Performance).</strong> Model performance with confidence intervals.</p>
+<ul>
+<li><em>This paper.</em> AUROC 0.804 (95% CI from bootstrap) under raw preprocessing;
+  0.823 under cleaned preprocessing; paired Wilcoxon p = 1.5e-4 (n=15).
+  Section 4.6.</li>
+</ul>
+<p><strong>Item 14a (Final model).</strong> Specification of the final model.</p>
+<ul>
+<li><em>This paper.</em> Final model is the logistic regression with LF/HF as
+  predictor; coefficients in supplement.</li>
+</ul>
+<p><strong>Item 14b (Performance interpretation).</strong></p>
+<ul>
+<li><em>This paper.</em> Section 4.6 explicitly notes the AUROC difference is small
+  (0.019) but consistently in the same direction across all 15 subjects,
+  hence the strong Wilcoxon p-value despite small absolute effect.</li>
+</ul>
+<h2 id="discussion">Discussion<a class="headerlink" href="#discussion" title="Permanent link">&para;</a></h2>
+<p><strong>Item 15 (Interpretation).</strong> Overall interpretation including comparison
+with other models.</p>
+<ul>
+<li><em>This paper.</em> Section 5 interprets the downstream result within the
+  broader audit framing. No comparison with other published classifiers is
+  attempted because the contribution is the audit, not the classifier.</li>
+</ul>
+<p><strong>Item 16 (Limitations).</strong> Study limitations.</p>
+<ul>
+<li><em>This paper.</em> Section 6 enumerates: small n; single-site dataset; single
+  predictor; absence of external validation; no calibration analysis.</li>
+</ul>
+<p><strong>Item 17 (Implications).</strong> Implications for clinical practice and future
+research.</p>
+<ul>
+<li><em>This paper.</em> Section 5 states the downstream result is a research-stage
+  signal that the SQI-binarisation choice has measurable downstream effect,
+  not a deployment claim.</li>
+</ul>
+<h2 id="other-information">Other information<a class="headerlink" href="#other-information" title="Permanent link">&para;</a></h2>
+<p><strong>Item 18 (Data sharing).</strong> Statement on data sharing.</p>
+<ul>
+<li><em>This paper.</em> WESAD is public. All derived artefacts (window tables,
+  summary JSONs) are in the repository under
+  <code>results/real_data/wesad_deep/</code>.</li>
+</ul>
+<p><strong>Item 19 (Funding).</strong> Funding statement.</p>
+<ul>
+<li><em>This paper.</em> No external funding; self-supported research. To be stated
+  in the author affiliation block once finalised.</li>
+</ul>
+<hr />
+<h2 id="summary-of-compliance">Summary of compliance<a class="headerlink" href="#summary-of-compliance" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th style="text-align: right;">Items</th>
+<th>Compliance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title and abstract</td>
+<td style="text-align: right;">2</td>
+<td>Compliant</td>
+</tr>
+<tr>
+<td>Introduction</td>
+<td style="text-align: right;">2</td>
+<td>Compliant</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td style="text-align: right;">11</td>
+<td>Compliant (calibration analysis is missing, acknowledged in Section 6)</td>
+</tr>
+<tr>
+<td>Results</td>
+<td style="text-align: right;">5</td>
+<td>Compliant</td>
+</tr>
+<tr>
+<td>Discussion</td>
+<td style="text-align: right;">3</td>
+<td>Compliant</td>
+</tr>
+<tr>
+<td>Other</td>
+<td style="text-align: right;">2</td>
+<td>Compliant once author block is finalised</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Items not addressed</strong>: TRIPOD+AI item 10c calibration analysis. The
+analysis focus is on relative performance between preprocessing regimes
+rather than on absolute calibration of the downstream classifier. This is an
+acknowledged limitation rather than a TRIPOD+AI violation: calibration is
+out of scope for the audit framing of Section 4.6. A future deployment-style
+study should add reliability diagrams and a Hosmer-Lemeshow or
+Spiegelhalter test before clinical use is considered.</p>
+<p><strong>Items to address before submission</strong>: item 19 (author block / funding
+statement). Tracked in the npj DM polish queue.</p>
+<p>If the include above renders as raw text in your viewer, the full
+checklist is at
+<a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/paper/checklists/tripod_ai_checklist.md">paper/checklists/tripod_ai_checklist.md</a>.</p>
+<hr />
+<h2 id="stard-2015">STARD 2015<a class="headerlink" href="#stard-2015" title="Permanent link">&para;</a></h2>
+<h1 id="stard-2015-compliance-checklist">STARD 2015 compliance checklist<a class="headerlink" href="#stard-2015-compliance-checklist" title="Permanent link">&para;</a></h1>
+<p><strong>Reference</strong>: Bossuyt PM, Reitsma JB, Bruns DE, et al. <em>STARD 2015: an
+updated list of essential items for reporting diagnostic accuracy studies.</em>
+BMJ 2015;351:h5527. doi:10.1136/bmj.h5527</p>
+<p><strong>Applicability to this paper</strong>: STARD 2015 applies most directly to Arms
+1-3 of Figure 1: HR agreement (Section 4.1), SQI agreement (Section 4.2),
+and threshold recalibration (Section 4.3). In all three, chest ECG serves
+as the reference standard against which wrist PPG-derived measurements
+serve as the index modality. The 30 STARD 2015 items are listed below with
+a per-item compliance statement.</p>
+<p>The wording of each item is paraphrased from the published checklist;
+the original BMJ paper contains the full text.</p>
+<hr />
+<h2 id="title-and-abstract_1">Title and abstract<a class="headerlink" href="#title-and-abstract_1" title="Permanent link">&para;</a></h2>
+<p><strong>Item 1.</strong> Identification as a study of diagnostic accuracy using at least
+one measure of accuracy (sensitivity, specificity, predictive values,
+likelihood ratios, area under ROC curve, etc.).</p>
+<ul>
+<li><em>This paper.</em> Section 4.2 reports Cohen's kappa as the primary agreement
+  metric between four SQI binarisations on the same 6,585 windows; Section
+  4.1 reports Bland-Altman bias and limits of agreement on continuous HR.
+  Both are explicit accuracy / agreement measures.</li>
+</ul>
+<p><strong>Item 2.</strong> Structured summary of study design, methods, results, and
+conclusions.</p>
+<ul>
+<li><em>This paper.</em> Abstract is structured.</li>
+</ul>
+<h2 id="introduction_1">Introduction<a class="headerlink" href="#introduction_1" title="Permanent link">&para;</a></h2>
+<p><strong>Item 3.</strong> Scientific and clinical background, including the intended use
+and clinical role of the index test.</p>
+<ul>
+<li><em>This paper.</em> Sections 1-2 motivate the audit. The "index modality" (wrist
+  PPG) is positioned as a candidate component of consumer-wearable
+  physiological monitoring; the comparator (chest ECG) is positioned as the
+  established reference. The intended use of the SQI is to flag low-quality
+  windows for exclusion before downstream analysis.</li>
+</ul>
+<p><strong>Item 4.</strong> Study objectives and hypotheses.</p>
+<ul>
+<li><em>This paper.</em> Section 1 states three objectives: (a) audit synthetic-tuned
+  SQI thresholds on real data, (b) compare multiple published SQI baselines,
+  (c) test whether SQI choice has measurable downstream effect.</li>
+</ul>
+<h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h2>
+<h3 id="study-design">Study design<a class="headerlink" href="#study-design" title="Permanent link">&para;</a></h3>
+<p><strong>Item 5.</strong> Whether data collection was planned before the index test and
+reference standard were performed (prospective) or after (retrospective).</p>
+<ul>
+<li><em>This paper.</em> Retrospective use of the public WESAD dataset. Stated in
+  Section 3.1.</li>
+</ul>
+<h3 id="participants">Participants<a class="headerlink" href="#participants" title="Permanent link">&para;</a></h3>
+<p><strong>Item 6.</strong> Eligibility criteria.</p>
+<ul>
+<li><em>This paper.</em> All 15 subjects in the public WESAD release. Stated in
+  Section 3.1. The two subjects (S1, S12) excluded by WESAD authors before
+  release are noted in Figure 1.</li>
+</ul>
+<p><strong>Item 7.</strong> On what basis potentially eligible participants were identified.</p>
+<ul>
+<li><em>This paper.</em> WESAD public release; no additional selection step in this
+  study.</li>
+</ul>
+<p><strong>Item 8.</strong> Where and when potentially eligible participants were identified
+(setting, location and dates).</p>
+<ul>
+<li><em>This paper.</em> WESAD acquisition: lab-based, University of Siegen, 2018.
+  This study performed in 2025-2026.</li>
+</ul>
+<p><strong>Item 9.</strong> Whether participants formed a consecutive, random, or convenience
+series.</p>
+<ul>
+<li><em>This paper.</em> Convenience series (all available WESAD subjects). Stated in
+  Section 3.1.</li>
+</ul>
+<h3 id="test-methods">Test methods<a class="headerlink" href="#test-methods" title="Permanent link">&para;</a></h3>
+<p><strong>Item 10a (Index test).</strong> How and by whom the index test was performed.</p>
+<ul>
+<li><em>This paper.</em> Index modality: wrist Empatica E4 PPG, 64 Hz, automated
+  pulse-peak detection and HR computation. Algorithms in
+  <code>src/signals/ppg_processing.py</code>. Algorithm version pinned by repository
+  tag.</li>
+</ul>
+<p><strong>Item 10b (Reference standard).</strong> How and by whom the reference standard was
+performed.</p>
+<ul>
+<li><em>This paper.</em> Reference modality: chest RespiBAN ECG, 700 Hz, Pan-Tompkins
+  R-peak detection followed by RR interval computation. Algorithms in
+  <code>src/signals/ecg_processing.py</code>.</li>
+</ul>
+<p><strong>Item 11.</strong> Rationale for choosing the reference standard.</p>
+<ul>
+<li><em>This paper.</em> Chest ECG is the established gold standard for instantaneous
+  heart rate and HRV in physiological research (HRV Task Force standards;
+  Schaefer and Vagedes 2013). Stated in Section 3.</li>
+</ul>
+<p><strong>Item 12a.</strong> Definition of and rationale for test positivity cutoffs.</p>
+<ul>
+<li><em>This paper.</em> Four SQI binarisations are compared. The in-house cutoff
+  (0.70) was inherited from prior synthetic-data tuning. The three
+  published cutoffs (Orphanidou, Sukor, Elgendi) follow the published
+  recommendations. The lack of agreement among these four constitutes the
+  central audit finding (Section 4.2).</li>
+</ul>
+<p><strong>Item 12b.</strong> Whether clinical information and reference standard results
+were available to performers of the index test.</p>
+<ul>
+<li><em>This paper.</em> Both modalities are automated; no human reader involved at
+  test execution. The SQI computation is blind to the ECG-derived HR by
+  construction.</li>
+</ul>
+<p><strong>Item 13a.</strong> Whether clinical information and index test results were
+available to assessors of the reference standard.</p>
+<ul>
+<li><em>This paper.</em> Both modalities are automated; not applicable.</li>
+</ul>
+<p><strong>Item 13b.</strong> Definition of test positivity (cutoff) for the reference
+standard.</p>
+<ul>
+<li><em>This paper.</em> The "reference HR" is the continuous output of the ECG
+  pipeline; there is no positivity cutoff. For Section 4.2, the reference
+  comparator is each published SQI baseline's own pass/fail decision.</li>
+</ul>
+<h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<p><strong>Item 14.</strong> Methods for estimating or comparing measures of diagnostic
+accuracy.</p>
+<ul>
+<li><em>This paper.</em> Bland-Altman bias and 95% limits of agreement (Section 4.1);
+  Cohen's kappa pairwise between four SQI binarisations (Section 4.2);
+  fraction of windows on which all three published methods reject
+  (Section 4.2); paired Wilcoxon signed-rank for downstream classifier
+  comparison (Section 4.6). All methods implemented in
+  <code>src/evaluation/deep_real_analysis.py</code>.</li>
+</ul>
+<p><strong>Item 15.</strong> How indeterminate index test or reference standard results were
+handled.</p>
+<ul>
+<li><em>This paper.</em> Zero indeterminate results in either modality. Reported as
+  the "Exclusions during per-window processing: 0" box in Figure 1.</li>
+</ul>
+<p><strong>Item 16.</strong> How missing data on the index test and reference standard were
+handled.</p>
+<ul>
+<li><em>This paper.</em> No subject-level missingness; one subject (S12) is missing
+  from WESAD itself, not from this study. Reported in Figure 1.</li>
+</ul>
+<p><strong>Item 17.</strong> Any analyses of variability in diagnostic accuracy,
+distinguishing pre-specified from exploratory.</p>
+<ul>
+<li><em>This paper.</em> Pre-specified: per-state stratification (baseline vs
+  stress vs amusement). Exploratory: per-subject heterogeneity (range
+  6.75-26.02 bpm). Stated in Section 4.1 and explicitly flagged as
+  exploratory.</li>
+</ul>
+<p><strong>Item 18.</strong> Intended sample size and how it was determined.</p>
+<ul>
+<li><em>This paper.</em> n=15 subjects (all available WESAD subjects); 6,585 windows
+  followed mechanically from 30-second non-overlapping segmentation. No
+  formal power calculation; this is an exploratory audit. Acknowledged in
+  Section 6.</li>
+</ul>
+<h2 id="results_1">Results<a class="headerlink" href="#results_1" title="Permanent link">&para;</a></h2>
+<h3 id="participants_1">Participants<a class="headerlink" href="#participants_1" title="Permanent link">&para;</a></h3>
+<p><strong>Item 19.</strong> Flow of participants, using a diagram.</p>
+<ul>
+<li><em>This paper.</em> Figure 1 (this directory's flow diagram).</li>
+</ul>
+<p><strong>Item 20.</strong> Baseline demographic and clinical characteristics.</p>
+<ul>
+<li><em>This paper.</em> WESAD demographics are stated in Schmidt et al. 2018; not
+  re-tabulated here. This is a limitation acknowledged in Section 6.</li>
+</ul>
+<p><strong>Item 21a.</strong> Distribution of severity of disease in those with the target
+condition.</p>
+<ul>
+<li><em>This paper.</em> Not applicable (no disease target).</li>
+</ul>
+<p><strong>Item 21b.</strong> Distribution of alternative diagnoses in those without the
+target condition.</p>
+<ul>
+<li><em>This paper.</em> Not applicable.</li>
+</ul>
+<p><strong>Item 22.</strong> Time interval and any clinical interventions between index test
+and reference standard.</p>
+<ul>
+<li><em>This paper.</em> Synchronous acquisition; both modalities recorded
+  simultaneously. Stated in Section 3.1.</li>
+</ul>
+<h3 id="test-results">Test results<a class="headerlink" href="#test-results" title="Permanent link">&para;</a></h3>
+<p><strong>Item 23.</strong> Cross tabulation of the index test results by the results of
+the reference standard.</p>
+<ul>
+<li><em>This paper.</em> Section 4.2 reports the four-way SQI kappa matrix; this is
+  the analog of a cross-tabulation for the SQI-as-test framing. The HR
+  agreement (Section 4.1) is continuous, so Bland-Altman replaces the
+  cross-tabulation.</li>
+</ul>
+<p><strong>Item 24.</strong> Estimates of diagnostic accuracy and their precision (e.g. 95%
+confidence intervals).</p>
+<ul>
+<li><em>This paper.</em> Bland-Altman LoA reported with 95% bounds; bootstrap CIs for
+  Pearson r. Kappa estimates reported as point estimates; bootstrap CIs not
+  yet computed for kappa (acknowledged as a planned addition for next
+  revision).</li>
+</ul>
+<p><strong>Item 25.</strong> Any adverse events from performing the index test or the
+reference standard.</p>
+<ul>
+<li><em>This paper.</em> Not applicable (non-invasive sensors, retrospective data
+  analysis only).</li>
+</ul>
+<h2 id="discussion_1">Discussion<a class="headerlink" href="#discussion_1" title="Permanent link">&para;</a></h2>
+<p><strong>Item 26.</strong> Study limitations, including sources of potential bias,
+statistical uncertainty, and generalisability.</p>
+<ul>
+<li><em>This paper.</em> Section 6 enumerates: single-site dataset, small n,
+  lab-controlled (not free-living), absence of demographic stratification
+  in WESAD itself, single-vendor wearable (E4), and the in-house SQI was
+  tuned on synthetic data rather than held out from real data.</li>
+</ul>
+<p><strong>Item 27.</strong> Implications for practice, including the intended use and
+clinical role of the index test.</p>
+<ul>
+<li><em>This paper.</em> Section 5 states the central practical implication: a
+  signal-quality threshold tuned on synthetic data should be re-validated
+  on real data before deployment; failure to do so risks accepting windows
+  that all available published baselines reject.</li>
+</ul>
+<h2 id="other-information_1">Other information<a class="headerlink" href="#other-information_1" title="Permanent link">&para;</a></h2>
+<p><strong>Item 28.</strong> Registration number and name of registry.</p>
+<ul>
+<li><em>This paper.</em> This is a methodology audit, not a clinical trial; trial
+  registration does not apply.</li>
+</ul>
+<p><strong>Item 29.</strong> Where the full study protocol can be accessed.</p>
+<ul>
+<li><em>This paper.</em> Protocol is the repository itself; pinned by release tag.
+  https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/releases</li>
+</ul>
+<p><strong>Item 30.</strong> Sources of funding and other support; role of funders.</p>
+<ul>
+<li><em>This paper.</em> No external funding; self-supported research. To be stated
+  in the author affiliation block once finalised.</li>
+</ul>
+<hr />
+<h2 id="summary-of-compliance_1">Summary of compliance<a class="headerlink" href="#summary-of-compliance_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th style="text-align: right;">Items</th>
+<th>Compliance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title and abstract</td>
+<td style="text-align: right;">2</td>
+<td>Compliant</td>
+</tr>
+<tr>
+<td>Introduction</td>
+<td style="text-align: right;">2</td>
+<td>Compliant</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td style="text-align: right;">14</td>
+<td>Compliant; item 18 (formal power calculation) intentionally absent for exploratory audit</td>
+</tr>
+<tr>
+<td>Results</td>
+<td style="text-align: right;">7</td>
+<td>Compliant; item 24 kappa CIs planned for next revision</td>
+</tr>
+<tr>
+<td>Discussion</td>
+<td style="text-align: right;">2</td>
+<td>Compliant</td>
+</tr>
+<tr>
+<td>Other</td>
+<td style="text-align: right;">3</td>
+<td>Compliant once author block is finalised</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Items partially addressed</strong>:
+- Item 20 (baseline demographics): the paper refers reviewers to WESAD's
+  own demographics rather than re-tabulating; acknowledged in Section 6.
+- Item 24 (precision estimates): Bland-Altman LoA and Pearson r have 95%
+  bootstrap CIs reported; kappa point estimates do not yet have CIs.
+  Bootstrap kappa CIs are a planned addition.</p>
+<p><strong>Items not applicable</strong>: 21a, 21b, 25, 28 (no disease target, no
+clinical-trial framing).</p>
+<p>If the include above renders as raw text, the full checklist is at
+<a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab/blob/main/paper/checklists/stard_2015_checklist.md">paper/checklists/stard_2015_checklist.md</a>.</p>
+<hr />
+<h2 id="consort-ai-applicability-assessment">CONSORT-AI: applicability assessment<a class="headerlink" href="#consort-ai-applicability-assessment" title="Permanent link">&para;</a></h2>
+<h1 id="consort-ai-applicability-assessment_1">CONSORT-AI applicability assessment<a class="headerlink" href="#consort-ai-applicability-assessment_1" title="Permanent link">&para;</a></h1>
+<p><strong>Reference</strong>: Liu X, Cruz Rivera S, Moher D, Calvert MJ, Denniston AK (on
+behalf of the SPIRIT-AI and CONSORT-AI Working Group). <em>Reporting guidelines
+for clinical trial reports for interventions involving artificial
+intelligence: the CONSORT-AI extension.</em> Nature Medicine 2020;26(9):1364-1374.
+doi:10.1038/s41591-020-1034-x</p>
+<h2 id="does-consort-ai-apply-to-this-paper-no">Does CONSORT-AI apply to this paper? No.<a class="headerlink" href="#does-consort-ai-apply-to-this-paper-no" title="Permanent link">&para;</a></h2>
+<p>CONSORT-AI extends the CONSORT 2010 reporting standard for randomised
+controlled trials, adding 14 AI-specific items on top of the base CONSORT
+checklist. It is intended for clinical trial reports in which an AI-based
+intervention is evaluated against a comparator (sham, standard care, or
+another AI system).</p>
+<p>This paper is a retrospective methodology audit of physiological signal
+processing. It contains:</p>
+<ul>
+<li>no participant randomisation,</li>
+<li>no clinical intervention,</li>
+<li>no comparator arm in the trial sense,</li>
+<li>no clinical outcome,</li>
+<li>no enrolment of human subjects beyond use of an already-collected and
+  already-released public dataset (WESAD).</li>
+</ul>
+<p>CONSORT-AI is therefore not a relevant reporting standard for the work
+presented. The paper references CONSORT-AI for completeness and to signal
+awareness of the broader EQUATOR network landscape for digital-health AI.</p>
+<h2 id="what-would-consort-ai-require-if-this-toolkit-were-deployed-in-a-trial">What would CONSORT-AI require if this toolkit were deployed in a trial?<a class="headerlink" href="#what-would-consort-ai-require-if-this-toolkit-were-deployed-in-a-trial" title="Permanent link">&para;</a></h2>
+<p>A future clinical trial evaluating a signal-quality auditing pipeline
+derived from this toolkit (for example, a randomised trial comparing
+clinical decisions made with vs without the toolkit's quality flagging)
+would need to report:</p>
+<ul>
+<li>AI-1: instructions on integrating the AI intervention into the trial
+  setting, including the version of the toolkit deployed, the dependency
+  pin, and the operating environment.</li>
+<li>AI-2: the input data handling pipeline (signal acquisition, windowing,
+  pre-processing), including any data exclusion logic.</li>
+<li>AI-3: the output (signal-quality decision) and how it was acted on by
+  clinicians or downstream systems.</li>
+<li>AI-4: human-AI interaction during the trial (whether clinicians could
+  override the toolkit's quality flag).</li>
+<li>AI-5: error analysis, including any human-detected errors in the AI
+  output.</li>
+</ul>
+<p>The repository would supply most of the AI-1, AI-2, AI-3 content as
+provenance metadata; AI-4 and AI-5 would be trial-specific.</p>
+<p>This document exists to make the inapplicability explicit and to provide a
+roadmap for any group that does choose to use this toolkit in a future
+prospective clinical evaluation.</p>
+<hr />
+<h2 id="decide-ai-applicability-assessment">DECIDE-AI: applicability assessment<a class="headerlink" href="#decide-ai-applicability-assessment" title="Permanent link">&para;</a></h2>
+<h1 id="decide-ai-applicability-assessment_1">DECIDE-AI applicability assessment<a class="headerlink" href="#decide-ai-applicability-assessment_1" title="Permanent link">&para;</a></h1>
+<p><strong>Reference</strong>: Vasey B, Nagendran M, Campbell B, et al. <em>Reporting guideline
+for the early-stage clinical evaluation of decision support systems driven
+by artificial intelligence: DECIDE-AI.</em> Nature Medicine
+2022;28(5):924-933. doi:10.1038/s41591-022-01772-9</p>
+<h2 id="does-decide-ai-apply-to-this-paper-no">Does DECIDE-AI apply to this paper? No.<a class="headerlink" href="#does-decide-ai-apply-to-this-paper-no" title="Permanent link">&para;</a></h2>
+<p>DECIDE-AI is a 27-item reporting guideline specifically for the early-stage
+clinical evaluation of AI-based decision support systems being used by
+clinicians on real patients in real clinical settings. It sits in the
+EQUATOR landscape between DEVELOPMENT-stage standards (TRIPOD+AI) and
+TRIAL-stage standards (CONSORT-AI), filling the gap of "first clinical use
+under monitoring."</p>
+<p>This paper presents a methodology audit using retrospective public data
+(WESAD). The pipeline described has not been used by any clinician, on any
+patient, in any clinical setting. DECIDE-AI is therefore not applicable.</p>
+<p>The paper references DECIDE-AI for completeness because future work using
+this toolkit might enter that phase, and an honest reader of the paper
+deserves a pointer to the relevant standard for that next step.</p>
+<h2 id="what-would-decide-ai-require-if-this-toolkit-entered-early-clinical-use">What would DECIDE-AI require if this toolkit entered early clinical use?<a class="headerlink" href="#what-would-decide-ai-require-if-this-toolkit-entered-early-clinical-use" title="Permanent link">&para;</a></h2>
+<p>If a clinical team deployed the SQI auditing pipeline in a real care
+setting under monitoring, DECIDE-AI would require reporting on:</p>
+<ul>
+<li>the clinical setting and stage of deployment, including how patients
+  were selected and what care decisions the AI output informed,</li>
+<li>the version of the AI system deployed (the repository release tag would
+  provide this directly),</li>
+<li>the human-AI interaction model, including whether clinicians override
+  the AI output and how often,</li>
+<li>patient-relevant outcomes and a safety profile,</li>
+<li>learning curves and performance changes during the early-use period,</li>
+<li>ethical, regulatory, and consent considerations specific to the
+  deployment site.</li>
+</ul>
+<p>None of these items can be addressed in the current paper because none of
+those activities have occurred. This document exists to flag DECIDE-AI as
+the right standard for the next step, not as one this paper claims to
+satisfy.</p>
+<h2 id="why-include-this-document-at-all-if-the-standard-does-not-apply">Why include this document at all if the standard does not apply?<a class="headerlink" href="#why-include-this-document-at-all-if-the-standard-does-not-apply" title="Permanent link">&para;</a></h2>
+<p>Reviewers familiar with the EQUATOR landscape may reasonably ask whether
+the authors considered DECIDE-AI. Including an explicit applicability
+assessment makes the answer transparent: the standard was considered, the
+work does not fall within its scope, and a future deployment study should
+return to it.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Ceyhun Olcan. Released under the MIT License.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ceyhunolcan/biomedical-signal-forensics-lab" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://orcid.org/0000-0002-6326-6071" target="_blank" rel="noopener" title="orcid.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M294.7 188.2h-45.9V342h47.5c67.6 0 83.1-51.3 83.1-76.9 0-41.6-26.5-76.9-84.7-76.9M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496m-80.8 360.8h-29.8V161.3h29.8zM160.3 98.5a19.6 19.6 0 1 1 0 39.2 19.6 19.6 0 1 1 0-39.2M300 369h-81V161.3h80.6c76.7 0 110.4 54.8 110.4 103.9 0 53.3-41.7 103.9-110 103.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
