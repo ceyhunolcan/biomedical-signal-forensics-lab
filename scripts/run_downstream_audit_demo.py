@@ -42,8 +42,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import StandardScaler
 
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir
 
 log = get_logger("downstream_audit_demo")
 
@@ -313,7 +313,7 @@ def make_figure(class_result: dict,
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    from src.utils.plotting import apply_style
+    from biomedical_signal_forensics_lab.utils.plotting import apply_style
     apply_style()
 
     fig, axes = plt.subplots(2, 2, figsize=(13, 9))

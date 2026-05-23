@@ -9,7 +9,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.signals.elgendi_sqi import (
+from biomedical_signal_forensics_lab.signals.elgendi_sqi import (
     ElgendiSQI,
     batch_elgendi,
     elgendi_window,

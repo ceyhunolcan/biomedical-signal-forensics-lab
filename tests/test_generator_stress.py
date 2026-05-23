@@ -1,7 +1,7 @@
 """Generator stress-test module tests."""
 import pandas as pd
 
-from src.data.generator_stress_test import (
+from biomedical_signal_forensics_lab.data.generator_stress_test import (
     stress_test, check_monotonic_response,
 )
 

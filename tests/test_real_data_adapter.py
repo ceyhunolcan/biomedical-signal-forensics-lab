@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.data.real_data_adapter import (
+from biomedical_signal_forensics_lab.data.real_data_adapter import (
     FitbitLikeAdapter, EmpaticaLikeAdapter, GenericDailySummaryAdapter,
     recalibrate_detector,
 )

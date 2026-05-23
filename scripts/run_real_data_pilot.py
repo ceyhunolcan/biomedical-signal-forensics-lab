@@ -37,17 +37,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import numpy as np
 import pandas as pd
 
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir
 
 log = get_logger("real_data_pilot")
 
 
 def run_wesad_pilot(wesad_dir: Path, out_dir: Path) -> dict:
     """Load WESAD, run the per-window SQI + Orphanidou baseline, write outputs."""
-    from src.data.wesad_adapter import adapt_directory
-    from src.signals.signal_quality import per_window_sqi
-    from src.signals.orphanidou_sqi import head_to_head
+    from biomedical_signal_forensics_lab.data.wesad_adapter import adapt_directory
+    from biomedical_signal_forensics_lab.signals.signal_quality import per_window_sqi
+    from biomedical_signal_forensics_lab.signals.orphanidou_sqi import head_to_head
 
     log.info("Loading WESAD from %s …", wesad_dir)
     daily_df, ecg_arr, ppg_arr, meta = adapt_directory(wesad_dir)

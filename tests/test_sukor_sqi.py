@@ -1,7 +1,7 @@
 """Tests for the Sukor 2011 PPG SQI baseline."""
 import numpy as np
 
-from src.signals.sukor_sqi import (
+from biomedical_signal_forensics_lab.signals.sukor_sqi import (
     PP_INTERVAL_CV_MAX, PULSE_AMPLITUDE_CV_MAX,
     SukorSQI, batch_sukor, sukor_ppg_sqi,
 )

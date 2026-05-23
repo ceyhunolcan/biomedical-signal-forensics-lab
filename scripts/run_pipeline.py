@@ -9,10 +9,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.data.synthetic_signal_generator import generate
-from src.data.preprocessing import preprocess
-from src.data.validation import validate
-from src.utils.logging import get_logger
+from biomedical_signal_forensics_lab.data.synthetic_signal_generator import generate
+from biomedical_signal_forensics_lab.data.preprocessing import preprocess
+from biomedical_signal_forensics_lab.data.validation import validate
+from biomedical_signal_forensics_lab.utils.logging import get_logger
 
 log = get_logger("pipeline")
 

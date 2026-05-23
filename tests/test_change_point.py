@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.reliability.change_point import (
+from biomedical_signal_forensics_lab.reliability.change_point import (
     bocpd, binary_segmentation, scan_cohort, stratify_before_after,
 )
 

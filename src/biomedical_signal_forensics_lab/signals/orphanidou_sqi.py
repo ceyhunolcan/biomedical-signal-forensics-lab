@@ -31,8 +31,8 @@ from typing import Literal
 
 import numpy as np
 
-from src.signals.ecg_processing import bandpass as ecg_bandpass, detect_r_peaks
-from src.signals.ppg_processing import bandpass as ppg_bandpass, detect_pulse_peaks
+from biomedical_signal_forensics_lab.signals.ecg_processing import bandpass as ecg_bandpass, detect_r_peaks
+from biomedical_signal_forensics_lab.signals.ppg_processing import bandpass as ppg_bandpass, detect_pulse_peaks
 
 
 ECG_TEMPLATE_CORR_THRESHOLD = 0.66

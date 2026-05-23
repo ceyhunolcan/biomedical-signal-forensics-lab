@@ -13,11 +13,11 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from src.confounding import environmental_confounding, missingness_dynamics
-from src.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
-from src.reliability.device_bias import per_column_bias
-from src.utils.config import load_yaml
-from src.utils.paths import resolve
+from biomedical_signal_forensics_lab.confounding import environmental_confounding, missingness_dynamics
+from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
+from biomedical_signal_forensics_lab.reliability.device_bias import per_column_bias
+from biomedical_signal_forensics_lab.utils.config import load_yaml
+from biomedical_signal_forensics_lab.utils.paths import resolve
 
 
 st.set_page_config(page_title="Signal Forensics Lab", layout="wide")
@@ -239,7 +239,7 @@ def page_report() -> None:
     st.header("Report generator")
     _safety_banner()
     if st.button("Generate full markdown report"):
-        from src.reports.report_generator import generate_report
+        from biomedical_signal_forensics_lab.reports.report_generator import generate_report
         with st.spinner("Building report…"):
             path = generate_report()
         st.success(f"Report written to {path}")

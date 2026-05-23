@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.confounding.causal_inference import (
+from biomedical_signal_forensics_lab.confounding.causal_inference import (
     DAG, default_wearable_dag, g_computation, aipw, screening_vs_adjusted_table,
 )
 

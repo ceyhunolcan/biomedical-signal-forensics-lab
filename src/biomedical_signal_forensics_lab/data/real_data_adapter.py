@@ -24,8 +24,8 @@ from typing import Callable, Iterable
 import numpy as np
 import pandas as pd
 
-from src.data.validation import REQUIRED_COLUMNS, PHYSIO_RANGES, ValidationResult
-from src.utils.logging import get_logger
+from biomedical_signal_forensics_lab.data.validation import REQUIRED_COLUMNS, PHYSIO_RANGES, ValidationResult
+from biomedical_signal_forensics_lab.utils.logging import get_logger
 
 log = get_logger("real_data_adapter")
 
@@ -114,7 +114,7 @@ class RealDataAdapter(ABC):
                     mask &= col_mask
             renamed = renamed[mask].reset_index(drop=True)
         # Validate
-        from src.data.validation import validate
+        from biomedical_signal_forensics_lab.data.validation import validate
         vres = validate(renamed)
         n_out = len(renamed)
         log.info(

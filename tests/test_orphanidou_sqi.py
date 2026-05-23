@@ -1,7 +1,7 @@
 """Orphanidou-style SQI baseline tests."""
 import numpy as np
 
-from src.signals.orphanidou_sqi import (
+from biomedical_signal_forensics_lab.signals.orphanidou_sqi import (
     orphanidou_ecg_sqi, orphanidou_ppg_sqi,
     batch_orphanidou, head_to_head,
 )

@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.reliability.weight_optimization import (
+from biomedical_signal_forensics_lab.reliability.weight_optimization import (
     weekly_reproducibility_target, overall_from_components,
     participant_components, learn_weights, sensitivity_table,
     DEFAULT_WEIGHTS, COMPONENT_KEYS,

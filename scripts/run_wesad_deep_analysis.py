@@ -27,11 +27,11 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from src.data.wesad_adapter import extract_windows, load_wesad_pickle
-from src.signals.orphanidou_sqi import batch_orphanidou, head_to_head
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir
-from src.utils.plotting import apply_style
+from biomedical_signal_forensics_lab.data.wesad_adapter import extract_windows, load_wesad_pickle
+from biomedical_signal_forensics_lab.signals.orphanidou_sqi import batch_orphanidou, head_to_head
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir
+from biomedical_signal_forensics_lab.utils.plotting import apply_style
 
 log = get_logger("wesad_deep_analysis")
 

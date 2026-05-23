@@ -24,14 +24,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import numpy as np
 import pandas as pd
 
-from src.data.wesad_adapter import adapt_directory
-from src.evaluation.deep_real_analysis import (
+from biomedical_signal_forensics_lab.data.wesad_adapter import adapt_directory
+from biomedical_signal_forensics_lab.evaluation.deep_real_analysis import (
     compute_window_table, cross_modality_hr_agreement,
     per_state_comparison, three_way_sqi_agreement,
     motion_effect_analysis, recalibrate_inhouse_sqi,
 )
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir, resolve
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir, resolve
 
 log = get_logger("deep_real")
 
@@ -154,7 +154,7 @@ def main(dataset_path: Path, out_dir: Path) -> None:
     # ------------------------------------------------------------------
     log.info("\n%s\nAnalysis 3b: Four-way SQI agreement (adds Elgendi 2016)\n%s",
              "=" * 70, "=" * 70)
-    from src.evaluation.deep_real_analysis import four_way_sqi_agreement
+    from biomedical_signal_forensics_lab.evaluation.deep_real_analysis import four_way_sqi_agreement
     four_way = four_way_sqi_agreement(window_df)
     log.info("  n_windows=%d", four_way.n_windows)
     log.info("  Pass rates: in-house=%.3f, Orphanidou=%.3f, Sukor=%.3f, Elgendi=%.3f",
@@ -226,7 +226,7 @@ def main(dataset_path: Path, out_dir: Path) -> None:
     # Generate publication figures
     # ------------------------------------------------------------------
     log.info("\nGenerating publication figures…")
-    from src.reports.real_data_figures import make_all_figures
+    from biomedical_signal_forensics_lab.reports.real_data_figures import make_all_figures
     fig_paths = make_all_figures(window_df, three_way, out_dir / "figures")
     for name, path in fig_paths.items():
         log.info("  %s → %s", name, path.name)

@@ -21,8 +21,8 @@ from typing import Iterable
 import numpy as np
 import pandas as pd
 
-from src.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
-from src.utils.logging import get_logger
+from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
+from biomedical_signal_forensics_lab.utils.logging import get_logger
 
 log = get_logger("fairness_audit")
 

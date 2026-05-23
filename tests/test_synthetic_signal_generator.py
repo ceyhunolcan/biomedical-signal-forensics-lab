@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from src.data.synthetic_signal_generator import generate
+from biomedical_signal_forensics_lab.data.synthetic_signal_generator import generate
 
 
 def _make_tiny_config(tmp_path: Path) -> Path:

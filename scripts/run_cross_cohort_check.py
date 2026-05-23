@@ -19,11 +19,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
 
-from src.evaluation.cross_cohort_check import (
+from biomedical_signal_forensics_lab.evaluation.cross_cohort_check import (
     run_cross_cohort_check, predicted_vs_observed,
 )
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir, resolve
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir, resolve
 
 log = get_logger("cross_cohort")
 

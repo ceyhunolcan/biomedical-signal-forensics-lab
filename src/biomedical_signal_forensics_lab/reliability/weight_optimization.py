@@ -35,10 +35,10 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from src.reliability.biomarker_trust_score import (
+from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import (
     DigitalBiomarkerTrustScore, TrustComponents,
 )
-from src.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.logging import get_logger
 
 log = get_logger("weight_optimization")
 

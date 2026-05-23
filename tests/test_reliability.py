@@ -2,10 +2,10 @@
 import numpy as np
 import pandas as pd
 
-from src.reliability.intraclass_correlation import icc_2_1
-from src.reliability.test_retest import split_half_correlation
-from src.reliability.temporal_stability import drift_slope, rolling_cov
-from src.reliability.device_bias import per_column_bias
+from biomedical_signal_forensics_lab.reliability.intraclass_correlation import icc_2_1
+from biomedical_signal_forensics_lab.reliability.test_retest import split_half_correlation
+from biomedical_signal_forensics_lab.reliability.temporal_stability import drift_slope, rolling_cov
+from biomedical_signal_forensics_lab.reliability.device_bias import per_column_bias
 
 
 def test_icc_high_when_raters_agree():

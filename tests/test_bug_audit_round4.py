@@ -6,19 +6,19 @@ file. Each test corresponds to a specific bug found and fixed.
 import numpy as np
 import pandas as pd
 
-from src.artifacts.motion_artifacts import detect as motion_detect
-from src.artifacts.sensor_dropout import detect as dropout_detect
-from src.evaluation.metrics import expected_calibration_error
-from src.evaluation.calibration import reliability_curve
-from src.evaluation.robustness import perturbation_stability
-from src.models.anomaly_detector import train_baselines
-from src.reliability.device_bias import per_column_bias, bias_severity
-from src.reliability.temporal_stability import drift_slope
-from src.reports.figure_builder import (
+from biomedical_signal_forensics_lab.artifacts.motion_artifacts import detect as motion_detect
+from biomedical_signal_forensics_lab.artifacts.sensor_dropout import detect as dropout_detect
+from biomedical_signal_forensics_lab.evaluation.metrics import expected_calibration_error
+from biomedical_signal_forensics_lab.evaluation.calibration import reliability_curve
+from biomedical_signal_forensics_lab.evaluation.robustness import perturbation_stability
+from biomedical_signal_forensics_lab.models.anomaly_detector import train_baselines
+from biomedical_signal_forensics_lab.reliability.device_bias import per_column_bias, bias_severity
+from biomedical_signal_forensics_lab.reliability.temporal_stability import drift_slope
+from biomedical_signal_forensics_lab.reports.figure_builder import (
     trust_radar, confounding_scatter, trust_distribution,
 )
-from src.signals.signal_quality import per_window_sqi, daily_signal_quality
-from src.data.preprocessing import add_derived_columns, add_rolling_features
+from biomedical_signal_forensics_lab.signals.signal_quality import per_window_sqi, daily_signal_quality
+from biomedical_signal_forensics_lab.data.preprocessing import add_derived_columns, add_rolling_features
 
 
 def _assert_raises(exc_type, fn, match_substring=None):
@@ -248,7 +248,7 @@ def test_trust_distribution_handles_empty(tmp_path):
 def test_aipw_handles_imbalanced_resamples():
     """A bootstrap-style stress test: highly imbalanced treatment should not
     crash the point estimate."""
-    from src.confounding.causal_inference import aipw
+    from biomedical_signal_forensics_lab.confounding.causal_inference import aipw
     rng = np.random.default_rng(0)
     n = 200
     df = pd.DataFrame({

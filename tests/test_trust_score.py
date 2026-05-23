@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
+from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
 
 
 def _toy_frame(seed=0, quality=0.85, artifacts=0.1, missingness=0.05, pid="p001"):

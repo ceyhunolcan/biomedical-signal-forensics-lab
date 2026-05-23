@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.reliability.fairness_audit import (
+from biomedical_signal_forensics_lab.reliability.fairness_audit import (
     fairness_audit, disparity_summary, multi_stratify,
 )
 

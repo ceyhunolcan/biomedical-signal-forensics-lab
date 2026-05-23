@@ -1,9 +1,9 @@
 """Smoke-level checks for the signal processing module."""
 import numpy as np
 
-from src.signals import ecg_processing as ecg
-from src.signals import ppg_processing as ppg
-from src.signals import hrv_processing as hrv
+from biomedical_signal_forensics_lab.signals import ecg_processing as ecg
+from biomedical_signal_forensics_lab.signals import ppg_processing as ppg
+from biomedical_signal_forensics_lab.signals import hrv_processing as hrv
 
 
 def _fake_ecg(fs=250, seconds=10, hr_bpm=70, noise=0.02, seed=0):

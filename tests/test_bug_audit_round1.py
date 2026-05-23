@@ -10,14 +10,14 @@ run both under pytest and under the sandbox's minimal test runner.
 import numpy as np
 import pandas as pd
 
-from src.confounding.causal_inference import DAG
-from src.data.real_data_adapter import FitbitLikeAdapter
-from src.data.validation import validate
-from src.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
-from src.reliability.change_point import binary_segmentation, bocpd
-from src.reliability.fairness_audit import fairness_audit, disparity_summary
-from src.reliability.intraclass_correlation import icc_2_1
-from src.reliability.weight_optimization import weekly_reproducibility_target
+from biomedical_signal_forensics_lab.confounding.causal_inference import DAG
+from biomedical_signal_forensics_lab.data.real_data_adapter import FitbitLikeAdapter
+from biomedical_signal_forensics_lab.data.validation import validate
+from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
+from biomedical_signal_forensics_lab.reliability.change_point import binary_segmentation, bocpd
+from biomedical_signal_forensics_lab.reliability.fairness_audit import fairness_audit, disparity_summary
+from biomedical_signal_forensics_lab.reliability.intraclass_correlation import icc_2_1
+from biomedical_signal_forensics_lab.reliability.weight_optimization import weekly_reproducibility_target
 
 
 def _assert_raises(exc_type, fn, match_substring=None):

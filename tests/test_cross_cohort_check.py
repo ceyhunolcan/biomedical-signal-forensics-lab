@@ -4,10 +4,10 @@ the ICC-vs-test-retest method comparison.
 import numpy as np
 import pandas as pd
 
-from src.evaluation.cross_cohort_check import (
+from biomedical_signal_forensics_lab.evaluation.cross_cohort_check import (
     REGIMES, evaluate_regime, predicted_vs_observed, run_cross_cohort_check,
 )
-from src.reliability.intraclass_correlation import compare_to_test_retest
+from biomedical_signal_forensics_lab.reliability.intraclass_correlation import compare_to_test_retest
 
 
 def _stable_cohort(n_pid=20, n_weeks=8, seed=0):

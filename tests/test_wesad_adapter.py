@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src.data.wesad_adapter import (
+from biomedical_signal_forensics_lab.data.wesad_adapter import (
     adapt_directory, extract_windows, load_wesad_pickle, to_daily_summary,
     WESAD_LABELS, WESADRecording,
 )

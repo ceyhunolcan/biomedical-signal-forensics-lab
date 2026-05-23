@@ -7,7 +7,7 @@ the demoted PyTorch autoencoder.
 import numpy as np
 import pandas as pd
 
-from src.evaluation.cross_cohort_check import (
+from biomedical_signal_forensics_lab.evaluation.cross_cohort_check import (
     CohortRegime, _generate_regime, predicted_vs_observed,
 )
 
@@ -99,7 +99,7 @@ def test_generate_regime_accepts_zero_coefficients():
 
 def test_report_generator_has_icc_comparison_helper():
     """The helper function should exist and be callable, even with no CSV."""
-    from src.reports.report_generator import _icc_comparison_section
+    from biomedical_signal_forensics_lab.reports.report_generator import _icc_comparison_section
     out = _icc_comparison_section()
     assert isinstance(out, str)
     assert len(out) > 0
@@ -107,8 +107,8 @@ def test_report_generator_has_icc_comparison_helper():
 
 def test_icc_comparison_section_handles_missing_csv():
     """Should fall back gracefully when the CSV doesn't exist."""
-    from src.reports.report_generator import _icc_comparison_section
-    from src.utils.paths import resolve
+    from biomedical_signal_forensics_lab.reports.report_generator import _icc_comparison_section
+    from biomedical_signal_forensics_lab.utils.paths import resolve
     p = resolve("results/tables/icc_vs_test_retest.csv")
     backup = p.read_text() if p.exists() else None
     try:
@@ -123,8 +123,8 @@ def test_icc_comparison_section_handles_missing_csv():
 
 def test_icc_comparison_section_handles_malformed_csv():
     """Should fall back gracefully when the CSV is malformed."""
-    from src.reports.report_generator import _icc_comparison_section
-    from src.utils.paths import resolve
+    from biomedical_signal_forensics_lab.reports.report_generator import _icc_comparison_section
+    from biomedical_signal_forensics_lab.utils.paths import resolve
     p = resolve("results/tables/icc_vs_test_retest.csv")
     backup = p.read_text() if p.exists() else None
     try:
@@ -143,7 +143,7 @@ def test_icc_comparison_section_handles_malformed_csv():
 # --- Reproducibility check ------------------------------------------------
 
 def test_evaluate_regime_is_reproducible_with_same_seed():
-    from src.evaluation.cross_cohort_check import evaluate_regime, REGIMES
+    from biomedical_signal_forensics_lab.evaluation.cross_cohort_check import evaluate_regime, REGIMES
     a = evaluate_regime(REGIMES[0], n_participants=20, n_days=14, seed=42)
     b = evaluate_regime(REGIMES[0], n_participants=20, n_days=14, seed=42)
     for field in ("mean_cohort_dbts", "skin_tone_Q4_minus_Q1_sq",

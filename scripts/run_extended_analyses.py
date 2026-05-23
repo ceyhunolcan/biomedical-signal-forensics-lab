@@ -36,8 +36,8 @@ from sklearn.metrics import (
     f1_score, precision_recall_curve, roc_auc_score, roc_curve,
 )
 
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir
 
 log = get_logger("extended_analysis")
 
@@ -250,8 +250,8 @@ def rr_cleaning_robustness(wesad_dir: Path) -> pd.DataFrame:
     five different RR-cleaning policies. Shows the HRV numbers are not
     artifacts of any particular policy.
     """
-    from src.data.wesad_adapter import load_wesad_pickle
-    from src.signals.ecg_processing import bandpass, detect_r_peaks
+    from biomedical_signal_forensics_lab.data.wesad_adapter import load_wesad_pickle
+    from biomedical_signal_forensics_lab.signals.ecg_processing import bandpass, detect_r_peaks
 
     rows = []
     subject_dirs = sorted(d for d in wesad_dir.iterdir()
@@ -343,8 +343,8 @@ def per_subject_real_data_reliability(wesad_dir: Path,
     coefficient of variation. This gives a real-data analog of the synthetic
     test-retest result.
     """
-    from src.data.wesad_adapter import load_wesad_pickle
-    from src.signals.ecg_processing import bandpass, detect_r_peaks
+    from biomedical_signal_forensics_lab.data.wesad_adapter import load_wesad_pickle
+    from biomedical_signal_forensics_lab.signals.ecg_processing import bandpass, detect_r_peaks
 
     rows = []
     subject_dirs = sorted(d for d in wesad_dir.iterdir()
@@ -530,8 +530,8 @@ def main():
     log.info("[3/6] Multi-operating-point recalibration with bootstrap CI…")
     sqi = pd.read_csv("results/real_data/wesad/signal_quality.csv")
     in_house_cont = sqi["ppg_sqi"].values
-    from src.signals.orphanidou_sqi import batch_orphanidou
-    from src.data.wesad_adapter import load_wesad_pickle, extract_windows
+    from biomedical_signal_forensics_lab.signals.orphanidou_sqi import batch_orphanidou
+    from biomedical_signal_forensics_lab.data.wesad_adapter import load_wesad_pickle, extract_windows
     all_ppg = []
     for sid in sorted(sqi.subject_id.unique()):
         rec = load_wesad_pickle(args.wesad_path / sid / f"{sid}.pkl")

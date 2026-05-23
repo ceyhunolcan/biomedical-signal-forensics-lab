@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.reliability.test_retest import (
+from biomedical_signal_forensics_lab.reliability.test_retest import (
     cohort_test_retest, cohort_test_retest_table,
     week_pair_correlation, split_half_correlation,
 )

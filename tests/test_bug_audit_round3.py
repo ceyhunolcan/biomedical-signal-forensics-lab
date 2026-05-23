@@ -10,10 +10,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src.signals.orphanidou_sqi import (
+from biomedical_signal_forensics_lab.signals.orphanidou_sqi import (
     orphanidou_ppg_sqi, orphanidou_ecg_sqi, head_to_head,
 )
-from src.reports.report_generator import _orphanidou_comparison_section
+from biomedical_signal_forensics_lab.reports.report_generator import _orphanidou_comparison_section
 
 
 # --- Bug 1: empty / too-short / NaN windows must not crash filtfilt ------
@@ -85,7 +85,7 @@ def test_head_to_head_handles_nan_in_in_house_sqi():
 
 def test_orphanidou_section_handles_malformed_csv(tmp_path):
     """The report-generator helper must not crash on a CSV with the wrong columns."""
-    from src.utils.paths import resolve
+    from biomedical_signal_forensics_lab.utils.paths import resolve
     p = resolve("results/tables/baseline_comparison_orphanidou.csv")
     backup = p.read_text() if p.exists() else None
     try:
@@ -103,7 +103,7 @@ def test_orphanidou_section_handles_malformed_csv(tmp_path):
 
 def test_orphanidou_section_handles_empty_csv():
     """An empty CSV (header only) should hit the empty-frame path."""
-    from src.utils.paths import resolve
+    from biomedical_signal_forensics_lab.utils.paths import resolve
     p = resolve("results/tables/baseline_comparison_orphanidou.csv")
     backup = p.read_text() if p.exists() else None
     try:

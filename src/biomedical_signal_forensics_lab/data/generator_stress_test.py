@@ -30,7 +30,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.logging import get_logger
 
 log = get_logger("generator_stress_test")
 
@@ -55,7 +55,7 @@ def _patched_generate(n_participants: int, n_days: int, seed: int,
     We monkey-patch the module-level constants the generator uses. This keeps
     the production generator code clean while letting the stress test sweep.
     """
-    from src.data import synthetic_signal_generator as gen
+    from biomedical_signal_forensics_lab.data import synthetic_signal_generator as gen
 
     # Snapshot defaults so we can restore
     saved = {}

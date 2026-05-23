@@ -6,7 +6,7 @@ pytest.importorskip("pydantic")
 
 from fastapi.testclient import TestClient  # noqa: E402
 
-from src.api.main import app  # noqa: E402
+from biomedical_signal_forensics_lab.api.main import app  # noqa: E402
 
 
 client = TestClient(app)

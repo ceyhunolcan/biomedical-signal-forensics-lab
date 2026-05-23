@@ -14,11 +14,11 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
 
-from src.models.anomaly_detector import train_baselines, _prepare
-from src.evaluation.metrics import expected_calibration_error
-from src.utils.config import load_yaml
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir, resolve
+from biomedical_signal_forensics_lab.models.anomaly_detector import train_baselines, _prepare
+from biomedical_signal_forensics_lab.evaluation.metrics import expected_calibration_error
+from biomedical_signal_forensics_lab.utils.config import load_yaml
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir, resolve
 
 log = get_logger("train")
 
@@ -123,7 +123,7 @@ def _autoencoder_metrics(df: pd.DataFrame, include_confounding: bool) -> dict:
     """Try training the AE. If torch isn't available, return a row of NaN with a note."""
     name = "quality_autoencoder_plus_confounding" if include_confounding else "quality_autoencoder"
     try:
-        from src.models.quality_autoencoder import train as train_ae  # noqa: WPS433
+        from biomedical_signal_forensics_lab.models.quality_autoencoder import train as train_ae  # noqa: WPS433
     except ImportError as exc:
         log.warning("PyTorch unavailable, skipping %s: %s", name, exc)
         return {

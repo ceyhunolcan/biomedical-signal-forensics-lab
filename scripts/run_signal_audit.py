@@ -19,21 +19,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import numpy as np
 import pandas as pd
 
-from src.artifacts.artifact_classifier import evaluate_batch
-from src.confounding import environmental_confounding, missingness_dynamics
-from src.confounding.causal_inference import screening_vs_adjusted_table
-from src.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
-from src.reliability.change_point import scan_cohort
-from src.reliability.device_bias import per_column_bias
-from src.reliability.fairness_audit import fairness_audit, disparity_summary
-from src.reliability.test_retest import cohort_test_retest_table
-from src.reliability.weight_optimization import learn_weights, sensitivity_table
-from src.reports.figure_builder import fairness_forest_plot
-from src.signals.orphanidou_sqi import head_to_head as orph_head_to_head
-from src.signals.signal_quality import per_window_sqi
-from src.utils.config import load_yaml
-from src.utils.logging import get_logger
-from src.utils.paths import ensure_dir, resolve
+from biomedical_signal_forensics_lab.artifacts.artifact_classifier import evaluate_batch
+from biomedical_signal_forensics_lab.confounding import environmental_confounding, missingness_dynamics
+from biomedical_signal_forensics_lab.confounding.causal_inference import screening_vs_adjusted_table
+from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
+from biomedical_signal_forensics_lab.reliability.change_point import scan_cohort
+from biomedical_signal_forensics_lab.reliability.device_bias import per_column_bias
+from biomedical_signal_forensics_lab.reliability.fairness_audit import fairness_audit, disparity_summary
+from biomedical_signal_forensics_lab.reliability.test_retest import cohort_test_retest_table
+from biomedical_signal_forensics_lab.reliability.weight_optimization import learn_weights, sensitivity_table
+from biomedical_signal_forensics_lab.reports.figure_builder import fairness_forest_plot
+from biomedical_signal_forensics_lab.signals.orphanidou_sqi import head_to_head as orph_head_to_head
+from biomedical_signal_forensics_lab.signals.signal_quality import per_window_sqi
+from biomedical_signal_forensics_lab.utils.config import load_yaml
+from biomedical_signal_forensics_lab.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.paths import ensure_dir, resolve
 
 log = get_logger("audit")
 
@@ -93,7 +93,7 @@ def main() -> None:
     log.info("Test-retest:\n%s", tr_table.to_string(index=False))
 
     log.info("Method comparison: ICC(2,1) days-as-raters vs week-pair r…")
-    from src.reliability.intraclass_correlation import compare_to_test_retest
+    from biomedical_signal_forensics_lab.reliability.intraclass_correlation import compare_to_test_retest
     icc_cmp = compare_to_test_retest(
         df, ["resting_hr", "hrv_rmssd", "sleep_efficiency", "sleep_duration"],
         n_bootstrap=200,

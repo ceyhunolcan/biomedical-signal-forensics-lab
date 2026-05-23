@@ -9,8 +9,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.reports.report_generator import generate_report
-from src.utils.logging import get_logger
+from biomedical_signal_forensics_lab.reports.report_generator import generate_report
+from biomedical_signal_forensics_lab.utils.logging import get_logger
 
 log = get_logger("report-cli")
 

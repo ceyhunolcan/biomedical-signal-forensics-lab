@@ -25,7 +25,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src.utils.logging import get_logger
+from biomedical_signal_forensics_lab.utils.logging import get_logger
 
 log = get_logger("cross_cohort_check")
 
@@ -99,7 +99,7 @@ def _generate_regime(regime: CohortRegime, n_participants: int = 80, n_days: int
                 f"Regime {regime.name!r} has non-finite {name}={value}. "
                 "Use a finite value or zero to disable an effect."
             )
-    from src.data import synthetic_signal_generator as gen
+    from biomedical_signal_forensics_lab.data import synthetic_signal_generator as gen
     saved = {
         "HEAT_HRV_COEF": gen.HEAT_HRV_COEF,
         "SKIN_TONE_PPG_PENALTY": gen.SKIN_TONE_PPG_PENALTY,
@@ -149,9 +149,9 @@ def _generate_regime(regime: CohortRegime, n_participants: int = 80, n_days: int
 def evaluate_regime(regime: CohortRegime, n_participants: int = 80, n_days: int = 30,
                     seed: int = 0) -> dict:
     """Generate a cohort under the regime, run the relevant audit pieces, return a row."""
-    from src.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
-    from src.reliability.fairness_audit import fairness_audit
-    from src.reliability.test_retest import cohort_test_retest
+    from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
+    from biomedical_signal_forensics_lab.reliability.fairness_audit import fairness_audit
+    from biomedical_signal_forensics_lab.reliability.test_retest import cohort_test_retest
 
     log.info("Regime '%s': generating cohort (n=%d × %d days)…",
              regime.name, n_participants, n_days)

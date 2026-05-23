@@ -1,11 +1,11 @@
 """Each artifact detector should fire on a clearly degraded signal and stay quiet on a clean one."""
 import numpy as np
 
-from src.artifacts.motion_artifacts import detect as detect_motion
-from src.artifacts.sensor_dropout import detect as detect_dropout
-from src.artifacts.signal_noise import detect_noise_spikes, detect_flatline
-from src.artifacts.timestamp_irregularity import detect as detect_timing
-from src.artifacts.artifact_classifier import evaluate_window
+from biomedical_signal_forensics_lab.artifacts.motion_artifacts import detect as detect_motion
+from biomedical_signal_forensics_lab.artifacts.sensor_dropout import detect as detect_dropout
+from biomedical_signal_forensics_lab.artifacts.signal_noise import detect_noise_spikes, detect_flatline
+from biomedical_signal_forensics_lab.artifacts.timestamp_irregularity import detect as detect_timing
+from biomedical_signal_forensics_lab.artifacts.artifact_classifier import evaluate_window
 
 
 def test_motion_fires_on_noisy_signal():

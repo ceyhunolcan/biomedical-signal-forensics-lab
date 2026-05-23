@@ -184,7 +184,7 @@ def to_daily_summary(rec: WESADRecording) -> pd.DataFrame:
     if baseline_mask.any():
         # Use the framework's own R-peak detector for consistency with the
         # synthetic pipeline.
-        from src.signals.ecg_processing import detect_r_peaks, bandpass
+        from biomedical_signal_forensics_lab.signals.ecg_processing import detect_r_peaks, bandpass
         ecg_baseline = rec.chest_ecg[baseline_mask]
         if len(ecg_baseline) > rec.chest_fs * 5:
             filt = bandpass(ecg_baseline, rec.chest_fs)

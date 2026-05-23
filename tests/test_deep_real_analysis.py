@@ -7,7 +7,7 @@ test_wesad_adapter.py.
 import numpy as np
 import pandas as pd
 
-from src.evaluation.deep_real_analysis import (
+from biomedical_signal_forensics_lab.evaluation.deep_real_analysis import (
     cohens_kappa,
     cross_modality_hr_agreement,
     motion_effect_analysis,

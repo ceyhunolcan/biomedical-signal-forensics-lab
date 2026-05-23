@@ -7,10 +7,10 @@ pytest and the sandbox's minimal test runner.
 import numpy as np
 import pandas as pd
 
-from src.confounding.causal_inference import DAG, aipw, _binarize
-from src.data.real_data_adapter import FitbitLikeAdapter
-from src.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
-from src.reliability.weight_optimization import learn_weights
+from biomedical_signal_forensics_lab.confounding.causal_inference import DAG, aipw, _binarize
+from biomedical_signal_forensics_lab.data.real_data_adapter import FitbitLikeAdapter
+from biomedical_signal_forensics_lab.reliability.biomarker_trust_score import DigitalBiomarkerTrustScore
+from biomedical_signal_forensics_lab.reliability.weight_optimization import learn_weights
 
 
 def _assert_raises(exc_type, fn, match_substring=None):
@@ -118,7 +118,7 @@ def test_learn_weights_handles_too_small_cohort():
     assert res.spearman_train != res.spearman_train  # NaN
     assert res.spearman_train > -1.5 or res.spearman_train != res.spearman_train
     # Should fall back to defaults
-    from src.reliability.weight_optimization import DEFAULT_WEIGHTS
+    from biomedical_signal_forensics_lab.reliability.weight_optimization import DEFAULT_WEIGHTS
     for k, v in DEFAULT_WEIGHTS.items():
         assert abs(res.weights[k] - v) < 1e-9
 
