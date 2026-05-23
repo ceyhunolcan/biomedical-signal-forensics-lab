@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security issue
+    url: mailto:ceyhun.olcan.27@dartmouth.edu
+    about: >-
+      Please email directly. Do not file a public issue for security
+      vulnerabilities.
+  - name: Question, citation help, or research collaboration
+    url: mailto:ceyhun.olcan.27@dartmouth.edu
+    about: >-
+      For methodology questions, citation help, or research collaboration
+      enquiries, email is preferred over filing a public issue.

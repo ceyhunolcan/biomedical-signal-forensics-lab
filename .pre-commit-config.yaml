@@ -1,0 +1,35 @@
+# See https://pre-commit.com for usage and config reference.
+# Install: `pre-commit install` (requires `pip install pre-commit`).
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: [--maxkb=2000]
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: [--fix=lf]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: no-em-dashes
+        name: no em-dashes or en-dashes in documentation
+        entry: python -c "import sys, pathlib; bad=[]; [bad.append((f, line_no, line)) for f in sys.argv[1:] if pathlib.Path(f).suffix in {'.md', '.py', '.yml', '.yaml', '.cff'} for line_no, line in enumerate(pathlib.Path(f).read_text(encoding='utf-8', errors='replace').splitlines(), 1) if '\u2014' in line or '\u2013' in line]; [print(f'{f}:{n}: contains em/en-dash: {l[:100]}') for f, n, l in bad]; sys.exit(1 if bad else 0)"
+        language: system
+        files: \.(md|py|yml|yaml|cff)$
+        exclude: ^\.github/workflows/.*\.yml$

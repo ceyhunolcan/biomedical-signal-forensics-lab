@@ -1,0 +1,99 @@
+site_name: biomedical-signal-forensics-lab
+site_description: >-
+  An open-source toolkit for auditing wearable physiological signals:
+  signal quality, algorithmic fairness, causal sensitivity, and
+  downstream-task impact.
+site_author: Ceyhun Olcan
+site_url: https://ceyhunolcan.github.io/biomedical-signal-forensics-lab/
+
+repo_url: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab
+repo_name: ceyhunolcan/biomedical-signal-forensics-lab
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2026 Ceyhun Olcan. Released under the MIT License.
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - include-markdown
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: false
+            members_order: source
+            heading_level: 2
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      check_paths: true
+      base_path: ["."]
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Reproducing the paper: reproducing-paper.md
+  - Reporting standards: reporting-standards.md
+  - API reference: api-reference.md
+  - Citing: citing.md
+  - Changelog: changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab
+    - icon: fontawesome/brands/orcid
+      link: https://orcid.org/0000-0002-6326-6071

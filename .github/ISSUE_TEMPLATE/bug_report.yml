@@ -1,0 +1,68 @@
+name: Bug report
+description: File a bug report or unexpected behaviour
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thanks for taking the time to report a bug. Please fill in the fields
+        below; the more detail, the faster a fix can land.
+
+  - type: input
+    id: version
+    attributes:
+      label: Toolkit version
+      description: Output of `pip show biomedical-signal-forensics-lab` or a git commit SHA.
+      placeholder: "v0.15.0  /  commit abc1234"
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.11.5"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Linux
+        - Windows
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: Steps or code to reproduce. Paste as a code block.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Include the full error traceback if applicable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Anything else that might help (dataset, config, screenshots).
