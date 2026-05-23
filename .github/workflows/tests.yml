@@ -30,7 +30,7 @@ jobs:
 
       - name: Sanity check imports
         run: |
-          python -c "import src; print('package version:', src.__version__)"
+          python -c "import biomedical_signal_forensics_lab as b; print('package version:', b.__version__)"
 
       - name: Run minimal test runner (no optional deps)
         run: |
@@ -38,7 +38,7 @@ jobs:
 
       - name: Run pytest with coverage
         run: |
-          pytest tests/ -v --cov=src --cov-report=xml --cov-report=term \
+          pytest tests/ -v --cov=biomedical_signal_forensics_lab --cov-report=xml --cov-report=term \
             --ignore=tests/test_api.py \
             -W ignore::DeprecationWarning
         continue-on-error: true
