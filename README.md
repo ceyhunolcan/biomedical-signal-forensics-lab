@@ -62,6 +62,24 @@ flowchart LR
 GitHub renders mermaid natively, so the figure above appears inline without
 any external image hosting.
 
+## Who should use this
+
+This toolkit is built for research groups working with wearable-derived physiological signals who need a defensible methodological audit before downstream modeling, reporting, or publication.
+
+**Good fit:**
+
+- Researchers building digital biomarkers from consumer-grade wearables (Fitbit, Empatica, Apple Watch, Garmin, Oura)
+- Methodology-focused groups studying signal-quality, fairness, reliability, or causal-inference issues in wearable data
+- Authors preparing reporting-standards-compliant supplementary materials (TRIPOD+AI, STARD 2015)
+- Replication studies that need to surface where a previous pipeline made invisible quality-filter choices
+
+**Not a fit:**
+
+- Real-time clinical decision support (this is a research audit layer, not a deployed product)
+- Anyone who needs an FDA-cleared algorithm (this toolkit is a research prototype, not a medical device)
+- Single-record diagnostic queries (the framework operates on cohort-scale windowed data)
+- Production deployment without first recalibrating thresholds on representative real-world data from your device and population
+
 ## Key results on WESAD (n = 15 subjects, 6,585 thirty-second windows)
 
 | Metric | Value | Interpretation |
