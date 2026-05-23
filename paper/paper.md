@@ -42,6 +42,35 @@ Several mature open-source Python packages cover parts of the wearable-signal an
 
 None of these libraries combine multi-baseline signal-quality auditing, algorithmic-fairness analysis, doubly-robust causal-adjusted confounding, and downstream-task impact measurement in a single end-to-end pipeline. They are excellent building blocks for primitives, and `biomedical-signal-forensics-lab` consumes their outputs where applicable. The four-way signal-quality comparison (in-house, Orphanidou, Sukor, Elgendi) is implemented directly because no existing package runs all three published baselines head-to-head against a custom estimator and reports agreement statistics with cluster-bootstrap confidence intervals.
 
+The following two tables make the positioning concrete. Table 1 covers the audit layer that defines this toolkit's contribution; Table 2 covers the upstream primitives where existing libraries are strong and this toolkit relies on them rather than duplicating their functionality.
+
+Table 1. Audit-layer capability comparison.
+
+| Capability | bsf-lab | NeuroKit2 | HeartPy | hrv-analysis | BioSPPy |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Multi-baseline SQI comparison | yes | no | no | no | no |
+| Pairwise SQI agreement metrics (kappa, rho) | yes | no | no | no | no |
+| Algorithmic-fairness audit | yes | no | no | no | no |
+| Doubly-robust causal-adjusted estimation (AIPW) | yes | no | no | no | no |
+| E-value confounding sensitivity | yes | no | no | no | no |
+| Change-point detection | yes | no | no | no | no |
+| LOSO downstream-task impact | yes | no | no | no | no |
+| Cluster-bootstrap confidence intervals | yes | no | no | no | no |
+| ICC(2,1) reliability primitives | yes | partial | no | no | no |
+| YAML-configurable thresholds | yes | no | no | no | no |
+| Multi-device real-data adapters | yes | partial | no | no | no |
+| TRIPOD+AI and STARD 2015 checklists | yes | no | no | no | no |
+
+Table 2. Primitives comparison.
+
+| Primitive | bsf-lab | NeuroKit2 | HeartPy | hrv-analysis | BioSPPy |
+|---|:---:|:---:|:---:|:---:|:---:|
+| PPG quality estimation | 4 methods | 1 method | 1 method | no | basic |
+| Multi-modal signals (ECG, PPG, EDA, EMG, RSP) | PPG and ECG | broad coverage | PPG only | HRV only | broad coverage |
+| HRV time/frequency/nonlinear features | partial | yes | yes | yes | partial |
+| Built-in peak detectors | partial | yes | yes | no | yes |
+| Streaming / real-time processing | no | partial | yes | no | no |
+
 The statistical methodology integrated by this package, including Bland-Altman limits of agreement [@bland1986], intraclass correlation [@shrout1979], doubly-robust treatment-effect estimation [@robins1994], and E-value sensitivity analysis [@vanderweele2017], exists in general-purpose packages such as statsmodels, scikit-learn, and scipy. The contribution of `biomedical-signal-forensics-lab` is the integration of these methods with the wearable-signal preprocessing stack and the wrapping of them into a single pipeline whose outputs feed a methodology-recommendations layer.
 
 # Software design
