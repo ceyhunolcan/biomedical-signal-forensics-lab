@@ -144,7 +144,7 @@ We paired the per-window heart rate from chest ECG against the per-window heart 
 | Mean absolute error | **9.66 bpm** |
 | **Bias (PPG - ECG)** [@bland1986] | **+3.57 bpm** |
 | **95% Limits of agreement** | **[-23.14, +30.28] bpm** |
-| Pearson r | +0.697 (p < 1e-300) |
+| Pearson r | +0.697 (p << 0.001) |
 | Fraction within 5 bpm | 0.458 |
 | Fraction within 10 bpm | 0.656 |
 
@@ -247,9 +247,9 @@ The correlation between motion and cross-modality HR disagreement is positive bu
 
 Mann-Whitney U with Cliff's δ [@cliff1993] and Cohen's d [@cohen1988] applied per (subject, metric, state) contrast (full per-subject tables in supplement Tables S3 and S4).
 
-Stress vs baseline: most subjects show a PPG SQI drop during stress (largest effects at Cliff's δ = +0.75 for S17, +0.73 for S5, +0.70 for S14; corresponding Cohen's d 1.16-1.41, all p < 1e-29). One subject (S15) shows the opposite (δ = -0.49), consistent with state-dependent posture in which less movement during the stressor than during baseline improves PPG quality. Heterogeneity in the direction of the PPG SQI effect across subjects is itself the finding. The framework's per-subject outputs catch this; pooled-by-state numbers obscure it.
+Stress vs baseline: most subjects show a PPG SQI drop during stress (largest effects at Cliff's δ = +0.75 for S17, +0.73 for S5, +0.70 for S14; corresponding Cohen's d 1.16-1.41, all p << 0.001). One subject (S15) shows the opposite (δ = -0.49), consistent with state-dependent posture in which less movement during the stressor than during baseline improves PPG quality. Heterogeneity in the direction of the PPG SQI effect across subjects is itself the finding. The framework's per-subject outputs catch this; pooled-by-state numbers obscure it.
 
-Baseline vs amusement: the funny-video paradigm produces upper-body laughter motion that degrades wrist PPG in most subjects. The largest single effect is S9 PPG SQI (Cliff's δ = +0.80, Cohen's d = +1.89, p = 3.7e-25). S14 also shows a large ECG SQI drop (δ = +0.70, d = +1.59), consistent with the chest device responding to laughter motion in addition to wrist PPG.
+Baseline vs amusement: the funny-video paradigm produces upper-body laughter motion that degrades wrist PPG in most subjects. The largest single effect is S9 PPG SQI (Cliff's δ = +0.80, Cohen's d = +1.89, p =< 0.001). S14 also shows a large ECG SQI drop (δ = +0.70, d = +1.59), consistent with the chest device responding to laughter motion in addition to wrist PPG.
 
 
 ### 3.6 Downstream model performance with vs without audit filtering
@@ -416,7 +416,7 @@ Across five synthetic regimes (default, strong environment, inverted skin-tone, 
 
 Three findings on the WESAD dataset have direct implications for the design and reporting of wearable-AI studies:
 
-1. **Three published wrist-PPG SQI methods disagree at scale on real wearable data.** The published methods individually pass 21.5% to 25.6% of windows but collectively reject 44.6% of windows accepted by a representative in-house threshold. Pairwise Cohen's κ across the three published methods spans -0.23 to +0.41 (median -0.20), indicating that the methods agree on neither the pass nor the reject set in the gray area but converge on rejecting a substantial population of windows. Each method tests a different physical property (Orphanidou: pulse-shape correlation; Sukor: pulse-to-pulse interval consistency; Elgendi: amplitude-distribution statistics), so the consensus rejection is not driven by a shared methodological assumption.
+1. **Three published wrist-PPG SQI methods disagree at scale on real wearable data.** The published methods individually pass 21.5% to 25.6% of windows but collectively reject 44.6% of windows accepted by a representative in-house threshold. Pairwise Cohen's κ across the three published methods spans -0.23 to +0.41 (median -0.20), indicating that the methods agree on neither the pass nor the reject set in the gray area but converge on rejecting a substantial population of windows. Each method tests a different physical property (Orphanidou: pulse-shape correlation; Sukor: pulse-to-pulse interval consistency; Elgendi: amplitude-distribution statistics), so the consensus rejection is not driven by a shared methodological assumption. The same pattern replicates on PPG-DaLiA (n = 15 subjects, 18,781 windows, same wrist-PPG hardware but ambulatory rather than stress paradigm): consensus rejection 43.1%, median pairwise published κ = -0.20, κ = 0.000 against the in-house threshold across all three published methods.
 
 2. **Single-threshold recalibration does not recover agreement at n = 15.** A held-out split (3,292 calibration / 3,293 holdout windows) tuning the in-house threshold against Orphanidou returned Δκ ≈ 0 on holdout; AUROC for the in-house SQI predicting Orphanidou pass/fail was 0.484, statistically indistinguishable from chance. The implication is that a single global SQI threshold is the wrong unit of analysis on wrist PPG; per-subject or per-session calibration is required. The pilot finding of κ improving from 0.000 to +0.217 after recalibration to 0.99 (reported at n = 2) was an artifact of the two subjects whose wrist-PPG behaviour was unrepresentative of the cohort.
 
