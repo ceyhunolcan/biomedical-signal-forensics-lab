@@ -1,7 +1,6 @@
 # Biomedical signal forensics: a reliability framework for wearable-derived digital biomarkers, with real-data validation on WESAD
 
-> Research prototype only. Not medical advice, diagnosis, treatment, or a medical device.
-
+> 
 **Authors.** Ceyhun Olcan¹
 
 **Corresponding author.** Ceyhun Olcan, ceyhun.olcan.27@dartmouth.edu.
@@ -14,7 +13,7 @@
 
 ---
 
-## Structured abstract
+## Abstract
 
 **Background.** Wearable physiological measurements (heart rate, heart-rate variability, photoplethysmography (PPG) signal quality, sleep stages, step counts) are increasingly used as training targets and outcomes in machine-learning pipelines for digital health. The numbers entering those pipelines are already model outputs of the device: optical sensing, motion correction, manufacturer-specific filtering, and a peak detector have each run before the researcher sees the value. Pooled signal-quality summaries treat the device as a single instrument, but the same device on the same person can be reliable at rest and substantially biased during motion, and a test set dominated by quiet conditions surfaces neither failure.
 
@@ -211,7 +210,6 @@ The pipeline and analyses in this paper were assessed against the relevant EQUAT
 - **CONSORT-AI** [@liu2020consortai] and **DECIDE-AI** [@vasey2022decideai] do not apply because this paper is neither a randomised trial nor a clinical-deployment study. Applicability assessments documenting this conclusion (and what a future deployment of this toolkit would need to report) are in `paper/checklists/consort_ai_applicability.md` and `paper/checklists/decide_ai_applicability.md`.
 
 Figure 1 (`paper/figures/fig_flow_diagram.png`) shows the flow of data through the WESAD validation pipeline in the STARD-style convention: source dataset, n=15 subjects analysed, per-window processing, zero post-hoc exclusions, and the four analysis arms operating on the same 6,585 windows.
-
 
 ### 4.1 Cross-modality HR agreement (Bland-Altman, Figure 4)
 
