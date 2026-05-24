@@ -80,18 +80,27 @@ This toolkit is built for research groups working with wearable-derived physiolo
 - Single-record diagnostic queries (the framework operates on cohort-scale windowed data)
 - Production deployment without first recalibrating thresholds on representative real-world data from your device and population
 
-## Key results on WESAD (n = 15 subjects, 6,585 5-second windows)
+## Empirical findings on public benchmarks
 
-| Metric | Value | Interpretation |
+Applied to wrist photoplethysmography on the public WESAD benchmark (n = 15 subjects, 6,585 5-second windows), the audit pipeline showed that three independently developed published signal-quality methods (Orphanidou 2015, Sukor 2011, Elgendi 2016) collectively reject **44.6%** of windows accepted by a representative in-house threshold, with median pairwise Cohen's kappa = **-0.20**. The finding replicated on PPG-DaLiA (n = 15, 18,781 windows; same wrist-PPG hardware but ambulatory rather than stress paradigm) at **43.1%** with median kappa = **-0.20**.
+
+| Metric | WESAD | PPG-DaLiA |
 |---|---|---|
-| Three-baseline rejection rate | **44.6%** | 2,936 of 6,585 windows rejected by Orphanidou, Sukor, or Elgendi |
-| Bland-Altman bias (wrist PPG HR vs chest ECG HR) | **+3.57 bpm** | 95% limits of agreement [-23.14, +30.28] |
-| Mean absolute error | **9.66 bpm** | Pearson r = +0.70 across all windows |
-| Pairwise SQI agreement (median) | **kappa = -0.20** | Three baselines disagree on which windows to keep |
-| Downstream effect after recalibration | **delta kappa = 0.000** | Quality filtering does not improve stress detection at n=15 |
-| Downstream correlation | **rho = +0.10**, Wilcoxon p = 1.5e-4 | Small but significant paired effect |
-| LOSO AUROC change | **0.804 to 0.823** | +0.019 with full audit pipeline |
-| Test suite | **235 passing** | Python 3.10 / 3.11 / 3.12 |
+| n subjects | 15 | 15 |
+| n windows | 6,585 | 18,781 |
+| Recording paradigm | Lab stress + amusement | 8 ambulatory activities |
+| Three-baseline consensus rejection | **44.6%** | **43.1%** |
+| Pairwise published-method agreement (median Cohen's kappa) | -0.20 | -0.20 |
+| Cohen's kappa vs in-house threshold (all three published) | 0.000 | 0.000 |
+| Wrist-PPG vs chest-ECG: Pearson r | +0.70 | +0.70 |
+| Wrist-PPG vs chest-ECG: 95% limits of agreement (bpm) | [-23.1, +30.3] | [-26.7, +31.5] |
+| Per-subject mean absolute HR-difference range (bpm) | 6.75 - 26.02 | 6.66 - 16.27 |
+
+On WESAD specifically, additional methodology findings support the recommendation against single-method SQI reporting: single-threshold recalibration at n = 15 returned delta kappa = 0.000 on holdout (AUROC for in-house SQI predicting Orphanidou pass/fail = 0.484, indistinguishable from chance); restricting downstream HR estimation to multi-baseline-pass windows improved per-subject Pearson r by a median of +0.11 (13 of 15 subjects, paired Wilcoxon p < 0.001); LOSO AUROC for stress detection improved from 0.804 to 0.823 with the audit pipeline.
+
+Test suite: **235 passing** across Python 3.10 / 3.11 / 3.12. The full audit reproduces from a fixed seed in approximately three minutes per dataset on a laptop CPU.
+
+Methodology paper: [`paper/manuscript.md`](paper/manuscript.md). WESAD runner: [`scripts/run_deep_real_analysis.py`](scripts/run_deep_real_analysis.py). PPG-DaLiA runner: [`scripts/run_ppg_dalia_audit.py`](scripts/run_ppg_dalia_audit.py).
 
 ## What this toolkit does
 
@@ -186,7 +195,7 @@ If you use this toolkit in academic work, please cite the software:
   title        = {{biomedical-signal-forensics-lab}: An open-source toolkit
                   for auditing wearable physiological signal pipelines},
   year         = {2026},
-  version      = {v0.16.0},
+  version      = {v0.16.2},
   url          = {https://github.com/ceyhunolcan/biomedical-signal-forensics-lab},
   doi          = {10.5281/zenodo.20349806}
 }
