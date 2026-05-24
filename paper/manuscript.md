@@ -75,7 +75,7 @@ Five detectors operate on each 5-second window: motion, sensor dropout, noise sp
 We report four reliability statistics per cohort:
 
 - **Bootstrap test-retest reliability.** For each metric, form non-overlapping calendar-week means within each participant, pool the (week_t, week_{t+1}) pairs across the cohort, compute Pearson correlation. Cluster bootstrap CIs come from 300 participant-level resamples.
-- **Intraclass correlation coefficient.** ICC(2,1) two-way random, single-rater, absolute-agreement form [@shrout1979], applied with daily index as the "rater" axis. This is an irregular use of the formula; Section 4.3 reports an empirical comparison to the proper bootstrap test-retest.
+- **Intraclass correlation coefficient.** ICC(2,1) two-way random, single-rater, absolute-agreement form [@shrout1979], applied with daily index as the "rater" axis to partition variance between within-subject day-to-day noise and between-subject systematic differences. This is not the canonical between-rater-on-same-subject application of ICC; it is a repeated-measures variant in which each day's measurement is treated as a noisy realization of an underlying subject-level trait. We report ICC alongside the proper bootstrap week-pair test-retest (Section 4.3, Supplementary Table S1), not in its place; the two metrics agree on which biomarkers have the highest and lowest reliability, and ICC is uniformly more conservative because it treats within-week day-to-day noise as rater disagreement.
 - **Temporal stability.** Rolling coefficient of variation over a configurable window plus a drift slope from linear regression with NaN-stripping.
 - **Device bias.** Per-column mean offset between each non-reference device and device A, normalized by the cohort standard deviation of the column.
 
@@ -445,7 +445,7 @@ The closest existing toolkit is FLIRT [@foll2021], which focuses on feature engi
 
 **No clinical validation.** We have not validated any component of this framework against gold-standard clinical measurements. The framework's outputs are signal-quality estimates and methodological recommendations, not diagnoses.
 
-**ICC(2,1) usage is unconventional.** We treat the day index as the "rater" axis, which is irregular. Section 4.3 reports an empirical comparison to the proper bootstrap week-pair test-retest; the rankings are consistent and the ICC is conservatively biased.
+**ICC(2,1) is applied as a repeated-measures variant.** The day index is used as the "rater" axis, which is not the canonical between-rater-on-same-subject form of ICC. We report it alongside the proper bootstrap week-pair test-retest (Section 4.3, Supplementary Table S1), not in place of it; both metrics rank biomarkers consistently on the synthetic cohort, with ICC uniformly more conservative because it treats within-week day-to-day variance as rater disagreement. Practitioners reporting ICC days-as-raters in the wearable-reliability literature can use either metric for ordinal comparisons.
 
 **No frequency-domain HRV.** We report time-domain HRV (RMSSD, SDNN) but not LF/HF. The synthetic windows are too short to support meaningful frequency-domain HRV. Adding frequency-domain HRV is a one-day change.
 
