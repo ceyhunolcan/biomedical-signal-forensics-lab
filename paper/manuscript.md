@@ -313,6 +313,28 @@ Figure 5 (`results/downstream_demo/figure_downstream.png`):
 - Panel D: per-subject retention vs Δρ trade-off (Orphanidou condition).
 
 
+### 3.7 External validation on PPG-DaLiA
+
+The cross-method SQI disagreement finding from Section 3.2 replicates on a second public wearable benchmark with the same hardware but a different activity paradigm. We applied the identical audit pipeline (in-house threshold + Orphanidou + Sukor + Elgendi) to all 15 subjects of the public PPG-DaLiA release [@reiss2019], which uses the same Empatica E4 wrist and RespiBAN chest devices as WESAD but covers 8 ambulatory activities (sitting, stairs, table soccer, cycling, car driving, lunch break, walking, working) rather than psychological stress and amusement.
+
+On 18,781 5-second windows from PPG-DaLiA, the three independently developed published methods collectively rejected 43.1% of windows accepted by the in-house threshold, compared with 44.6% on WESAD. Pairwise Cohen's κ across the three published methods showed the same disagreement pattern: median pairwise κ = -0.204 on PPG-DaLiA versus -0.198 on WESAD, with the same sign and magnitude on each pair (Orphanidou vs Sukor +0.46 vs +0.41; Orphanidou vs Elgendi -0.20 vs -0.20; Sukor vs Elgendi -0.22 vs -0.23). Pass rates for each published method landed within 3 percentage points of their WESAD values. The in-house threshold passed 100.0% of windows on both datasets, with Cohen's κ against each published method indistinguishable from zero on both.
+
+| Metric | WESAD (n = 15, 6,585 windows) | PPG-DaLiA (n = 15, 18,781 windows) |
+| --- | --- | --- |
+| In-house pass rate | 1.000 | 1.000 |
+| Orphanidou pass rate | 0.256 | 0.282 |
+| Sukor pass rate | 0.255 | 0.271 |
+| Elgendi pass rate | 0.215 | 0.220 |
+| In-house pass AND all 3 published fail | 0.446 | 0.431 |
+| Median pairwise κ (published methods) | -0.198 | -0.204 |
+| κ vs in-house (all three published) | 0.000 | 0.000 |
+| Per-subject absolute HR-difference range (bpm) | 6.75-26.02 | 6.66-16.27 |
+| Per-subject fold range | 4.0x | 2.4x |
+
+: Table 10. External validation on PPG-DaLiA, side-by-side with WESAD. The cross-method SQI disagreement finding replicates on a 3x larger benchmark with a different activity paradigm and the same hardware.
+
+The PPG-DaLiA per-subject absolute HR difference (wrist PPG vs chest ECG) range was less extreme than on WESAD (2.4x fold range vs 4.0x), but the absolute minimum was virtually identical (6.66 vs 6.75 bpm). The lower fold range is consistent with PPG-DaLiA's wider activity mix smoothing the upper tail rather than with reduced per-subject heterogeneity. The replication confirms that the cross-method SQI disagreement finding is a property of wrist PPG itself rather than of the WESAD stress paradigm or of any single recording session.
+
 ## 4. Methodological validation on synthetic data
 
 ### 4.1 Cohort-level Digital Biomarker Trust Score
@@ -328,7 +350,7 @@ Mean overall DBTS across all 300 participants: **74.11** (moderate category). Ca
 | sleep_efficiency | +0.023 | [-0.018, +0.062] | 300 | 2400 |
 | sleep_duration | +0.002 | [-0.041, +0.038] | 300 | 2400 |
 
-: Table 10. Bootstrap test-retest reliability on the synthetic cohort (n = 300 participants, 2,400 week-pairs).
+: Table 11. Bootstrap test-retest reliability on the synthetic cohort (n = 300 participants, 2,400 week-pairs).
 
 
 
@@ -349,7 +371,7 @@ We also report an ICC(2,1) days-as-raters analysis as an internal noise-floor ch
 | device_type | signal_quality_score | device_A: 67.40 | device_C: 54.38 | **-13.02** |
 | skin_tone_q | signal_quality_score | Q1 (light): 67.93 | Q4 (dark): 58.40 | **-9.53** |
 
-: Table 11. Fairness disparities recovered on the synthetic cohort, signal_quality_score component.
+: Table 12. Fairness disparities recovered on the synthetic cohort, signal_quality_score component.
 
 
 
@@ -367,7 +389,7 @@ The injected effects were 0.85 vs 1.00 SQI multiplier for device C vs A (recover
 | aqi | sleep_efficiency | -0.020 | -0.002 | [-0.003, +0.000] |
 | active_minutes | hrv_rmssd | -0.019 | **-0.497** | **[-0.797, -0.137]** |
 
-: Table 12. Screening Pearson correlation vs AIPW adjusted estimate, synthetic cohort.
+: Table 13. Screening Pearson correlation vs AIPW adjusted estimate, synthetic cohort.
 
 
 
@@ -426,7 +448,7 @@ The closest existing toolkit is FLIRT [@foll2021], which focuses on feature engi
 
 ## 6. Conclusions
 
-On a public wearable-PPG benchmark (WESAD, n = 15 subjects, 6,585 windows), three independently developed published signal-quality methods, Orphanidou (2015), Sukor (2011), and Elgendi (2016), collectively reject 44.6% of windows accepted by a representative in-house threshold. The three methods disagree with each other on the gray area (median pairwise Cohen's κ = -0.20) but converge on the consensus rejection set. Single-threshold recalibration at n = 15 does not recover agreement, and per-subject heterogeneity in cross-modality HR disagreement spans a four-fold range across subjects. Restricting downstream models to multi-baseline-pass windows improves per-subject HR correlation by a median of +0.110 (paired Wilcoxon p = 1.5e-04). The implication for wearable-AI research practice is that single-method SQI reporting is insufficient: multi-baseline auditing should be standard supplementary material in wearable-AI publications.
+On a public wearable-PPG benchmark (WESAD, n = 15 subjects, 6,585 windows), three independently developed published signal-quality methods, Orphanidou (2015), Sukor (2011), and Elgendi (2016), collectively reject 44.6% of windows accepted by a representative in-house threshold. The three methods disagree with each other on the gray area (median pairwise Cohen's κ = -0.20) but converge on the consensus rejection set. Single-threshold recalibration at n = 15 does not recover agreement, and per-subject heterogeneity in cross-modality HR disagreement spans a four-fold range across subjects. Restricting downstream models to multi-baseline-pass windows improves per-subject HR correlation by a median of +0.110 (paired Wilcoxon p = 1.5e-04). The finding replicates on a second public benchmark (PPG-DaLiA, n = 15, 18,781 windows; same wrist-PPG hardware but ambulatory activity paradigm rather than stress paradigm): consensus rejection 43.1%, median pairwise κ across published methods -0.20, κ against the in-house threshold 0.000, with all three published-method pass rates within 3 percentage points of their WESAD values. The implication for wearable-AI research practice is that single-method SQI reporting is insufficient: multi-baseline auditing should be standard supplementary material in wearable-AI publications.
 
 To support reproducibility, the audit pipeline used in this study is openly available as `biomedical-signal-forensics-lab` (MIT licensed) and runs end-to-end from a fixed seed in approximately three minutes on a modern laptop CPU.
 
