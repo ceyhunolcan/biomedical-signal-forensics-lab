@@ -1,0 +1,86 @@
+{
+  "dataset": "PPG-DaLiA",
+  "n_subjects": 15,
+  "n_windows": 18781,
+  "hr_agreement": {
+    "n_windows": 18390,
+    "mean_absolute_error_bpm": 10.381430207867215,
+    "bias_ppg_minus_ecg_bpm": 2.3833782522785047,
+    "loa_lower_bpm": -26.720074863834213,
+    "loa_upper_bpm": 31.486831368391222,
+    "pearson_r": 0.6953757356123205,
+    "pearson_p": 0.0,
+    "fraction_within_5_bpm": 0.4313757476889614,
+    "fraction_within_10_bpm": 0.62294725394236
+  },
+  "sqi_agreement": {
+    "n_windows": 18781,
+    "spearman_inhouse_vs_orph": 0.09537081850549911,
+    "spearman_inhouse_vs_sukor": 0.05940163265872711,
+    "spearman_orph_vs_sukor": 0.5989414343482072,
+    "kappa_inhouse_vs_orph": 0.0,
+    "kappa_inhouse_vs_sukor": 0.0,
+    "kappa_orph_vs_sukor": 0.4603484563616211,
+    "fraction_all_three_pass": 0.16846813268729036,
+    "fraction_all_three_fail": 0.0,
+    "inhouse_pass_rate": 1.0,
+    "orphanidou_pass_rate": 0.28209360523933763,
+    "sukor_pass_rate": 0.27075235610457377
+  },
+  "motion_effect": {
+    "n_windows": 18781,
+    "spearman_motion_vs_inhouse_sqi": -0.9999999999999998,
+    "spearman_motion_vs_hr_disagreement": 0.14124986167439638,
+    "spearman_motion_vs_orphanidou_template_corr": -0.09537081850549911,
+    "high_motion_threshold": 0.033217518430621096,
+    "fraction_high_motion": 0.25003993397582663,
+    "mean_hr_disagreement_low_motion": 9.561663361894503,
+    "mean_hr_disagreement_high_motion": 12.888856541642495
+  },
+  "four_way_sqi_agreement": {
+    "n_windows": 18781,
+    "inhouse_threshold": 0.7,
+    "inhouse_pass_rate": 1.0,
+    "orphanidou_pass_rate": 0.28209360523933763,
+    "sukor_pass_rate": 0.27075235610457377,
+    "elgendi_pass_rate": 0.22000958415419838,
+    "fraction_all_three_published_pass": 0.00681539854107875,
+    "fraction_all_three_published_fail": 0.43128693892763964,
+    "fraction_inhouse_pass_all_published_fail": 0.43128693892763964,
+    "n_inhouse_pass_all_published_fail": 8100,
+    "pairwise_kappa_published": {
+      "kappa_orphanidou_vs_sukor": 0.46034845636162114,
+      "kappa_orphanidou_vs_elgendi": -0.20443257451623298,
+      "kappa_sukor_vs_elgendi": -0.21799511705787733
+    },
+    "median_pairwise_kappa_published": -0.20443257451623298,
+    "min_pairwise_kappa_published": -0.21799511705787733,
+    "max_pairwise_kappa_published": 0.46034845636162114,
+    "kappa_inhouse_vs_orphanidou": 0.0,
+    "kappa_inhouse_vs_sukor": 0.0,
+    "kappa_inhouse_vs_elgendi": 0.0,
+    "per_subject_mean_abs_hr_diff_bpm": {
+      "min": 6.660831335274262,
+      "max": 16.269458558629303,
+      "median": 9.957483648439407,
+      "fold_range": 2.44255675300918,
+      "per_subject": {
+        "S1": 11.757984420949947,
+        "S10": 7.327503835668885,
+        "S11": 9.957483648439407,
+        "S12": 13.314825365732462,
+        "S13": 7.758498379726967,
+        "S14": 8.534704474756923,
+        "S15": 10.533438649499546,
+        "S2": 9.247010813259969,
+        "S3": 7.720953766587496,
+        "S4": 9.16023620535648,
+        "S5": 13.564112385433374,
+        "S6": 12.269219303952905,
+        "S7": 6.660831335274262,
+        "S8": 14.0767384399237,
+        "S9": 16.269458558629303
+      }
+    }
+  }
+}
