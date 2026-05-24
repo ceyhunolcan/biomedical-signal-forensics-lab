@@ -120,7 +120,7 @@ Agreement metrics for each pairwise comparison are reported as Spearman ρ on th
 The empirical study is the multi-baseline SQI audit on the WESAD dataset [@schmidt2018] (n = 15 subjects, S2-S17 minus S1 and S12 which are absent from the standard public release). Two supporting analyses use the same audit pipeline on parameterised data to characterise the audit components: (i) a 300-participant 60-day synthetic cohort with documented injected failure modes (Section 2.2), and (ii) a cross-cohort parameter sweep across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world) to test the audit's responsiveness to controlled changes in cohort properties. Reproducibility of every reported number is verified from a fixed seed on every continuous-integration run.
 
 
-### 2.9 Statistical analysis
+### 2.10 Statistical analysis
 
 **Primary pre-specified test.** The primary hypothesis for the empirical study is that audit-based filtering improves per-subject wrist-PPG-to-chest-ECG HR agreement on WESAD. The pre-specified test is a one-sided paired Wilcoxon signed-rank on per-subject Spearman correlation between PPG-derived and ECG-derived HR (Orphanidou-passing windows versus no-audit; Table 9). With a single planned comparison no multiplicity correction is required, and the reported uncorrected p = 1.5e-04 is the primary result.
 
