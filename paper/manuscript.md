@@ -120,6 +120,14 @@ Agreement metrics for each pairwise comparison are reported as Spearman ρ on th
 The empirical study is the multi-baseline SQI audit on the WESAD dataset [@schmidt2018] (n = 15 subjects, S2-S17 minus S1 and S12 which are absent from the standard public release). Two supporting analyses use the same audit pipeline on parameterised data to characterise the audit components: (i) a 300-participant 60-day synthetic cohort with documented injected failure modes (Section 2.2), and (ii) a cross-cohort parameter sweep across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world) to test the audit's responsiveness to controlled changes in cohort properties. Reproducibility of every reported number is verified from a fixed seed on every continuous-integration run.
 
 
+### 2.9 Statistical analysis
+
+**Primary pre-specified test.** The primary hypothesis for the empirical study is that audit-based filtering improves per-subject wrist-PPG-to-chest-ECG HR agreement on WESAD. The pre-specified test is a one-sided paired Wilcoxon signed-rank on per-subject Spearman correlation between PPG-derived and ECG-derived HR (Orphanidou-passing windows versus no-audit; Table 9). With a single planned comparison no multiplicity correction is required, and the reported uncorrected p = 1.5e-04 is the primary result.
+
+**Secondary and exploratory analyses.** All other inferential statistics in the manuscript are secondary or exploratory: the three audit-condition Wilcoxon contrasts in Tables 8 and 9 (one of which is structurally degenerate because the in-house threshold passes 100% of windows by construction; the other two are jointly identical), per-subject state-contrast effect sizes (Tables S3, S4), and the AIPW point estimates (Table 13). These are reported uncorrected for descriptive interpretation. Benjamini-Hochberg correction across the three audit-condition comparisons in Table 9 gives q = 2.25e-04 for the primary Orphanidou contrast (versus the uncorrected p = 1.5e-04) and the substantive conclusion is unchanged; in Table 8 the suggestive Orphanidou contrast at uncorrected p = 0.052 gives q = 0.078 after Benjamini-Hochberg correction across three comparisons, still non-significant at the conventional 0.05 cutoff and consistent with our interpretation as a suggestive trend rather than a confirmed effect.
+
+**External replication.** The PPG-DaLiA replication (Section 3.7) tests the same headline metric (in-house pass AND all three published methods fail) on a second public benchmark and is a pre-specified replication of the WESAD finding rather than a new hypothesis.
+
 ## 3. Cross-method audit on WESAD
 
 We applied the full pipeline to all 15 subjects in the public WESAD release [@schmidt2018] (S2-S17, with S1 and S12 absent from the standard public release), producing 6,585 5-second windows of synchronized chest RespiBAN ECG (700 Hz) and wrist Empatica E4 PPG (64 Hz) across baseline (3,507 windows), stress (1,979), and amusement (1,099) labeled states.
@@ -446,6 +454,8 @@ The closest existing toolkit is FLIRT [@foll2021], which focuses on feature engi
 **No clinical validation.** We have not validated any component of this framework against gold-standard clinical measurements. The framework's outputs are signal-quality estimates and methodological recommendations, not diagnoses.
 
 **ICC(2,1) is applied as a repeated-measures variant.** The day index is used as the "rater" axis, which is not the canonical between-rater-on-same-subject form of ICC. We report it alongside the proper bootstrap week-pair test-retest (Section 4.3, Supplementary Table S1), not in place of it; both metrics rank biomarkers consistently on the synthetic cohort, with ICC uniformly more conservative because it treats within-week day-to-day variance as rater disagreement. Practitioners reporting ICC days-as-raters in the wearable-reliability literature can use either metric for ordinal comparisons.
+
+**Secondary and exploratory analyses are reported uncorrected for multiplicity.** The primary pre-specified test (Section 2.9) is a single comparison and requires no correction. The Table 8 LOSO AUROC contrasts, the per-subject effect-size tables in the supplement (Tables S3, S4), and the AIPW point estimates are reported uncorrected for descriptive interpretation; Benjamini-Hochberg correction across the three audit-condition comparisons in Tables 8 and 9 does not change any substantive conclusion (Section 2.9).
 
 **No frequency-domain HRV.** We report time-domain HRV (RMSSD, SDNN) but not LF/HF. The synthetic windows are too short to support meaningful frequency-domain HRV. Adding frequency-domain HRV is a one-day change.
 
