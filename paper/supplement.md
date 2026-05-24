@@ -90,3 +90,27 @@ Search over the 6-component weight simplex:
 The learned weights emphasize signal_quality and reduce emphasis on confounding_risk but remain within the convex hull of plausible weightings. The default weights produce Spearman within 0.08 of the optimum on this cohort.
 
 ## References
+
+
+## S7 Threshold sensitivity for the in-house SQI baseline
+
+The 44.6% / 43.1% headline metric (in-house pass AND all three published methods fail) is numerically dominated by the published-only consensus rejection rate, which is independent of any choice of in-house threshold. Varying the in-house threshold from 0.50 to 0.95 spans the full range of permissive thresholds plausibly used by wearable-PPG pipelines that retain most windows. The published-method internal disagreement (median pairwise Cohen's κ) is unaffected by any in-house decision and is shown in the rightmost column as a constant within each dataset.
+
+| Dataset | Threshold | In-house pass rate (%) | In-house pass AND all 3 pub fail (%) | Pub-only consensus rejection (%) | Median pairwise published κ |
+|---|---|---|---|---|---|
+| WESAD | 0.50 | 100.000 | 44.571 | 44.571 | -0.198 |
+| WESAD | 0.60 | 100.000 | 44.571 | 44.571 | -0.198 |
+| WESAD | 0.70 | 100.000 | 44.571 | 44.571 | -0.198 |
+| WESAD | 0.80 | 100.000 | 44.571 | 44.571 | -0.198 |
+| WESAD | 0.85 | 99.970 | 44.541 | 44.571 | -0.198 |
+| WESAD | 0.90 | 99.636 | 44.480 | 44.571 | -0.198 |
+| WESAD | 0.95 | 97.130 | 43.569 | 44.571 | -0.198 |
+| PPG-DaLiA | 0.50 | 100.000 | 43.129 | 43.129 | -0.204 |
+| PPG-DaLiA | 0.60 | 100.000 | 43.129 | 43.129 | -0.204 |
+| PPG-DaLiA | 0.70 | 100.000 | 43.129 | 43.129 | -0.204 |
+| PPG-DaLiA | 0.80 | 99.995 | 43.129 | 43.129 | -0.204 |
+| PPG-DaLiA | 0.85 | 99.904 | 43.070 | 43.129 | -0.204 |
+| PPG-DaLiA | 0.90 | 99.569 | 42.846 | 43.129 | -0.204 |
+| PPG-DaLiA | 0.95 | 97.178 | 41.664 | 43.129 | -0.204 |
+
+: Table S5. Threshold-sensitivity analysis for the in-house SQI baseline on WESAD and PPG-DaLiA. The full sensitivity output is at results/real_data/threshold_sensitivity.csv.
