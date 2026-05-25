@@ -44,7 +44,7 @@ Five synthetic regimes, eight qualitative predictions:
 
 CSVs: `results/tables/cross_cohort_regimes.csv`, `results/tables/cross_cohort_predictions.csv`.
 
-## S4. Per-subject effect sizes — stress vs baseline
+## S4. Per-subject effect sizes - stress vs baseline
 
 Largest stress-vs-baseline effects (PPG SQI drop or motion rise), sorted by Cliff's δ [@cliff1993]:
 
@@ -62,7 +62,7 @@ Largest stress-vs-baseline effects (PPG SQI drop or motion rise), sorted by Clif
 
 Most subjects show a PPG SQI drop during stress, but S15 shows the opposite (δ = -0.49): their PPG SQI rises during stress. This is consistent with state-dependent posture: if a subject moves less during the stressor than during baseline, their PPG quality can improve.
 
-## S5. Per-subject effect sizes — amusement vs baseline
+## S5. Per-subject effect sizes - amusement vs baseline
 
 Largest baseline-vs-amusement effects, sorted by Cliff's δ:
 
@@ -79,7 +79,7 @@ Largest baseline-vs-amusement effects, sorted by Cliff's δ:
 
 The funny-video amusement paradigm produces upper-body laughter motion that degrades wrist PPG in most subjects.
 
-## S6. Learned trust-score weights — training and holdout
+## S6. Learned trust-score weights - training and holdout
 
 Search over the 6-component weight simplex:
 
