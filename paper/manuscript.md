@@ -35,14 +35,11 @@ What no public benchmark has quantified is how much the published SQI methods ag
 
 ![Figure 1. Cross-method signal-quality disagreement on wearable photoplethysmography. Each colored disk represents the subset of windows accepted by one published method on each dataset (schematic; not proportional). The region outside all three disks represents the consensus rejection by all three independently developed methods (44.6% on WESAD; 43.1% on PPG-DaLiA). The three methods individually disagree about which windows pass (median pairwise Cohen's kappa = -0.20) but converge on which to reject. Headline numbers in the figure are uncorrected and identical to those in Table 4 (WESAD) and Table 10 (PPG-DaLiA).](paper/figures/fig1_conceptual.png)
 
-
-
 ## 2. Methods
 
 ### 2.1 Overview
 
 The empirical study is a multi-baseline SQI audit on the WESAD dataset using three published wrist-PPG SQI methods (Section 2.8) and a representative in-house threshold. To enable reproducibility and reuse, the analysis is implemented in an open-source Python pipeline (`biomedical-signal-forensics-lab`, MIT licensed) that takes a wearable dataset in a canonical daily-summary schema and produces five categories of output: per-window artifact findings, participant-level reliability primitives, a six-component Digital Biomarker Trust Score, a screening and AIPW-adjusted confounding analysis, and a stratified fairness audit. The empirical contribution is the multi-baseline SQI audit on WESAD with replication on PPG-DaLiA (Section 3), which uses the window-level artifact detection (Section 2.3), the reliability primitives (Section 2.4), and the published-baseline integration (Section 2.8). Synthetic-cohort analyses (Section 4) validate the remaining framework components on parameterised data with documented injected failure modes: the Digital Biomarker Trust Score (Section 2.5), the AIPW-adjusted confounding analysis (Section 2.6), and the stratified fairness audit (Section 2.7). The synthetic validation does not bear on the empirical findings on real wearable data; it characterises framework components available for follow-up studies on other datasets. The whole synthetic pipeline runs end-to-end in approximately two minutes on a modern laptop CPU; the full 15-subject WESAD analysis takes approximately three minutes.
-
 
 ### 2.2 Synthetic cohort
 
@@ -95,8 +92,6 @@ Six components, each on [0, 100] with higher meaning better:
 | device_bias_score | 0.10 | inverse normalized bias vs reference device |
 | confounding_risk_score | 0.10 | inverse maximum absolute confounder correlation |
 
-
-
 The overall score is a weighted mean. Default category thresholds: high ≥ 80, moderate ≥ 60, low ≥ 40, below that "unreliable". A `learn_weights` routine searches the 6-component weight simplex (Dirichlet sampling plus local grid refinement) to maximize Spearman correlation between the overall trust score and a user-supplied downstream reproducibility target. A 30% participant-level holdout is reserved from the search; the learned weights are reported with their holdout Spearman.
 
 ### 2.6 Causal-adjusted confounding analysis
@@ -122,7 +117,6 @@ Agreement metrics for each pairwise comparison are reported as Spearman ρ on th
 ### 2.9 Study design
 
 The empirical study is the multi-baseline SQI audit on the WESAD dataset [@schmidt2018] (n = 15 subjects, S2-S17 minus S1 and S12 which are absent from the standard public release). Two supporting analyses use the same audit pipeline on parameterised data to characterise the audit components: (i) a 300-participant 60-day synthetic cohort with documented injected failure modes (Section 2.2), and (ii) a cross-cohort parameter sweep across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world) to test the audit's responsiveness to controlled changes in cohort properties. Reproducibility of every reported number is verified from a fixed seed on every continuous-integration run.
-
 
 ### 2.10 Statistical analysis
 
@@ -162,12 +156,9 @@ We paired the per-window heart rate from chest ECG against the per-window heart 
 
 : Table 1. Cross-modality HR agreement on WESAD (n = 15 subjects, 6,569 windows).
 
-
-
-
-
-
 On the full release the average disagreement between wrist E4 PPG and chest RespiBAN ECG is +3.57 bpm with 95% LoA spanning 53 bpm. Within-5-bpm agreement is 46%, within-10-bpm is 66%. Pearson correlation between modalities is +0.70. Per-subject heterogeneity is the dominant feature of the data: stress-state mean |HR_PPG - HR_ECG| ranges from **6.75 bpm (S15)** to **26.02 bpm (S11)**, a four-fold spread.
+
+![Figure 2. Bland-Altman cross-modality HR agreement on WESAD (n = 15 subjects, 6,569 paired 5-second windows). Each point is one window. Mean bias (PPG minus ECG) = +3.57 bpm; 95% limits of agreement [-23.14, +30.28] bpm. Pearson r = +0.70 between modalities.](paper/figures/fig1_bland_altman.png)
 
 ### 3.2 Four-way SQI agreement on real wrist PPG (Figure 3)
 
@@ -182,11 +173,6 @@ We compare the in-house per-window PPG SQI against three published baselines tha
 
 : Table 2. Four-way PPG signal-quality method pass rates on WESAD.
 
-
-
-
-
-
 | Pairwise Cohen's κ | published only |
 |---|---|
 | Orphanidou vs Sukor | +0.410 |
@@ -195,11 +181,6 @@ We compare the in-house per-window PPG SQI against three published baselines tha
 | **Median across three published pairs** | **-0.198** |
 
 : Table 3. Pairwise Cohen's κ across the three published PPG signal-quality baselines.
-
-
-
-
-
 
 **Three published baselines, three different failure modes.** At n=15, Orphanidou and Sukor moderately agree on which windows pass (κ = +0.410), but Elgendi disagrees with both (κ = -0.198 against Orphanidou, κ = -0.225 against Sukor). The three baselines individually pass 25.6%, 25.5%, and 21.5% of windows respectively, but the published methods catch overlapping yet distinct sets of failure modes.
 
@@ -211,14 +192,11 @@ We compare the in-house per-window PPG SQI against three published baselines tha
 
 : Table 4. Joint pass/fail conditions across published baselines on WESAD.
 
-
-
-
-
-
 **** 44.6% of real wrist PPG windows are rejected by Orphanidou AND Sukor AND Elgendi simultaneously  -  three baselines, three different physical properties, three concordant rejections  -  and yet the in-house default threshold (0.70) passes every single one of them. The case for the in-house SQI binarization being inappropriate on real wrist PPG no longer rests on agreement with any one baseline; it rests on consensus rejection across three orthogonal published methods that each test a distinct property of pulse waveforms.
 
-Across 6,585 real wrist PPG windows from 15 subjects, the in-house default threshold produces a degenerate binary distribution (every window passes), and Cohen's κ between the in-house decision and each published baseline is identically zero (Table 2). This zero is a base-rate artifact of the 100.0% in-house pass rate: Cohen's κ is mathematically zero whenever one of the two classifiers being compared has constant output, regardless of the other classifier's behavior. We report κ versus the in-house decision in Table 2 for completeness; the substantive comparison between the in-house and the published methods is the joint-condition rate in Table 4 (in-house passes AND all three published methods fail: 44.6% of windows), which is unaffected by the κ degeneracy. The same base-rate caveat applies on PPG-DaLiA (Section 3.7), where the in-house threshold also passes 100.0% of windows. Pairwise κ across the three published methods themselves (Table 3) is non-degenerate because their pass rates span 21.5% to 25.6% and so neither side of any pair is constant. Figure 3 panel A shows the four pass rates side by side; panel B shows the four-way agreement matrix.
+Across 6,585 real wrist PPG windows from 15 subjects, the in-house default threshold produces a degenerate binary distribution (every window passes), and Cohen's κ between the in-house decision and each published baseline is identically zero (Table 2). This zero is a base-rate artifact of the 100.0% in-house pass rate: Cohen's κ is mathematically zero whenever one of the two classifiers being compared has constant output, regardless of the other classifier's behavior. We report κ versus the in-house decision in Table 2 for completeness; the substantive comparison between the in-house and the published methods is the joint-condition rate in Table 4 (in-house passes AND all three published methods fail: 44.6% of windows), which is unaffected by the κ degeneracy. The same base-rate caveat applies on PPG-DaLiA (Section 3.7), where the in-house threshold also passes 100.0% of windows. Pairwise κ across the three published methods themselves (Table 3) is non-degenerate because their pass rates span 21.5% to 25.6% and so neither side of any pair is constant. 
+
+![Figure 3. Cross-method PPG signal-quality agreement on WESAD (n = 6,585 windows). The in-house threshold passes 100% of windows; the three published methods individually pass 21.5 to 25.6%. Pairwise Cohen's kappa across the three published methods spans -0.23 to +0.41 (median -0.20).](paper/figures/fig3_kappa_heatmap.png)
 
 **Robustness to the in-house threshold choice.** The 44.6% headline reflects the joint condition "in-house passes (threshold = 0.7) AND all three published methods fail." Because the in-house threshold passes 100.0% of windows at 0.7, this joint condition is numerically identical to the published-only consensus rejection rate (the fraction of windows on which all three published methods agree to reject, independent of any in-house decision; 44.571% on WESAD and 43.129% on PPG-DaLiA). Varying the in-house threshold from 0.50 to 0.95 changes the in-house pass rate by at most three percentage points on either dataset (100.0% to 97.1% on WESAD; 100.0% to 97.2% on PPG-DaLiA) and the headline joint metric by at most 1 percentage point. Median pairwise Cohen's κ across the three published methods is unaffected by any in-house threshold change (κ = -0.198 on WESAD, κ = -0.204 on PPG-DaLiA, exact to three decimals across the full 0.50-0.95 range; Supplementary Table S5). The substantive finding, that three published methods reject the same ~44% of windows in common, is a property of how the published methods behave on real wrist PPG and does not depend on any in-house thresholding choice.
 
@@ -234,12 +212,9 @@ We split the 6,585 windows into 3,292 calibration and 3,293 holdout. On calibrat
 
 : Table 5. Recalibration of the in-house SQI threshold against the Orphanidou baseline.
 
-
-
-
-
-
 **The n=2 pilot recalibration result (Δκ = +0.217) does NOT replicate at n=15.** The search lands on threshold 0.85, but the held-out κ remains effectively zero. Two non-exclusive explanations: (1) the in-house SQI distribution on real wrist PPG is concentrated near 1.0 for nearly every subject, leaving little useful discriminative signal that a single global threshold can extract; (2) per-subject heterogeneity (Section 3.5) is large enough that a single threshold cannot satisfy all subjects simultaneously. The supplementary AUROC analysis (S2.3) confirms this: AUROC for in-house SQI predicting Orphanidou pass/fail is 0.484 at n=15, statistically indistinguishable from chance. **The honest implication is that the in-house SQI binarization recipe should not be used at all on real wrist PPG without per-subject calibration**, which is a methodological recommendation rather than a fix.
+
+![Figure 4. Single-threshold recalibration of the in-house PPG SQI against the Orphanidou pass/fail label on the WESAD held-out split (3,293 windows). The recalibrated threshold leaves held-out Cohen's kappa at approximately zero; AUROC for in-house SQI predicting Orphanidou pass/fail is 0.484 (chance level).](paper/figures/fig6_recalibration.png)
 
 **LOSO recalibration confirms and sharpens the negative result.** To verify the random window-level split does not bias the recalibration conclusion, we re-ran the threshold search as leave-one-subject-out cross-validation (n = 15 folds): for each held-out subject the threshold was selected on the other 14 subjects to maximize κ versus Orphanidou, then evaluated on the held-out subject. Mean held-out Cohen's κ across the 15 folds is -0.063 (median 0.000, range -0.321 to +0.002). For 9 of 15 subjects the train search settles on threshold 0.85, under which the in-house SQI still passes 100% of the held-out subject's windows and held-out κ is degenerate at 0. For the remaining 6 subjects the train search lands on stricter thresholds (0.98 to 0.99) that produce non-trivial in-house pass/fail variation; on those held-out subjects κ is uniformly non-positive (range -0.321 to +0.002), meaning that when the in-house SQI is forced to make discriminating decisions it anti-correlates with the Orphanidou baseline rather than agreeing with it. The negative result therefore holds under both the random-window split reported in Table 5 (Δκ ≈ 0.000) and the more conservative subject-level LOSO split (mean held-out κ = -0.063). The full per-subject LOSO output is at `results/real_data/loso_recalibration.csv`.
 
@@ -255,9 +230,7 @@ We split the 6,585 windows into 3,292 calibration and 3,293 holdout. On calibrat
 
 : Table 6. Motion artifact correlations and cross-modality HR disagreement on WESAD.
 
-
 The correlation between motion and cross-modality HR disagreement is positive but weak (Spearman ρ = +0.088). Mean absolute HR difference at high motion is 24% higher than at low motion (11.28 vs 9.12 bpm). Both values are smaller than the pilot estimates from the n = 2 analysis (ρ = +0.30, gap = 6.8 bpm). At n = 15 the motion detector tracks the direction of the effect, but the magnitude is modest.
-
 
 ### 3.5 Within-subject state-contrast tests
 
@@ -266,7 +239,6 @@ Mann-Whitney U with Cliff's δ [@cliff1993] and Cohen's d [@cohen1988] applied p
 Stress vs baseline: most subjects show a PPG SQI drop during stress (largest effects at Cliff's δ = +0.75 for S17, +0.73 for S5, +0.70 for S14; corresponding Cohen's d 1.16-1.41, all p << 0.001). One subject (S15) shows the opposite (δ = -0.49), consistent with state-dependent posture in which less movement during the stressor than during baseline improves PPG quality. Heterogeneity in the direction of the PPG SQI effect across subjects is itself the finding. The framework's per-subject outputs catch this; pooled-by-state numbers obscure it.
 
 Baseline vs amusement: the funny-video paradigm produces upper-body laughter motion that degrades wrist PPG in most subjects. The largest single effect is S9 PPG SQI (Cliff's δ = +0.80, Cohen's d = +1.89, p =< 0.001). S14 also shows a large ECG SQI drop (δ = +0.70, d = +1.59), consistent with the chest device responding to laughter motion in addition to wrist PPG.
-
 
 ### 3.6 Downstream model performance with vs without audit filtering
 
@@ -283,11 +255,6 @@ The framework's signal-quality audit is methodological infrastructure: it does n
 
 : Table 7. Leave-one-subject-out baseline-vs-stress classification AUROC on WESAD by audit condition.
 
-
-
-
-
-
 | Condition vs no-audit | n paired | Mean Δ AUROC | n improved / n worse | Wilcoxon p (one-sided, greater) |
 |---|---|---|---|---|
 | in-house | 15 | 0.000 | 0 / 0 | 1.000 |
@@ -295,11 +262,6 @@ The framework's signal-quality audit is methodological infrastructure: it does n
 | both | 14 | +0.027 | 10 / 4 | 0.052 |
 
 : Table 8. Paired Δ AUROC vs no-audit control by audit condition.
-
-
-
-
-
 
 The in-house SQI default threshold passes every window (pass rate 1.000; Section 3.2), so "in-house" is identical to "no audit" by construction. The Orphanidou-filtered condition shows a +0.027 mean improvement in held-out subject AUROC with 10 of 14 subjects improving, just outside conventional significance (p = 0.052). We report this as a suggestive trend rather than a significant effect.
 
@@ -313,21 +275,13 @@ The in-house SQI default threshold passes every window (pass rate 1.000; Section
 
 : Table 9. Per-subject Spearman correlation between wrist PPG HR and chest ECG HR by audit condition.
 
-
-
-
 Restricting to Orphanidou-passing windows improves the per-subject correlation between wrist PPG HR and chest ECG HR by a median of **+0.110** across the 15-subject cohort, with **13 of 15 subjects improving** and **2 declining** (subjects S4, S8 show a slight decline). The paired Wilcoxon test gives **p = 1.5e-04**, comfortably significant. The largest improvements are in subjects whose unfiltered correlation was modest: S10 (0.65 → 0.78), S9 (0.47 → 0.76), S13 (0.42 → 0.54), S6 (0.53 → 0.71).
 
 **Combined interpretation.** Audit filtering reliably improves window-level biomarker estimation but only marginally improves cohort-level classification. The Spearman improvement (p < 0.001) is the more direct test of the framework's value because it operates at the per-window level where the audit acts. The classification result (p = 0.05) is more demanding because LOSO held-out evaluation on n = 15 has limited statistical power; the +0.027 mean improvement is consistent with a real effect that the sample size does not let us declare significant. The trade-off is data retention: Orphanidou filtering keeps roughly 26% of windows. For subjects with already-strong correlation (S14, S16, S17 all at ρ ≥ 0.83 without filtering), the improvement is modest; for subjects with weaker correlation (S2, S5, S15 at ρ < 0.60 without filtering), the gain is substantial.
 
 **Trade-off characterization.** Figure 5 panel D plots per-subject retention against Δρ. Subjects above the y = 0 line benefit from filtering; the small minority below (S4, S8) lose information at the audit threshold. A practitioner deploying the framework can read this trade-off plot directly: for any new dataset they can compute per-subject retention and Δ and decide whether to filter, threshold differently, or skip the audit entirely.
 
-Figure 5 (`results/downstream_demo/figure_downstream.png`):
-- Panel A: LOSO AUROC distributions by audit condition.
-- Panel B: per-subject paired Δ AUROC vs no-audit, by audit variant.
-- Panel C: per-subject biomarker ρ under each condition.
-- Panel D: per-subject retention vs Δρ trade-off (Orphanidou condition).
-
+![Figure 5. Audit-based filtering improves per-subject biomarker estimation on WESAD. Panel A: LOSO baseline-vs-stress AUROC distributions by audit condition. Panel B: per-subject paired Delta-AUROC vs no-audit, by audit variant. Panel C: per-subject wrist-PPG-to-chest-ECG HR Spearman correlation under each condition. Panel D: per-subject retention vs Delta-rho trade-off under the Orphanidou filter (13 of 15 subjects improve, paired Wilcoxon p = 1.5e-04).](results/downstream_demo/figure_downstream.png)
 
 ### 3.7 External validation on PPG-DaLiA
 
@@ -357,6 +311,8 @@ The PPG-DaLiA per-subject absolute HR difference (wrist PPG vs chest ECG) range 
 
 Mean overall DBTS across all 300 participants: **74.11** (moderate category). Category distribution: 31 high (≥ 80), 266 moderate (≥ 60), 3 low (≥ 40), 0 unreliable. The distribution is in Figure 6A.
 
+![Figure 6. Cohort-level Digital Biomarker Trust Score on the synthetic cohort (n = 300 participants, 60 days each). Mean overall DBTS = 74.11 (moderate category); 31 participants in the high category, 266 moderate, 3 low.](paper/figures/fig2_synthetic_headline.png)
+
 ### 4.2 Bootstrap test-retest reliability (week-pair design)
 
 | Metric | r | 95% CI | n participants | n pairs |
@@ -368,17 +324,11 @@ Mean overall DBTS across all 300 participants: **74.11** (moderate category). Ca
 
 : Table 11. Bootstrap test-retest reliability on the synthetic cohort (n = 300 participants, 2,400 week-pairs).
 
-
-
-
-
-
 Resting HR and HRV are highly reliable week-to-week. Sleep efficiency and duration are essentially noise from one week to the next on this generator. This is the kind of metric-level result that should appear in a clinical wearable paper instead of a single aggregate "wearable reliability" number.
 
 ### 4.3 ICC(2,1) as within-participant noise-floor diagnostic
 
 We also report an ICC(2,1) days-as-raters analysis as an internal noise-floor check (full numbers in supplement Table S1). The ICC and bootstrap week-pair r agree on metric ranking, with ICC uniformly more conservative because it treats within-week noise as rater disagreement. The bootstrap week-pair r is the recommended headline statistic for clinical claims; the ICC is included as a diagnostic.
-
 
 ### 4.4 Fairness disparities recovered
 
@@ -388,11 +338,6 @@ We also report an ICC(2,1) days-as-raters analysis as an internal noise-floor ch
 | skin_tone_q | signal_quality_score | Q1 (light): 67.93 | Q4 (dark): 58.40 | **-9.53** |
 
 : Table 12. Fairness disparities recovered on the synthetic cohort, signal_quality_score component.
-
-
-
-
-
 
 The injected effects were 0.85 vs 1.00 SQI multiplier for device C vs A (recovers as a 13.02-point gap) and 0.12 × proxy for skin tone (recovers as a 9.53-point gap). Both gaps have bootstrap 95% CIs (Section 2.7).
 
@@ -407,11 +352,6 @@ The injected effects were 0.85 vs 1.00 SQI multiplier for device C vs A (recover
 
 : Table 13. Screening Pearson correlation vs AIPW adjusted estimate, synthetic cohort.
 
-
-
-
-
-
 The pattern wearable papers should worry about: screening correlations that mislead about causal direction or magnitude under adjustment. Active minutes → HRV illustrates this cleanly. The screening Pearson r is -0.019 (negligible), but AIPW adjustment under the wearable DAG reveals a significant negative effect (-0.497, CI excludes zero), with clean positivity (Kish effective sample size 98.5%) and an E-value of 2.52 indicating modest robustness to unmeasured confounding (supplement section S2). The audit reports screening and AIPW estimates side by side so that confounded screening results are visible to the reader.
 
 The heat_index → HRV and heat_index → sleep_efficiency rows in Table 13 illustrate the diagnostic in the opposite direction. The framework's positivity check flags a violation for both heat_index treatments (Kish effective sample size 63%), meaning the propensity-score model produced effective sample sizes too small to support reliable adjusted estimation. The AIPW point estimates for the heat_index treatments are consequently reported with a positivity-violation warning attached to the analysis output and are not interpreted as substantive causal claims. The rows are included in Table 13 to demonstrate that the framework refuses to commit to a causal interpretation when the propensity-score assumption is empirically inadequate, rather than reporting a point estimate with the same authority as the active_minutes case. Positivity and E-value sensitivity output for both treatments is in supplement section S2.
@@ -420,11 +360,11 @@ The heat_index → HRV and heat_index → sleep_efficiency rows in Table 13 illu
 
 A 6-component weight-simplex search (Dirichlet sampling plus local grid refinement, 360 candidates) returned holdout Spearman ρ = +0.668 (n_holdout = 90) against a week-over-week HRV RMSSD reproducibility target, compared with +0.592 in training (n_train = 210). The learned weights emphasize signal_quality over confounding_risk but remain within the convex hull of plausible weightings; the default weights are within 0.08 Spearman of the optimum, supporting the policy of shipping the defaults and exposing the weights as user-configurable. Full training-vs-holdout breakdown in supplement section S6.
 
-
 ### 4.7 Cross-cohort generalization
 
 Across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world) and eight qualitative predictions, seven of eight predictions pass (Figure 7, panel C). The one failure is consistent with random variation: in the clean-world regime, small-sample random imbalance produces a non-zero empirical device-B offset despite zero injected bias. The audit responds to cohort parameters in the predicted direction, including the sign-flip on the skin-tone gap when the injected penalty is inverted (Figure 7, panel B). Full per-regime table in supplement Table S2.
 
+![Figure 7. Cross-cohort parameter-sweep validation across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world). Seven of eight qualitative predictions pass. The sign-flip on the skin-tone gap under the inverted-penalty regime confirms that the audit responds to cohort parameters rather than to fixed generator values.](paper/figures/fig3_cross_cohort.png)
 
 ## 5. Discussion
 
@@ -437,7 +377,6 @@ Three findings on the WESAD dataset have direct implications for the design and 
 2. **Single-threshold recalibration does not recover agreement at n = 15.** A held-out split (3,292 calibration / 3,293 holdout windows) tuning the in-house threshold against Orphanidou returned Δκ ≈ 0 on holdout; AUROC for the in-house SQI predicting Orphanidou pass/fail was 0.484, statistically indistinguishable from chance. The implication is that a single global SQI threshold is the wrong unit of analysis on wrist PPG; per-subject or per-session calibration is required. The pilot finding of κ improving from 0.000 to +0.217 after recalibration to 0.99 (reported at n = 2) was an artifact of the two subjects whose wrist-PPG behaviour was unrepresentative of the cohort.
 
 3. **Per-subject heterogeneity dominates pooled summary statistics, and audit-based filtering improves downstream biomarker estimation.** Mean |HR_PPG - HR_ECG| during stress ranges from 6.75 bpm (S15) to 26.02 bpm (S11), a four-fold spread across 15 subjects. The direction of the per-state quality change also varies (most subjects' PPG SQI drops during stress; S15's rises). Any conclusion from pooled WESAD wrist-PPG analysis is at risk of being driven by a small number of subjects. Restricting downstream models to multi-baseline-pass windows improves per-subject wrist-PPG-to-chest-ECG HR correlation by a median of +0.110 (13 of 15 subjects improved, paired Wilcoxon p = 1.5e-04), with the largest gains in subjects whose unfiltered correlation was modest (S10: 0.65 → 0.78, S9: 0.47 → 0.76).
-
 
 ### 5.2 Relation to prior work
 
@@ -469,13 +408,11 @@ The closest existing toolkit is FLIRT [@foll2021], which focuses on feature engi
 
 **Single-author methodology study.** This is a single-author methodology paper with no clinical or biomedical-engineering co-authors. The recommendations in Section 6 are aimed at the wearable-AI research community (multi-baseline SQI auditing as standard supplementary material in wearable-AI publications) and do not constitute clinical guidance. Translation of any cross-method-audit recommendation into patient-facing clinical practice should include co-authorship by clinical specialists with relevant device experience; the synthetic-cohort validation in Section 4 and the WESAD/PPG-DaLiA empirical study in Section 3 are methodological contributions rather than clinical findings.
 
-
 ## 6. Conclusions
 
 On a public wearable-PPG benchmark (WESAD, n = 15 subjects, 6,585 windows), three independently developed published signal-quality methods, Orphanidou (2015), Sukor (2011), and Elgendi (2016), collectively reject 44.6% of windows accepted by a representative in-house threshold. The three methods disagree with each other on the gray area (median pairwise Cohen's κ = -0.20) but converge on the consensus rejection set. Single-threshold recalibration at n = 15 does not recover agreement, and per-subject heterogeneity in cross-modality HR disagreement spans a four-fold range across subjects. Restricting downstream models to multi-baseline-pass windows improves per-subject HR correlation by a median of +0.110 (paired Wilcoxon p = 1.5e-04). The finding replicates on a second public benchmark (PPG-DaLiA, n = 15, 18,781 windows; same wrist-PPG hardware but ambulatory activity paradigm rather than stress paradigm): consensus rejection 43.1%, median pairwise κ across published methods -0.20, κ against the in-house threshold 0.000, with all three published-method pass rates within 3 percentage points of their WESAD values. The implication for wearable-AI research practice is that single-method SQI reporting is insufficient: multi-baseline auditing should be standard supplementary material in wearable-AI publications.
 
 To support reproducibility, the audit pipeline used in this study is openly available as `biomedical-signal-forensics-lab` (MIT licensed) and runs end-to-end from a fixed seed in approximately three minutes on a modern laptop CPU.
-
 
 ## Code and data availability
 
