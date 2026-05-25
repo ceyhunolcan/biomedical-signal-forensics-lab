@@ -108,10 +108,13 @@ Stratified bootstrap analysis over any categorical column (device family, skin-t
 
 ### 2.8 Published baselines
 
-Three published PPG SQI baselines are run alongside the in-house SQI on every audit, each testing a different physical property of pulse waveforms:
+We compare the in-house SQI against three published wrist-PPG signal-quality methods. Selection criteria for the published baselines were: (a) independent development with no shared methodological framework, so that joint behavior across the methods is informative rather than expected by construction; (b) targeting of distinct physical properties of the pulse waveform (template shape, pulse-to-pulse interval consistency, amplitude-distribution statistics); (c) availability of explicit thresholds in the original publication or a reference implementation that can be replicated unambiguously; and (d) citation history in the wearable-PPG signal-quality literature. The three methods meeting these criteria are:
 
-- **Orphanidou et al. (2015):** four-rule template-matching SQI. We replicate the published thresholds.
-- **Sukor et al. (2011):** decision-tree SQI on pulse-morphology features (systolic-to-diastolic amplitude ratio, pulse-to-pulse interval consistency, pulse amplitude variability, baseline wander). We replicate the published rules.
+- **Orphanidou et al. (2015) [@orphanidou2015]:** four-rule template-matching SQI based on per-subject pulse-shape correlation. We replicate the published thresholds.
+- **Sukor et al. (2011) [@sukor2011]:** decision-tree SQI on pulse-morphology features (systolic-to-diastolic amplitude ratio, pulse-to-pulse interval consistency, pulse amplitude variability, baseline wander). We replicate the published rules.
+- **Elgendi (2016) [@elgendi2016]:** amplitude-distribution statistics SQI computing third-order skewness (SSQI), kurtosis (KSQI), and Shannon entropy (ESQI) of the windowed signal. We replicate the published thresholds with automatic polarity detection for inverted-polarity wrist PPG.
+
+Recent wearable-PPG SQI methods reviewed in [@charlton2021ppgproc] either target overlapping physical properties or are device-specific in ways that prevent transfer to WESAD and PPG-DaLiA without additional calibration; the three methods selected here span the three theoretically distinct physical properties of pulse waveforms most commonly tested in published wrist-PPG audits and have reference implementations that allow exact replication.
 
 Agreement metrics for each pairwise comparison are reported as Spearman ρ on the continuous scores, Cohen's κ on the binary pass/fail labels, and a full 2×2 crosstab.
 
