@@ -19,7 +19,7 @@
 
 **Objective.** To quantify cross-method disagreement among published wrist-PPG signal-quality (SQI) methods on a public benchmark, and to characterise the downstream effect of audit-based filtering on biomarker estimation.
 
-**Methods.** We performed a multi-baseline SQI audit on the public WESAD dataset [@schmidt2018] (n = 15 subjects, 6,585 5-second wrist-PPG windows) using three independently developed published PPG SQI methods (Orphanidou 2015 [@orphanidou2015], Sukor 2011 [@sukor2011], Elgendi 2016 [@elgendi2016]) and a representative in-house threshold. We compared per-window pass/fail decisions with Cohen's κ and cluster bootstrap confidence intervals, evaluated single-threshold recalibration on a held-out split (3,292 calibration / 3,293 holdout windows), and quantified the effect of audit filtering on leave-one-subject-out (LOSO) baseline-vs-stress classification and per-subject wrist-PPG-to-chest-ECG HR correlation. The full audit is implemented in an open-source Python pipeline (`biomedical-signal-forensics-lab`, MIT licensed) for reproducibility. A parallel 300-participant 60-day synthetic cohort with documented injected failure modes characterises the audit components.
+**Methods.** We performed a multi-baseline SQI audit on the public WESAD dataset [@schmidt2018] (n = 15 subjects, 6,585 5-second wrist-PPG windows) using three independently developed published PPG SQI methods (Orphanidou 2015 [@orphanidou2015], Sukor 2011 [@sukor2011], Elgendi 2016 [@elgendi2016]) and a representative in-house threshold, and replicated the analysis on the public PPG-DaLiA dataset [@reiss2019] (n = 15 subjects, 18,781 windows; same hardware family, different activity paradigm). We compared per-window pass/fail decisions with Cohen's κ and cluster bootstrap confidence intervals, evaluated single-threshold recalibration on a held-out split (3,292 calibration / 3,293 holdout windows), and quantified the effect of audit filtering on leave-one-subject-out (LOSO) baseline-vs-stress classification and per-subject wrist-PPG-to-chest-ECG HR correlation. The full audit is implemented in an open-source Python pipeline (`biomedical-signal-forensics-lab`, MIT licensed) for reproducibility. A parallel 300-participant 60-day synthetic cohort with documented injected failure modes characterises the audit components.
 
 **Results.** The three published methods disagreed with each other on the gray area (median pairwise Cohen's κ = -0.20, range -0.23 to +0.41) but converged on rejecting 44.6% of windows that the in-house threshold accepted, three methods testing three different physical properties of pulse waveforms, three concordant rejections. The in-house SQI was uncorrelated with any published baseline (κ = 0.000 against each). Single-threshold recalibration at n = 15 did not recover agreement (Δκ = 0.000; AUROC for in-house SQI predicting Orphanidou pass/fail = 0.484). Per-subject heterogeneity in wrist-PPG-to-chest-ECG HR disagreement spanned 6.75 to 26.02 bpm during the stress condition, a four-fold range across subjects. Restricting downstream models to Orphanidou-passing windows improved per-subject HR correlation by a median of +0.110 (13 of 15 subjects improved, paired Wilcoxon p = 1.5e-04). The finding replicated on PPG-DaLiA [@reiss2019] (n = 15 subjects, 18,781 windows, same wrist-PPG hardware but ambulatory rather than stress paradigm): consensus rejection 43.1% (vs 44.6% on WESAD), median pairwise κ across published methods -0.20 (vs -0.20), κ against the in-house threshold 0.000 (vs 0.000). On the synthetic cohort, the audit recovered injected fairness disparities (-13.02 points for device family, -9.53 points for skin-tone quartiles) and AIPW-adjusted confounding estimates with cluster bootstrap CIs.
 
@@ -140,7 +140,7 @@ We applied the full pipeline to all 15 subjects in the public WESAD release [@sc
 The pipeline and analyses in this paper were assessed against the relevant EQUATOR-Network reporting standards for digital-health AI research. Per-standard compliance documentation is provided in `paper/checklists/`:
 
 - **TRIPOD+AI** [@collins2024tripodai] applies to the downstream classifier evaluated in Section 3.6 (LF/HF biomarker, LOSO cross-validation). A per-item compliance summary is in `paper/checklists/tripod_ai_checklist.md`. The downstream classifier in Section 3.6 is a research-stage demonstration intended to test whether the SQI binarisation choice has a measurable downstream effect; it is not a deployment candidate. TRIPOD+AI items related to calibration and external validation are intentionally out of scope for that framing and are noted explicitly in Section 6.
-- **STARD 2015** [@bossuyt2015stard] applies to Sections 4.1-4.3, in which chest ECG serves as the reference standard and wrist PPG-derived measurements serve as the index modality. A per-item compliance summary is in `paper/checklists/stard_2015_checklist.md`. The flow diagram in Figure 1 follows STARD conventions adapted to the multi-arm structure of this audit.
+- **STARD 2015** [@bossuyt2015stard] applies to Section 3.1 (Bland-Altman cross-modality HR agreement), in which chest ECG serves as the reference standard and wrist PPG-derived measurements serve as the index modality, and Section 3.7 (external replication on PPG-DaLiA), in which the same reference-versus-index structure is evaluated on a second public benchmark. A per-item compliance summary is in `paper/checklists/stard_2015_checklist.md`. The flow diagram in Figure 1 follows STARD conventions adapted to the multi-arm structure of this audit.
 - **CONSORT-AI** [@liu2020consortai] and **DECIDE-AI** [@vasey2022decideai] do not apply because this paper is neither a randomised trial nor a clinical-deployment study. Applicability assessments documenting this conclusion (and what a future deployment of this toolkit would need to report) are in `paper/checklists/consort_ai_applicability.md` and `paper/checklists/decide_ai_applicability.md`.
 
 Figure 1 (`paper/figures/fig_flow_diagram.png`) shows the flow of data through the WESAD validation pipeline in the STARD-style convention: source dataset, n=15 subjects analysed, per-window processing, zero post-hoc exclusions, and the four analysis arms operating on the same 6,585 windows.
@@ -478,7 +478,7 @@ To support reproducibility, the audit pipeline used in this study is openly avai
 
 ## Code and data availability
 
-Code: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab, released under the MIT license. All synthetic data is generated by code from a fixed seed; no data is distributed separately. The WESAD dataset is publicly available from the UCI Machine Learning Repository [@schmidt2018] without restrictions.
+Code: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab, released under the MIT license. PyPI: https://pypi.org/project/biomedical-signal-forensics-lab/. Concept DOI: 10.5281/zenodo.20349806. All synthetic data is generated by code from a fixed seed; no data is distributed separately. Two public datasets were used in the empirical study: WESAD [@schmidt2018], publicly available from the UCI Machine Learning Repository, and PPG-DaLiA [@reiss2019], also publicly available from the UCI Machine Learning Repository. Both are released without restrictions for research use.
 
 ## Author contributions
 
@@ -502,16 +502,8 @@ See `paper/paper.bib` for full citations (Orphanidou et al. 2015, Sukor et al. 2
 
 ## Supplementary materials
 
-- `paper/methods.md`: extended methods.
-- `paper/data_card.md`: synthetic cohort data card.
-- `paper/model_card.md`: model card for the bundled baselines and extension-point models.
-- `paper/ethics.md`: ethics and downstream-user recommendations.
-- `paper/limitations.md`: extended limitations.
-- `paper/real_data_pilot.md`: extended WESAD pilot writeup with per-subject breakdowns.
-- `paper/results.md`: consolidated synthetic-cohort results with every CSV reference.
-- `paper/reviewer_response_simulation.md`: anticipated reviewer questions and responses.
-- `paper/figures_and_tables.md`: canonical index of every figure and table with ready-to-use captions.
-- **`paper/supplement_extended_analyses.md`: reviewer-grade extended analyses (positivity check, E-values, multi-threshold recalibration, RR-cleaning robustness, per-subject real-data reliability, Cohen's d alongside Cliff's δ).**
-- `docs/signal_quality_taxonomy.md`: artifact-finding taxonomy and severity conventions.
-- `docs/bug_audit_round{1..5}.md`: development-time bug audit logs.
-- `CHANGELOG.md`: full release history.
+- `paper/supplement.md` / `paper/supplement.docx`: companion supplement with seven sections (S1 ICC days-as-raters diagnostic, S2 AIPW positivity and E-value sensitivity, S3 cross-cohort parameter-sweep details, S4 per-subject stress effect-sizes on WESAD, S5 per-subject amusement effect-sizes on WESAD, S6 learned trust-score weights with training-versus-holdout breakdown, S7 threshold-sensitivity analysis for the in-house SQI baseline on both real datasets) and five supplementary tables (Tables S1-S5).
+- `paper/checklists/`: per-standard reporting-compliance summaries (TRIPOD+AI, STARD 2015, CONSORT-AI applicability, DECIDE-AI applicability).
+- `results/real_data/wesad_deep/` and `results/real_data/ppg_dalia/`: per-window CSVs (window_table.csv, window_meta.csv, daily_summary.csv) and summary.json files for both real-data datasets.
+- `results/real_data/threshold_sensitivity.csv` and `results/real_data/loso_recalibration.csv`: robustness-analysis output files.
+- `CHANGELOG.md`: full release history of the toolkit.
