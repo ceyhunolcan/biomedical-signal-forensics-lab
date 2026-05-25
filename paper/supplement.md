@@ -114,3 +114,24 @@ The 44.6% / 43.1% headline metric (in-house pass AND all three published methods
 | PPG-DaLiA | 0.95 | 97.178 | 41.664 | 43.129 | -0.204 |
 
 : Table S5. Threshold-sensitivity analysis for the in-house SQI baseline on WESAD and PPG-DaLiA. The full sensitivity output is at results/real_data/threshold_sensitivity.csv.
+
+
+![Supplementary Figure S2. Threshold-sensitivity analysis for the in-house PPG SQI baseline on WESAD (a) and PPG-DaLiA (b). Solid line: joint condition (in-house passes AND all three published methods fail). Dashed line: published-only consensus rejection (independent of in-house decision). Both lines are nearly flat across the in-house threshold range 0.50 to 0.95 (range across thresholds < 0.05 percentage points on both datasets), confirming the headline disagreement finding is robust to the in-house threshold choice. The default threshold (0.70) is marked.](paper/figures/figS2_threshold_sensitivity.png)
+
+
+## S8. LOSO subject-level recalibration
+
+To test whether the negative recalibration result in main-text Section 3.3 is robust to the train/test split strategy, we re-ran the threshold search as leave-one-subject-out cross-validation across all 15 WESAD subjects. For each held-out subject, the threshold was selected on the other 14 subjects to maximize Cohen's kappa versus the Orphanidou pass/fail label, then evaluated on the held-out subject. Mean held-out kappa across the 15 folds is -0.063 (median 0.000, range -0.321 to +0.002).
+
+For 10 of 15 subjects the train search settles on threshold 0.85, under which the in-house SQI still passes 100% of the held-out subject's windows; held-out kappa is therefore degenerate at zero (Cohen's kappa is forced to zero when one of the two raters has constant output). For the remaining 5 subjects the train search lands on stricter thresholds (0.98 to 0.99) that produce non-trivial in-house pass/fail variation on the held-out subject; on these 5 subjects 4 show strongly negative held-out kappa (S10: -0.321, S13: -0.214, S16: -0.250, S9: -0.163) and S17 is at +0.0017, essentially zero.
+
+The LOSO recalibration therefore confirms and sharpens the negative result reported in Section 3.3 (random window-split gives Δkappa approximately zero): when the in-house SQI is forced to make discriminating decisions, it does not recover agreement with the Orphanidou baseline. Full per-subject output: `results/real_data/loso_recalibration.csv`.
+
+![Supplementary Figure S3. LOSO per-subject held-out Cohen's kappa from the subject-level recalibration cross-validation on WESAD (n = 15 folds). Bars sorted by held-out kappa ascending. Red bars: non-degenerate folds (in-house SQI varies on the held-out subject so kappa is meaningful). Grey bars: degenerate folds (in-house SQI passes 100% of held-out windows so kappa is forced to zero). Mean held-out kappa = -0.063 (dashed line).](paper/figures/figS3_loso_recalibration.png)
+
+
+## S9. Consensus rejection: alternative view of the headline finding
+
+The main-text Figure 1 (conceptual Venn) shows the cross-method signal-quality disagreement on WESAD and PPG-DaLiA as overlapping disks of acceptance with a dark region for consensus rejection. Supplementary Figure S4 provides a complementary stacked-bar view of the same finding on WESAD: of 6,585 5-second windows, the in-house pipeline accepts every one (100.0%), but applying the three independently developed published methods simultaneously rejects 2,936 (44.6%) of the same windows. The two visualizations summarize the same numbers from different angles; we include both because reviewers and readers may find one or the other more communicative.
+
+![Supplementary Figure S4. Verdict gap between the in-house threshold-based PPG SQI and the three-baseline consensus on WESAD (n = 15 subjects, 6,585 5-second windows). The in-house pipeline passes every window. Applying Orphanidou 2015, Sukor 2011, and Elgendi 2016 simultaneously, 2,936 of the same 6,585 windows (44.6%) are rejected by all three published methods.](paper/figures/fig4_rejection_cascade.png)

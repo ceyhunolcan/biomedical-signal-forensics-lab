@@ -1,12 +1,11 @@
-"""Compile paper/manuscript.md -> paper/manuscript.docx with full post-processing.
+"""Compile paper/manuscript.md and paper/supplement.md to docx with post-processing.
 
-Steps:
+For each docx, runs:
   1. pandoc with citeproc + reference-doc styles
-  2. Strip BlockText style from first 12 paragraphs (pandoc applies this by
-     default to the first paragraph after the title heading, which collapses
-     the author-block paragraph spacing)
-  3. Apply cell-level booktabs table borders (top + header-bottom + bottom
-     rules, no internal verticals)
+  2. Strip BlockText style from first 12 paragraphs (pandoc default that collapses
+     paragraph spacing on the first paragraph after a heading)
+  3. Apply cell-level booktabs table borders (top + header-bottom + bottom rules,
+     no internal verticals)
 
 Run:  python3 scripts/compile_paper.py
 """
@@ -17,26 +16,22 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MD = ROOT / "paper" / "manuscript.md"
-DOCX = ROOT / "paper" / "manuscript.docx"
 BIB = ROOT / "paper" / "paper.bib"
 REF = ROOT / "paper" / "reference_styled.docx"
 
 
-def pandoc_compile():
-    cmd = [
-        "pandoc", str(MD),
+def pandoc_compile(md_path, docx_path):
+    subprocess.run([
+        "pandoc", str(md_path),
         "--citeproc",
         f"--bibliography={BIB}",
         f"--reference-doc={REF}",
-        "-o", str(DOCX),
-    ]
-    subprocess.run(cmd, check=True)
-    print("[1] pandoc compile: ok")
+        "-o", str(docx_path),
+    ], check=True)
 
 
-def strip_block_text():
-    with zipfile.ZipFile(DOCX) as z:
+def strip_block_text(docx_path):
+    with zipfile.ZipFile(docx_path) as z:
         with z.open("word/document.xml") as f:
             content = f.read().decode("utf-8")
     paras = re.findall(r"<w:p\b.*?</w:p>", content, re.DOTALL)
@@ -49,16 +44,16 @@ def strip_block_text():
             new_content = new_content.replace(p, new_p, 1)
             n_fixed += 1
     if n_fixed:
-        tmp = DOCX.with_suffix(".tmp.docx")
-        with zipfile.ZipFile(DOCX, "r") as zin:
+        tmp = docx_path.with_suffix(".tmp.docx")
+        with zipfile.ZipFile(docx_path, "r") as zin:
             with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
                 for item in zin.namelist():
                     data = zin.read(item)
                     if item == "word/document.xml":
                         data = new_content.encode("utf-8")
                     zout.writestr(item, data)
-        shutil.move(str(tmp), str(DOCX))
-    print(f"[2] BlockText stripped: {n_fixed}")
+        shutil.move(str(tmp), str(docx_path))
+    return n_fixed
 
 
 def make_borders(top=False, bottom=False, top_sz=12, bottom_sz=8):
@@ -114,10 +109,10 @@ def restyle_table(table_xml):
     return new_table
 
 
-def restyle_tables():
-    tmp = DOCX.with_suffix(".tmp.docx")
+def restyle_tables(docx_path):
+    tmp = docx_path.with_suffix(".tmp.docx")
     n_tables = 0
-    with zipfile.ZipFile(DOCX, "r") as zin:
+    with zipfile.ZipFile(docx_path, "r") as zin:
         with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
             for item in zin.namelist():
                 data = zin.read(item)
@@ -130,12 +125,22 @@ def restyle_tables():
                     )
                     data = text.encode("utf-8")
                 zout.writestr(item, data)
-    shutil.move(str(tmp), str(DOCX))
-    print(f"[3] Tables restyled: {n_tables}")
+    shutil.move(str(tmp), str(docx_path))
+    return n_tables
+
+
+def compile_doc(md_path, docx_path):
+    pandoc_compile(md_path, docx_path)
+    n_bt = strip_block_text(docx_path)
+    n_t = restyle_tables(docx_path)
+    print(f"  {docx_path.name}: BlockText stripped {n_bt}, tables restyled {n_t}")
 
 
 if __name__ == "__main__":
-    pandoc_compile()
-    strip_block_text()
-    restyle_tables()
-    print(f"Output: {DOCX}")
+    print("Compiling manuscript...")
+    compile_doc(ROOT / "paper" / "manuscript.md", ROOT / "paper" / "manuscript.docx")
+    sup_md = ROOT / "paper" / "supplement.md"
+    if sup_md.exists():
+        print("Compiling supplement...")
+        compile_doc(sup_md, ROOT / "paper" / "supplement.docx")
+    print("Done.")
