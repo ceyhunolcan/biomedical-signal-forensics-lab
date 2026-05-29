@@ -513,8 +513,8 @@ def generate_report(synthetic_csv: str | None = None,
         "## Cohort trust score distribution",
         f"- Mean: **{trust_df['overall_trust_score'].mean():.2f}**",
         f"- Median: **{trust_df['overall_trust_score'].median():.2f}**",
-        f"- 10th–90th percentile: "
-        f"**{trust_df['overall_trust_score'].quantile(0.1):.1f} – "
+        f"- 10th-90th percentile: "
+        f"**{trust_df['overall_trust_score'].quantile(0.1):.1f} - "
         f"{trust_df['overall_trust_score'].quantile(0.9):.1f}**",
         "",
         "## Example trust report (median-trust participant)",

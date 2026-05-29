@@ -1,5 +1,5 @@
 """
-Figure 1 — conceptual Venn of three published PPG SQI methods
+Figure 1: conceptual Venn of three published PPG SQI methods
             on two public benchmarks (WESAD, PPG-DaLiA).
 
 Design follows Nature / npj Digital Medicine conventions:
@@ -96,7 +96,7 @@ for ax, ds in zip(axes, DATASETS):
             ha='center', va='top',
             fontsize=7.5, color=TEXT_MUTED)
 
-    # ---- Panel label (a / b) — top-left, set apart from dataset header ----
+    # ---- Panel label (a / b): top-left, set apart from dataset header ----
     ax.text(0.0, 9.95, ds['panel'],
             ha='left', va='top',
             fontsize=12, fontweight='bold', color=TEXT_DARK)

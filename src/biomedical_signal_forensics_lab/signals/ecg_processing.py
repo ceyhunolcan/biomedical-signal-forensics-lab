@@ -47,7 +47,7 @@ def signal_quality_index(signal: np.ndarray, fs: int) -> float:
     in_band = float(np.var(sig))
     total = float(np.var(signal)) + 1e-9
     band_ratio = np.clip(in_band / total, 0.0, 1.0)
-    # peak count plausibility (40–180 bpm over the window)
+    # peak count plausibility (40-180 bpm over the window)
     peaks = detect_r_peaks(signal, fs)
     seconds = max(len(signal) / fs, 1e-3)
     bpm = len(peaks) / seconds * 60.0

@@ -36,7 +36,7 @@ def test_fitbit_adapter_produces_canonical_columns():
     assert "resting_hr" in out.columns
     assert "hrv_rmssd" in out.columns
     assert rep.n_rows_out > 0
-    # sleep duration should be in hours now (≈ 6–8), not minutes
+    # sleep duration should be in hours now (≈ 6-8), not minutes
     assert out["sleep_duration"].between(0, 14).all()
     # sleep efficiency should be in [0, 1]
     assert out["sleep_efficiency"].between(0, 1).all()

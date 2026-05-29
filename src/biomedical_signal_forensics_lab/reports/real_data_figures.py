@@ -52,7 +52,7 @@ def fig_bland_altman_hr(window_df: pd.DataFrame, out: str) -> Path:
     ax.axhline(loa_high, color="black", linestyle="--", linewidth=1)
     ax.axhline(0, color="grey", linewidth=0.5, alpha=0.5)
     ax.set_xlabel("Mean HR from chest ECG and wrist PPG (bpm)")
-    ax.set_ylabel("HR$_{PPG}$ – HR$_{ECG}$ (bpm)")
+    ax.set_ylabel("HR$_{PPG}$ - HR$_{ECG}$ (bpm)")
     ax.set_title("Bland-Altman: wrist PPG vs chest ECG heart rate, real WESAD data")
     ax.legend(loc="upper right", fontsize=8, frameon=True)
     return savefig(fig, resolve(out))
@@ -112,7 +112,7 @@ def fig_per_state_panels(window_df: pd.DataFrame, out: str) -> Path:
     metrics = [
         ("inhouse_ppg_sqi", "In-house PPG SQI", axes[0, 0]),
         ("inhouse_ppg_motion", "PPG motion artifact score", axes[0, 1]),
-        ("hr_abs_diff", "|HR$_{PPG}$ – HR$_{ECG}$| (bpm)", axes[1, 0]),
+        ("hr_abs_diff", "|HR$_{PPG}$ - HR$_{ECG}$| (bpm)", axes[1, 0]),
         ("orphanidou_template_corr", "Orphanidou template correlation", axes[1, 1]),
     ]
     for col, ylabel, ax in metrics:
@@ -146,7 +146,7 @@ def fig_motion_vs_hr_error(window_df: pd.DataFrame, out: str) -> Path:
         ax.plot(xs, m * xs + b, color="black", linewidth=1.2,
                 label=f"linear fit, slope={m:.1f}")
     ax.set_xlabel("In-house PPG motion artifact score")
-    ax.set_ylabel("|HR$_{PPG}$ – HR$_{ECG}$| (bpm)")
+    ax.set_ylabel("|HR$_{PPG}$ - HR$_{ECG}$| (bpm)")
     ax.set_title("Motion predicts HR-modality disagreement, real WESAD")
     ax.legend(loc="upper right", fontsize=8, frameon=True)
     return savefig(fig, resolve(out))
