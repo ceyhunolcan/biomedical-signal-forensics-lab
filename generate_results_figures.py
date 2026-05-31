@@ -126,7 +126,7 @@ def fig_rejection_cascade(out: str) -> None:
     Two grouped horizontal bars partition the 6,585 windows by who decides:
       - In-house pipeline: passes 6,585, rejects 0.
       - Three-baseline consensus (Orphanidou and Sukor and Elgendi): passes
-        3,649 (passed by at least one baseline), consensus-rejects 2,936
+        3,650 (passed by at least one baseline), consensus-rejects 2,936
         (rejected by all three simultaneously).
     """
     fig, ax = plt.subplots(figsize=(10, 4.5), dpi=140)
@@ -139,17 +139,17 @@ def fig_rejection_cascade(out: str) -> None:
     # In-house: 6585 pass, 0 reject
     ax.barh(y[0], 6585, height=0.5, color=NAVY, alpha=0.88, label="Passed")
 
-    # Consensus: 3649 passed by at least one, 2936 rejected by all
-    ax.barh(y[1], 3649, height=0.5, color=NAVY, alpha=0.55)
-    ax.barh(y[1], 2936, left=3649, height=0.5, color=RED, alpha=0.88,
+    # Consensus: 3650 passed by at least one, 2935 rejected by all
+    ax.barh(y[1], 3650, height=0.5, color=NAVY, alpha=0.55)
+    ax.barh(y[1], 2935, left=3650, height=0.5, color=RED, alpha=0.88,
             label="Consensus-rejected (rejected by all three baselines)")
 
     # Annotations
     ax.text(6585 / 2, y[0], "6,585 passed (100.0%)",
             ha="center", va="center", fontsize=11, color="white", fontweight="bold")
-    ax.text(3649 / 2, y[1], "3,649 passed by at least one (55.4%)",
+    ax.text(3650 / 2, y[1], "3,650 passed by at least one (55.4%)",
             ha="center", va="center", fontsize=10, color="white", fontweight="bold")
-    ax.text(3649 + 2936 / 2, y[1], "2,936 consensus-rejected (44.6%)",
+    ax.text(3650 + 2935 / 2, y[1], "2,936 consensus-rejected (44.6%)",
             ha="center", va="center", fontsize=10, color="white", fontweight="bold")
 
     ax.set_yticks(y)
