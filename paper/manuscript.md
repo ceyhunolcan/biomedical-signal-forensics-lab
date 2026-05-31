@@ -108,9 +108,9 @@ Demographic bias in clinical algorithms and health-related measurement is well d
 
 We compare the in-house SQI against three published wrist-PPG signal-quality methods. Selection criteria for the published baselines were: (a) independent development with no shared methodological framework, so that joint behavior across the methods is informative rather than expected by construction; (b) targeting of distinct physical properties of the pulse waveform (template shape, pulse-to-pulse interval consistency, amplitude-distribution statistics); (c) availability of explicit thresholds in the original publication or a reference implementation that can be replicated unambiguously; and (d) citation history in the wearable-PPG signal-quality literature. The three methods meeting these criteria are:
 
-- **Orphanidou et al. (2015) [@orphanidou2015]:** four-rule template-matching SQI based on per-subject pulse-shape correlation. We replicate the published thresholds.
-- **Sukor et al. (2011) [@sukor2011]:** decision-tree SQI on pulse-morphology features (systolic-to-diastolic amplitude ratio, pulse-to-pulse interval consistency, pulse amplitude variability, baseline wander). We replicate the published rules.
-- **Elgendi (2016) [@elgendi2016]:** amplitude-distribution statistics SQI computing third-order skewness (SSQI), kurtosis (KSQI), and Shannon entropy (ESQI) of the windowed signal. We replicate the published thresholds with automatic polarity detection for inverted-polarity wrist PPG.
+- **Orphanidou et al. (2015):** four-rule template-matching SQI based on per-subject pulse-shape correlation. We replicate the published thresholds.
+- **Sukor et al. (2011):** decision-tree SQI on pulse-morphology features (systolic-to-diastolic amplitude ratio, pulse-to-pulse interval consistency, pulse amplitude variability, baseline wander). We replicate the published rules.
+- **Elgendi (2016):** amplitude-distribution statistics SQI computing third-order skewness (SSQI), kurtosis (KSQI), and Shannon entropy (ESQI) of the windowed signal. We replicate the published thresholds with automatic polarity detection for inverted-polarity wrist PPG.
 
 Recent wearable-PPG SQI methods reviewed in [@charlton2021ppgproc] either target overlapping physical properties or are device-specific in ways that prevent transfer to WESAD and PPG-DaLiA without additional calibration; the three methods selected here span the three theoretically distinct physical properties of pulse waveforms most commonly tested in published wrist-PPG audits and have reference implementations that allow exact replication.
 
@@ -438,7 +438,8 @@ The authors declare no competing interests.
 
 ## References
 
-See `paper/paper.bib` for full citations (Orphanidou et al. 2015, Sukor et al. 2011, Clifford et al. 2012, Robins et al. 1994, Shrout & Fleiss 1979, Bland & Altman 1986, Schmidt et al. 2018, Föll et al. 2021, Efron & Tibshirani 1993, Malik 1996).
+::: {#refs}
+:::
 
 ## Supplementary materials
 
