@@ -132,9 +132,9 @@ The LOSO recalibration therefore confirms and sharpens the negative result repor
 
 ## S9. Consensus rejection: alternative view of the headline finding
 
-The main-text Figure 1 (conceptual Venn) shows the cross-method signal-quality disagreement on WESAD and PPG-DaLiA as overlapping disks of acceptance with a dark region for consensus rejection. Supplementary Figure S4 provides a complementary stacked-bar view of the same finding on WESAD: of 6,585 5-second windows, the in-house pipeline accepts every one (100.0%), but applying the three independently developed published methods simultaneously rejects 2,936 (44.6%) of the same windows. The two visualizations summarize the same numbers from different angles; we include both because reviewers and readers may find one or the other more communicative.
+The main-text Figure 1 (UpSet plot) shows the full cross-method acceptance structure on WESAD and PPG-DaLiA, with rejection by all three methods as the largest single category on both. Supplementary Figure S4 provides a complementary stacked-bar view of the same finding on WESAD: of 6,585 5-second windows, the in-house pipeline accepts every one (100.0%), but applying the three independently developed published methods simultaneously rejects 2,935 (44.6%) of the same windows. The two visualizations summarize the same numbers from different angles; we include both because reviewers and readers may find one or the other more communicative.
 
-![Supplementary Figure S4. Verdict gap between the in-house threshold-based PPG SQI and the three-baseline consensus on WESAD (n = 15 subjects, 6,585 5-second windows). The in-house pipeline passes every window. Applying Orphanidou 2015, Sukor 2011, and Elgendi 2016 simultaneously, 2,936 of the same 6,585 windows (44.6%) are rejected by all three published methods.](paper/figures/fig4_rejection_cascade.png)
+![Supplementary Figure S4. Verdict gap between the in-house threshold-based PPG SQI and the three-baseline consensus on WESAD (n = 15 subjects, 6,585 5-second windows). The in-house pipeline passes every window. Applying Orphanidou 2015, Sukor 2011, and Elgendi 2016 simultaneously, 2,935 of the same 6,585 windows (44.6%) are rejected by all three published methods.](paper/figures/fig4_rejection_cascade.png)
 
 ## S10. Methodological validation on synthetic data
 
