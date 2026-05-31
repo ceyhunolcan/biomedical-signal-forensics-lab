@@ -1,7 +1,7 @@
-# Wearable Photoplethysmography Signal-Quality Methods Disagree at Scale: A Multi-Baseline Audit of the WESAD Dataset
+# A Single Signal-Quality Threshold Is Insufficient for Wearable Photoplethysmography: A Multi-Baseline Audit on WESAD and PPG-DaLiA
 
-> 
-**Authors.** Ceyhun Olcan¹
+
+**Authors.** Ceyhun Olcan¹, Mehmet Ozberk Olcan², Seckin Olcan²
 
 **Corresponding author.** Ceyhun Olcan, ceyhun.olcan.27@dartmouth.edu.
 
@@ -9,7 +9,9 @@
 
 ¹ Center for Technology and Behavioral Health, Geisel School of Medicine at Dartmouth, Lebanon, NH 03766, USA.
 
-**ORCID.** Ceyhun Olcan: [0000-0002-6326-6071](https://orcid.org/0000-0002-6326-6071).
+² Faculty of Medicine, Cukurova University, Adana, Turkey.
+
+**ORCID.** Ceyhun Olcan: [0000-0002-6326-6071](https://orcid.org/0000-0002-6326-6071); Mehmet Ozberk Olcan: [0009-0003-5233-4475](https://orcid.org/0009-0003-5233-4475); Seckin Olcan: [0009-0007-4033-7491](https://orcid.org/0009-0007-4033-7491).
 
 ## Abstract
 
@@ -406,7 +408,7 @@ The closest existing toolkit is FLIRT [@foll2021], which focuses on feature engi
 
 **No frequency-domain HRV.** We report time-domain HRV (RMSSD, SDNN) but not LF/HF. The synthetic windows are too short to support meaningful frequency-domain HRV. Adding frequency-domain HRV is a one-day change.
 
-**Single-author methodology study.** This is a single-author methodology paper with no clinical or biomedical-engineering co-authors. The recommendations in Section 6 are aimed at the wearable-AI research community (multi-baseline SQI auditing as standard supplementary material in wearable-AI publications) and do not constitute clinical guidance. Translation of any cross-method-audit recommendation into patient-facing clinical practice should include co-authorship by clinical specialists with relevant device experience; the synthetic-cohort validation in Section 4 and the WESAD/PPG-DaLiA empirical study in Section 3 are methodological contributions rather than clinical findings.
+**Methodology study, not clinical validation.** This is a methodology paper rather than a clinical validation study. The recommendations in Section 6 are aimed at the wearable-AI research community (multi-baseline SQI auditing as standard supplementary material in wearable-AI publications) and do not constitute clinical guidance. Translation of any cross-method-audit recommendation into patient-facing clinical practice would require prospective clinical validation with relevant device experience; the synthetic-cohort validation in Section 4 and the WESAD/PPG-DaLiA empirical study in Section 3 are methodological contributions rather than clinical findings.
 
 ## 6. Conclusions
 
@@ -420,7 +422,7 @@ Code: https://github.com/ceyhunolcan/biomedical-signal-forensics-lab, released u
 
 ## Author contributions
 
-Ceyhun Olcan: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Validation, Visualization, Writing - original draft, Writing - review and editing.
+Ceyhun Olcan: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Validation, Visualization, Writing - original draft, Writing - review and editing. Mehmet Ozberk Olcan: Writing - original draft, Writing - review and editing. Seckin Olcan: Writing - original draft, Writing - review and editing.
 
 ## Funding
 
@@ -432,7 +434,7 @@ This study is a secondary analysis of two publicly available datasets, WESAD [@s
 
 ## Competing interests
 
-The author declares no competing interests.
+The authors declare no competing interests.
 
 ## References
 
