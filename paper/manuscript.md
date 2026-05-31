@@ -75,7 +75,7 @@ Five detectors operate on each 5-second window: motion, sensor dropout, noise sp
 We report four reliability statistics per cohort:
 
 - **Bootstrap test-retest reliability.** For each metric, form non-overlapping calendar-week means within each participant, pool the (week_t, week_{t+1}) pairs across the cohort, compute Pearson correlation. Cluster bootstrap CIs come from 300 participant-level resamples.
-- **Intraclass correlation coefficient.** ICC(2,1) two-way random, single-rater, absolute-agreement form [@shrout1979], applied with daily index as the "rater" axis to partition variance between within-subject day-to-day noise and between-subject systematic differences. This is not the canonical between-rater-on-same-subject application of ICC; it is a repeated-measures variant in which each day's measurement is treated as a noisy realization of an underlying subject-level trait. We report ICC alongside the proper bootstrap week-pair test-retest (Section 4.3, Supplementary Table S1), not in its place; the two metrics agree on which biomarkers have the highest and lowest reliability, and ICC is uniformly more conservative because it treats within-week day-to-day noise as rater disagreement.
+- **Intraclass correlation coefficient.** ICC(2,1) two-way random, single-rater, absolute-agreement form [@shrout1979], applied with daily index as the "rater" axis to partition variance between within-subject day-to-day noise and between-subject systematic differences. This is not the canonical between-rater-on-same-subject application of ICC; it is a repeated-measures variant in which each day's measurement is treated as a noisy realization of an underlying subject-level trait. We report ICC alongside the proper bootstrap week-pair test-retest (supplement Section S10.3, Table S1), not in its place; the two metrics agree on which biomarkers have the highest and lowest reliability, and ICC is uniformly more conservative because it treats within-week day-to-day noise as rater disagreement.
 - **Temporal stability.** Rolling coefficient of variation over a configurable window plus a drift slope from linear regression with NaN-stripping.
 - **Device bias.** Per-column mean offset between each non-reference device and device A, normalized by the cohort standard deviation of the column.
 
@@ -124,7 +124,7 @@ The empirical study is the multi-baseline SQI audit on the WESAD dataset [@schmi
 
 **Primary pre-specified test.** The primary hypothesis for the empirical study is that audit-based filtering improves per-subject wrist-PPG-to-chest-ECG HR agreement on WESAD. The pre-specified test is a one-sided paired Wilcoxon signed-rank on per-subject Spearman correlation between PPG-derived and ECG-derived HR (Orphanidou-passing windows versus no-audit; Table 9). With a single planned comparison no multiplicity correction is required, and the reported uncorrected p = 1.5e-04 is the primary result.
 
-**Secondary and exploratory analyses.** All other inferential statistics in the manuscript are secondary or exploratory: the three audit-condition Wilcoxon contrasts in Tables 8 and 9 (one of which is structurally degenerate because the in-house threshold passes 100% of windows by construction; the other two are jointly identical), per-subject state-contrast effect sizes (Tables S3, S4), and the AIPW point estimates (Table 13). These are reported uncorrected for descriptive interpretation. Benjamini-Hochberg correction across the three audit-condition comparisons in Table 9 gives q = 2.25e-04 for the primary Orphanidou contrast (versus the uncorrected p = 1.5e-04) and the substantive conclusion is unchanged; in Table 8 the suggestive Orphanidou contrast at uncorrected p = 0.052 gives q = 0.078 after Benjamini-Hochberg correction across three comparisons, still non-significant at the conventional 0.05 cutoff and consistent with our interpretation as a suggestive trend rather than a confirmed effect.
+**Secondary and exploratory analyses.** All other inferential statistics in the manuscript are secondary or exploratory: the three audit-condition Wilcoxon contrasts in Tables 8 and 9 (one of which is structurally degenerate because the in-house threshold passes 100% of windows by construction; the other two are jointly identical), per-subject state-contrast effect sizes (Tables S3, S4), and the AIPW point estimates (Table S8). These are reported uncorrected for descriptive interpretation. Benjamini-Hochberg correction across the three audit-condition comparisons in Table 9 gives q = 2.25e-04 for the primary Orphanidou contrast (versus the uncorrected p = 1.5e-04) and the substantive conclusion is unchanged; in Table 8 the suggestive Orphanidou contrast at uncorrected p = 0.052 gives q = 0.078 after Benjamini-Hochberg correction across three comparisons, still non-significant at the conventional 0.05 cutoff and consistent with our interpretation as a suggestive trend rather than a confirmed effect.
 
 **External replication.** The PPG-DaLiA replication (Section 3.7) tests the same headline metric (in-house pass AND all three published methods fail) on a second public benchmark and is a pre-specified replication of the WESAD finding rather than a new hypothesis.
 
@@ -311,64 +311,7 @@ The PPG-DaLiA per-subject absolute HR difference (wrist PPG vs chest ECG) range 
 
 ## 4. Methodological validation on synthetic data
 
-### 4.1 Cohort-level Digital Biomarker Trust Score
-
-Mean overall DBTS across all 300 participants: **74.11** (moderate category). Category distribution: 31 high (≥ 80), 266 moderate (≥ 60), 3 low (≥ 40), 0 unreliable. The distribution is in Figure 6A.
-
-![Figure 6. Cohort-level Digital Biomarker Trust Score on the synthetic cohort (n = 300 participants, 60 days each). Mean overall DBTS = 74.11 (moderate category); 31 participants in the high category, 266 moderate, 3 low.](paper/figures/fig2_synthetic_headline.png)
-
-### 4.2 Bootstrap test-retest reliability (week-pair design)
-
-| Metric | r | 95% CI | n participants | n pairs |
-|---|---|---|---|---|
-| resting_hr | **+0.977** | [+0.973, +0.980] | 300 | 2400 |
-| hrv_rmssd | **+0.954** | [+0.945, +0.961] | 300 | 2400 |
-| sleep_efficiency | +0.023 | [-0.018, +0.062] | 300 | 2400 |
-| sleep_duration | +0.002 | [-0.041, +0.038] | 300 | 2400 |
-
-: Table 11. Bootstrap test-retest reliability on the synthetic cohort (n = 300 participants, 2,400 week-pairs).
-
-Resting HR and HRV are highly reliable week-to-week. Sleep efficiency and duration are essentially noise from one week to the next on this generator. This is the kind of metric-level result that should appear in a clinical wearable paper instead of a single aggregate "wearable reliability" number.
-
-### 4.3 ICC(2,1) as within-participant noise-floor diagnostic
-
-We also report an ICC(2,1) days-as-raters analysis as an internal noise-floor check (full numbers in supplement Table S1). The ICC and bootstrap week-pair r agree on metric ranking, with ICC uniformly more conservative because it treats within-week noise as rater disagreement. The bootstrap week-pair r is the recommended headline statistic for clinical claims; the ICC is included as a diagnostic.
-
-### 4.4 Fairness disparities recovered
-
-| Stratifier | Component | Q1 / lowest | Q4 / highest | Gap |
-|---|---|---|---|---|
-| device_type | signal_quality_score | device_A: 67.40 | device_C: 54.38 | **-13.02** |
-| skin_tone_q | signal_quality_score | Q1 (light): 67.93 | Q4 (dark): 58.40 | **-9.53** |
-
-: Table 12. Fairness disparities recovered on the synthetic cohort, signal_quality_score component.
-
-The injected effects were 0.85 vs 1.00 SQI multiplier for device C vs A (recovers as a 13.02-point gap) and 0.12 × proxy for skin tone (recovers as a 9.53-point gap). Both gaps have bootstrap 95% CIs (Section 2.7).
-
-### 4.5 Causal-adjusted confounding
-
-| Treatment | Outcome | Screening r | AIPW estimate | 95% CI |
-|---|---|---|---|---|
-| heat_index | hrv_rmssd | -0.054 | +0.249 | [-0.604, +1.030] |
-| heat_index | sleep_efficiency | -0.090 | +0.005 | [+0.000, +0.008] |
-| aqi | sleep_efficiency | -0.020 | -0.002 | [-0.003, +0.000] |
-| active_minutes | hrv_rmssd | -0.019 | **-0.497** | **[-0.797, -0.137]** |
-
-: Table 13. Screening Pearson correlation vs AIPW adjusted estimate, synthetic cohort.
-
-The pattern wearable papers should worry about: screening correlations that mislead about causal direction or magnitude under adjustment. Active minutes → HRV illustrates this cleanly. The screening Pearson r is -0.019 (negligible), but AIPW adjustment under the wearable DAG reveals a significant negative effect (-0.497, CI excludes zero), with clean positivity (Kish effective sample size 98.5%) and an E-value of 2.52 indicating modest robustness to unmeasured confounding (supplement section S2). The audit reports screening and AIPW estimates side by side so that confounded screening results are visible to the reader.
-
-The heat_index → HRV and heat_index → sleep_efficiency rows in Table 13 illustrate the diagnostic in the opposite direction. The framework's positivity check flags a violation for both heat_index treatments (Kish effective sample size 63%), meaning the propensity-score model produced effective sample sizes too small to support reliable adjusted estimation. The AIPW point estimates for the heat_index treatments are consequently reported with a positivity-violation warning attached to the analysis output and are not interpreted as substantive causal claims. The rows are included in Table 13 to demonstrate that the framework refuses to commit to a causal interpretation when the propensity-score assumption is empirically inadequate, rather than reporting a point estimate with the same authority as the active_minutes case. Positivity and E-value sensitivity output for both treatments is in supplement section S2.
-
-### 4.6 Learned trust-score weights
-
-A 6-component weight-simplex search (Dirichlet sampling plus local grid refinement, 360 candidates) returned holdout Spearman ρ = +0.668 (n_holdout = 90) against a week-over-week HRV RMSSD reproducibility target, compared with +0.592 in training (n_train = 210). The learned weights emphasize signal_quality over confounding_risk but remain within the convex hull of plausible weightings; the default weights are within 0.08 Spearman of the optimum, supporting the policy of shipping the defaults and exposing the weights as user-configurable. Full training-vs-holdout breakdown in supplement section S6.
-
-### 4.7 Cross-cohort generalization
-
-Across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world) and eight qualitative predictions, seven of eight predictions pass (Figure 7, panel C). The one failure is consistent with random variation: in the clean-world regime, small-sample random imbalance produces a non-zero empirical device-B offset despite zero injected bias. The audit responds to cohort parameters in the predicted direction, including the sign-flip on the skin-tone gap when the injected penalty is inverted (Figure 7, panel B). Full per-regime table in supplement Table S2.
-
-![Figure 7. Cross-cohort parameter-sweep validation across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world). Seven of eight qualitative predictions pass. The sign-flip on the skin-tone gap under the inverted-penalty regime confirms that the audit responds to cohort parameters rather than to fixed generator values.](paper/figures/fig3_cross_cohort.png)
+The pipeline components that WESAD and PPG-DaLiA cannot exercise, the reliability primitives, the Digital Biomarker Trust Score, the AIPW-adjusted confounding analysis, and the stratified fairness audit, are validated on a 300-participant 60-day synthetic cohort with documented injected failure modes (cohort and generator described in Section 2.2). These analyses recover the injected effects (for example device-family and skin-tone signal-quality gaps, and an AIPW-adjusted active-minutes effect on HRV that a screening correlation misses) and characterise the components for follow-up studies on longitudinal datasets. They do not bear on the empirical findings in Section 3. The full results, tables, and figures are in supplement Section S10.
 
 ## 5. Discussion
 
@@ -400,13 +343,13 @@ The closest existing toolkit is FLIRT [@foll2021], which focuses on feature engi
 
 **No hand-labeled signal-quality ground truth.** On WESAD and PPG-DaLiA the three published methods converge on a consensus-reject set while still differing on individual windows (raw agreement 56 to 78%); without hand-labeled signal-quality ground truth on these datasets, we cannot identify which method (if any) is correct on any specific disagreed-on window. The HR-agreement evidence in Section 3.6 is an indirect proxy: Orphanidou-passing windows produce higher per-subject wrist-PPG-to-chest-ECG HR correlation than no-audit windows (paired Wilcoxon p < 0.001), which is consistent with the published methods successfully filtering bad windows but does not by itself identify any one of them as a gold standard. Hand-labeling a representative window sample on both datasets (e.g., 200 stratified windows: consensus-pass, consensus-reject, and gray-area) and computing each method's Cohen's κ against the human-rater target is the natural follow-up to convert the agreement finding from "the methods reject different windows" to "method X has the highest agreement with human labels." The audit pipeline supports this comparison through the same κ machinery used here (Section 2.10).
 
-**Within-session HR reliability is much weaker than week-pair reliability** (supplement S2.5). The synthetic cohort gives test-retest r = +0.977 for resting HR on week-mean pairs (Section 4.2). On real WESAD baseline segments, the split-half Pearson r between first-half and second-half of per-window HR is +0.078 (S2) and +0.112 (S3), with within-subject CV of 6.7-9.1%. These two statistics measure different things (week-aggregated reliability vs 5-second-window within-session correlation) and the synthetic numbers should not be read as predicting the real-data per-window numbers. The framework's recommended HR reliability statistic for clinical claims is the bootstrap week-pair test-retest of a daily aggregate, which requires longitudinal data we cannot validate on WESAD.
+**Within-session HR reliability is much weaker than week-pair reliability** (supplement S2.5). The synthetic cohort gives test-retest r = +0.977 for resting HR on week-mean pairs (supplement Section S10.2). On real WESAD baseline segments, the split-half Pearson r between first-half and second-half of per-window HR is +0.078 (S2) and +0.112 (S3), with within-subject CV of 6.7-9.1%. These two statistics measure different things (week-aggregated reliability vs 5-second-window within-session correlation) and the synthetic numbers should not be read as predicting the real-data per-window numbers. The framework's recommended HR reliability statistic for clinical claims is the bootstrap week-pair test-retest of a daily aggregate, which requires longitudinal data we cannot validate on WESAD.
 
 **WESAD does not test longitudinal reliability.** WESAD has a single ~100-minute session per subject. Test-retest reliability, weekly drift, missingness dynamics, and longitudinal device-bias analyses cannot be validated on WESAD. They are validated on the synthetic cohort, where ground truth is controlled. Real-data validation of those analyses requires a longitudinal dataset such as the All of Us Research Program.
 
 **No clinical validation.** We have not validated any component of this framework against gold-standard clinical measurements. The framework's outputs are signal-quality estimates and methodological recommendations, not diagnoses.
 
-**ICC(2,1) is applied as a repeated-measures variant.** The day index is used as the "rater" axis, which is not the canonical between-rater-on-same-subject form of ICC. We report it alongside the proper bootstrap week-pair test-retest (Section 4.3, Supplementary Table S1), not in place of it; both metrics rank biomarkers consistently on the synthetic cohort, with ICC uniformly more conservative because it treats within-week day-to-day variance as rater disagreement. Practitioners reporting ICC days-as-raters in the wearable-reliability literature can use either metric for ordinal comparisons.
+**ICC(2,1) is applied as a repeated-measures variant.** The day index is used as the "rater" axis, which is not the canonical between-rater-on-same-subject form of ICC. We report it alongside the proper bootstrap week-pair test-retest (supplement Section S10.3, Table S1), not in place of it; both metrics rank biomarkers consistently on the synthetic cohort, with ICC uniformly more conservative because it treats within-week day-to-day variance as rater disagreement. Practitioners reporting ICC days-as-raters in the wearable-reliability literature can use either metric for ordinal comparisons.
 
 **Secondary and exploratory analyses are reported uncorrected for multiplicity.** The primary pre-specified test (Section 2.10) is a single comparison and requires no correction. The Table 8 LOSO AUROC contrasts, the per-subject effect-size tables in the supplement (Tables S3, S4), and the AIPW point estimates are reported uncorrected for descriptive interpretation; Benjamini-Hochberg correction across the three audit-condition comparisons in Tables 8 and 9 does not change any substantive conclusion (Section 2.10).
 

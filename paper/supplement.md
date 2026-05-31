@@ -135,3 +135,64 @@ The LOSO recalibration therefore confirms and sharpens the negative result repor
 The main-text Figure 1 (conceptual Venn) shows the cross-method signal-quality disagreement on WESAD and PPG-DaLiA as overlapping disks of acceptance with a dark region for consensus rejection. Supplementary Figure S4 provides a complementary stacked-bar view of the same finding on WESAD: of 6,585 5-second windows, the in-house pipeline accepts every one (100.0%), but applying the three independently developed published methods simultaneously rejects 2,936 (44.6%) of the same windows. The two visualizations summarize the same numbers from different angles; we include both because reviewers and readers may find one or the other more communicative.
 
 ![Supplementary Figure S4. Verdict gap between the in-house threshold-based PPG SQI and the three-baseline consensus on WESAD (n = 15 subjects, 6,585 5-second windows). The in-house pipeline passes every window. Applying Orphanidou 2015, Sukor 2011, and Elgendi 2016 simultaneously, 2,936 of the same 6,585 windows (44.6%) are rejected by all three published methods.](paper/figures/fig4_rejection_cascade.png)
+
+## S10. Methodological validation on synthetic data
+
+### S10.1 Cohort-level Digital Biomarker Trust Score
+
+Mean overall DBTS across all 300 participants: **74.11** (moderate category). Category distribution: 31 high (≥ 80), 266 moderate (≥ 60), 3 low (≥ 40), 0 unreliable. The distribution is in Supplementary Figure S5A.
+
+![Supplementary Figure S5. Cohort-level Digital Biomarker Trust Score on the synthetic cohort (n = 300 participants, 60 days each). Mean overall DBTS = 74.11 (moderate category); 31 participants in the high category, 266 moderate, 3 low.](paper/figures/fig2_synthetic_headline.png)
+
+### S10.2 Bootstrap test-retest reliability (week-pair design)
+
+| Metric | r | 95% CI | n participants | n pairs |
+|---|---|---|---|---|
+| resting_hr | **+0.977** | [+0.973, +0.980] | 300 | 2400 |
+| hrv_rmssd | **+0.954** | [+0.945, +0.961] | 300 | 2400 |
+| sleep_efficiency | +0.023 | [-0.018, +0.062] | 300 | 2400 |
+| sleep_duration | +0.002 | [-0.041, +0.038] | 300 | 2400 |
+
+: Table S6. Bootstrap test-retest reliability on the synthetic cohort (n = 300 participants, 2,400 week-pairs).
+
+Resting HR and HRV are highly reliable week-to-week. Sleep efficiency and duration are essentially noise from one week to the next on this generator. This is the kind of metric-level result that should appear in a clinical wearable paper instead of a single aggregate "wearable reliability" number.
+
+### S10.3 ICC(2,1) as within-participant noise-floor diagnostic
+
+We also report an ICC(2,1) days-as-raters analysis as an internal noise-floor check (full numbers in Table S1). The ICC and bootstrap week-pair r agree on metric ranking, with ICC uniformly more conservative because it treats within-week noise as rater disagreement. The bootstrap week-pair r is the recommended headline statistic for clinical claims; the ICC is included as a diagnostic.
+
+### S10.4 Fairness disparities recovered
+
+| Stratifier | Component | Q1 / lowest | Q4 / highest | Gap |
+|---|---|---|---|---|
+| device_type | signal_quality_score | device_A: 67.40 | device_C: 54.38 | **-13.02** |
+| skin_tone_q | signal_quality_score | Q1 (light): 67.93 | Q4 (dark): 58.40 | **-9.53** |
+
+: Table S7. Fairness disparities recovered on the synthetic cohort, signal_quality_score component.
+
+The injected effects were 0.85 vs 1.00 SQI multiplier for device C vs A (recovers as a 13.02-point gap) and 0.12 × proxy for skin tone (recovers as a 9.53-point gap). Both gaps have bootstrap 95% CIs (Section 2.7).
+
+### S10.5 Causal-adjusted confounding
+
+| Treatment | Outcome | Screening r | AIPW estimate | 95% CI |
+|---|---|---|---|---|
+| heat_index | hrv_rmssd | -0.054 | +0.249 | [-0.604, +1.030] |
+| heat_index | sleep_efficiency | -0.090 | +0.005 | [+0.000, +0.008] |
+| aqi | sleep_efficiency | -0.020 | -0.002 | [-0.003, +0.000] |
+| active_minutes | hrv_rmssd | -0.019 | **-0.497** | **[-0.797, -0.137]** |
+
+: Table S8. Screening Pearson correlation vs AIPW adjusted estimate, synthetic cohort.
+
+The pattern wearable papers should worry about: screening correlations that mislead about causal direction or magnitude under adjustment. Active minutes → HRV illustrates this cleanly. The screening Pearson r is -0.019 (negligible), but AIPW adjustment under the wearable DAG reveals a significant negative effect (-0.497, CI excludes zero), with clean positivity (Kish effective sample size 98.5%) and an E-value of 2.52 indicating modest robustness to unmeasured confounding (Section S2). The audit reports screening and AIPW estimates side by side so that confounded screening results are visible to the reader.
+
+The heat_index → HRV and heat_index → sleep_efficiency rows in Table S8 illustrate the diagnostic in the opposite direction. The framework's positivity check flags a violation for both heat_index treatments (Kish effective sample size 63%), meaning the propensity-score model produced effective sample sizes too small to support reliable adjusted estimation. The AIPW point estimates for the heat_index treatments are consequently reported with a positivity-violation warning attached to the analysis output and are not interpreted as substantive causal claims. The rows are included in Table S8 to demonstrate that the framework refuses to commit to a causal interpretation when the propensity-score assumption is empirically inadequate, rather than reporting a point estimate with the same authority as the active_minutes case. Positivity and E-value sensitivity output for both treatments is in Section S2.
+
+### S10.6 Learned trust-score weights
+
+A 6-component weight-simplex search (Dirichlet sampling plus local grid refinement, 360 candidates) returned holdout Spearman ρ = +0.668 (n_holdout = 90) against a week-over-week HRV RMSSD reproducibility target, compared with +0.592 in training (n_train = 210). The learned weights emphasize signal_quality over confounding_risk but remain within the convex hull of plausible weightings; the default weights are within 0.08 Spearman of the optimum, supporting the policy of shipping the defaults and exposing the weights as user-configurable. Full training-vs-holdout breakdown in Section S6.
+
+### S10.7 Cross-cohort generalization
+
+Across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world) and eight qualitative predictions, seven of eight predictions pass (Supplementary Figure S6, panel C). The one failure is consistent with random variation: in the clean-world regime, small-sample random imbalance produces a non-zero empirical device-B offset despite zero injected bias. The audit responds to cohort parameters in the predicted direction, including the sign-flip on the skin-tone gap when the injected penalty is inverted (Supplementary Figure S6, panel B). Full per-regime table in Table S2.
+
+![Supplementary Figure S6. Cross-cohort parameter-sweep validation across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world). Seven of eight qualitative predictions pass. The sign-flip on the skin-tone gap under the inverted-penalty regime confirms that the audit responds to cohort parameters rather than to fixed generator values.](paper/figures/fig3_cross_cohort.png)
