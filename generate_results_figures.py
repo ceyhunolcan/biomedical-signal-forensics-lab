@@ -52,7 +52,7 @@ def fig_pass_rate_bars(out: str) -> None:
 
     ax.set_ylim(0, 1.15)
     ax.set_ylabel("Window pass rate", fontsize=11)
-    ax.set_title("Per-baseline pass rate on WESAD\n(n = 15 subjects, 6,585 thirty-second windows)",
+    ax.set_title("Per-baseline pass rate on WESAD\n(n = 15 subjects, 6,585 5-second windows)",
                  fontsize=12, fontweight="bold", pad=14)
     ax.axhline(1.0, ls=":", color="#999", lw=0.8, zorder=0)
     ax.set_facecolor(BG)
@@ -126,7 +126,7 @@ def fig_rejection_cascade(out: str) -> None:
     Two grouped horizontal bars partition the 6,585 windows by who decides:
       - In-house pipeline: passes 6,585, rejects 0.
       - Three-baseline consensus (Orphanidou and Sukor and Elgendi): passes
-        3,650 (passed by at least one baseline), consensus-rejects 2,936
+        3,650 (passed by at least one baseline), consensus-rejects 2,935
         (rejected by all three simultaneously).
     """
     fig, ax = plt.subplots(figsize=(10, 4.5), dpi=140)
@@ -149,13 +149,13 @@ def fig_rejection_cascade(out: str) -> None:
             ha="center", va="center", fontsize=11, color="white", fontweight="bold")
     ax.text(3650 / 2, y[1], "3,650 passed by at least one (55.4%)",
             ha="center", va="center", fontsize=10, color="white", fontweight="bold")
-    ax.text(3650 + 2935 / 2, y[1], "2,936 consensus-rejected (44.6%)",
+    ax.text(3650 + 2935 / 2, y[1], "2,935 consensus-rejected (44.6%)",
             ha="center", va="center", fontsize=10, color="white", fontweight="bold")
 
     ax.set_yticks(y)
     ax.set_yticklabels(rows, fontsize=11)
     ax.set_xlim(0, 7000)
-    ax.set_xlabel("Number of thirty-second windows", fontsize=11)
+    ax.set_xlabel("Number of 5-second windows", fontsize=11)
     ax.set_title("Verdict gap between in-house thresholds and three published SQI baselines\n"
                  "(WESAD, n = 15 subjects, 6,585 windows)",
                  fontsize=12, fontweight="bold", pad=14)
@@ -163,7 +163,7 @@ def fig_rejection_cascade(out: str) -> None:
 
     ax.text(0.5, 0.015,
             "The in-house pipeline passes every window. Applying three independent published baselines,\n"
-            "2,936 of the same 6,585 windows are rejected by all three simultaneously (consensus rejection).",
+            "2,935 of the same 6,585 windows are rejected by all three simultaneously (consensus rejection).",
             transform=fig.transFigure, ha="center", fontsize=9,
             color=MUTED, style="italic")
 
