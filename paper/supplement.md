@@ -89,10 +89,7 @@ Search over the 6-component weight simplex:
 
 The learned weights emphasize signal_quality and reduce emphasis on confounding_risk but remain within the convex hull of plausible weightings. The default weights produce Spearman within 0.08 of the optimum on this cohort.
 
-## References
-
-
-## S7 Threshold sensitivity for the in-house SQI baseline
+## S7. Threshold sensitivity for the in-house SQI baseline
 
 The 44.6% / 43.1% headline metric (in-house pass AND all three published methods fail) is numerically dominated by the published-only consensus rejection rate, which is independent of any choice of in-house threshold. Varying the in-house threshold from 0.50 to 0.95 spans the full range of permissive thresholds plausibly used by wearable-PPG pipelines that retain most windows. The published-method internal disagreement (median pairwise Cohen's κ) is unaffected by any in-house decision and is shown in the rightmost column as a constant within each dataset.
 
@@ -196,3 +193,8 @@ A 6-component weight-simplex search (Dirichlet sampling plus local grid refineme
 Across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world) and eight qualitative predictions, seven of eight predictions pass (Supplementary Figure S6, panel C). The one failure is consistent with random variation: in the clean-world regime, small-sample random imbalance produces a non-zero empirical device-B offset despite zero injected bias. The audit responds to cohort parameters in the predicted direction, including the sign-flip on the skin-tone gap when the injected penalty is inverted (Supplementary Figure S6, panel B). Full per-regime table in Table S2.
 
 ![Supplementary Figure S6. Cross-cohort parameter-sweep validation across five synthetic regimes (default, strong environment, inverted skin-tone, severe device bias, clean world). Seven of eight qualitative predictions pass. The sign-flip on the skin-tone gap under the inverted-penalty regime confirms that the audit responds to cohort parameters rather than to fixed generator values.](paper/figures/fig3_cross_cohort.png)
+
+## References
+
+::: {#refs}
+:::
